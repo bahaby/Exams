@@ -217,16 +217,21 @@ input[type=password]:placeholder {
 }
 
 .fadeIn.second {
-  -webkit-animation-delay: 0.6s;
-  animation-delay: 0.6s;
+  -webkit-animation-delay: 0.55s;
+  animation-delay: 0.55s;
 }
 
 .fadeIn.third {
-  -webkit-animation-delay: 0.8s;
-  animation-delay: 0.8s;
+  -webkit-animation-delay: 0.7s;
+  animation-delay: 0.7s;
 }
 
 .fadeIn.fourth {
+  -webkit-animation-delay: 0.85s;
+  animation-delay: 0.85s;
+}
+
+.fadeIn.fifth {
   -webkit-animation-delay: 1s;
   animation-delay: 1s;
 }
