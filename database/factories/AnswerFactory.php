@@ -7,10 +7,9 @@ use Faker\Generator as Faker;
 
 $factory->define(Answer::class, function (Faker $faker) {
     return [
-        'user_id' => 1,
-        'exam_id' => 1,
+        'exam_id' => factory(\App\Exam::class),
         'question_id' => factory(\App\Question::class),
-        'choice_id' => 1
+        'answer' => 'A'
 
     ];
 });

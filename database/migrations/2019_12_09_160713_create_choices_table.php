@@ -14,9 +14,7 @@ class CreateChoicesTable extends Migration
     public function up()
     {
         Schema::create('choices', function (Blueprint $table) {
-
-
-            $table->bigIncrements('id');
+            $table->enum('choice', array('A', 'B', 'C', 'D'));
             $table->bigInteger('question_id');
             $table->text('text');
             $table->string('image');

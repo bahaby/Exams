@@ -7,9 +7,9 @@ use Faker\Generator as Faker;
 
 $factory->define(Question::class, function (Faker $faker) {
     return [
-        'lecture_id' => 1,
-        'lesson_id' => 1,
-        'answer' => 1,
+        'lesson_id' => factory(\App\Lesson::class),
+        'image' => Str::random(10),
+        'correct_answer' => 'A',
         'text' => $faker->paragraph
     ];
 });

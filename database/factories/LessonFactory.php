@@ -7,6 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Lesson::class, function (Faker $faker) {
     return [
-        'name' => $faker->unique()->name
+        'name' => $faker->unique()->name,
+        'lecture_id' => factory(\App\Lecture::class)
     ];
 });
