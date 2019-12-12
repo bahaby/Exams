@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
-    protected $guarded = [];
+    protected $fillable = ['correct_answer', 'lesson_id', 'text', 'image'];
     public function lesson(){
         return $this->belongsTo('\App\Lesson');
     }

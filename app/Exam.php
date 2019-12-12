@@ -12,4 +12,7 @@ class Exam extends Model
     public function questions(){
         return $this->belongsToMany('\App\Question');
     }
+    public function teacher(){
+        return $this->questions->first()->lesson->lecture->belongsTo('\App\User', 'user_id');
+    }
 }

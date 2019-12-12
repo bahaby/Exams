@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class QuestionController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('teacher')->only(['create']);
     }
     public function create(){
         return view('question.create');
@@ -30,12 +32,11 @@ class QuestionController extends Controller
         ]);
         $question = \App\Question::create([
             'text' => $request->text,
-            'answer' => $request->answer,
+            'correct_answer' => $request->answer,
             'image' => $request->image,
-            'lecture_id' => 1,
             'lesson_id' => 1
         ]);
-        
+
         foreach (array('A', 'B', 'C', 'D') as $choice) {
             \App\Choice::create([
                 'choice' => $choice,
@@ -44,6 +45,12 @@ class QuestionController extends Controller
                 'question_id' => $question->id
             ]);
         }
+
+
         redirect('/question');
+    }
+    public function index(){
+        $questions = \App\Question::all();
+        return view('question.index', compact('questions'));
     }
 }

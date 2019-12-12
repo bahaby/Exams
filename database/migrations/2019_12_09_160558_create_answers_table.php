@@ -16,7 +16,7 @@ class CreateAnswersTable extends Migration
         Schema::create('answers', function (Blueprint $table) {
             $table->bigInteger('exam_id');
             $table->bigInteger('question_id');
-            $table->enum('answer', array('A', 'B', 'C', 'D'));
+            $table->enum('answer', array('A', 'B', 'C', 'D'))->nullable();
             $table->timestamps();
 
             $table->foreign('exam_id')->references('id')

@@ -12,4 +12,7 @@ class Lecture extends Model
     public function lessons(){
         return $this->hasMany('\App\Lesson');
     }
+    public function teacher(){
+        return $this->belongsTo('\App\User', 'user_id');
+    }
 }

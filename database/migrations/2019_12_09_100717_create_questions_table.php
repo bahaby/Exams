@@ -17,7 +17,7 @@ class CreateQuestionsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('lesson_id');
             $table->enum('correct_answer', array('A', 'B', 'C', 'D'));
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->text('text');
             $table->timestamps();
 

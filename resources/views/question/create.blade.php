@@ -43,25 +43,25 @@
                 <p>Doğru Cevap</p>
                 <div class="form-check">
                     <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="answer" id="" value="1" checked>
+                    <input type="radio" class="form-check-input" name="answer" id="" value="A" checked>
                     A
                     </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="answer" id="" value="2">
+                    <input type="radio" class="form-check-input" name="answer" id="" value="B">
                     B
                     </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="answer" id="" value="3">
+                    <input type="radio" class="form-check-input" name="answer" id="" value="C">
                     C
                     </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="answer" id="" value="4">
+                    <input type="radio" class="form-check-input" name="answer" id="" value="D">
                     D
                     </label>
                 </div>

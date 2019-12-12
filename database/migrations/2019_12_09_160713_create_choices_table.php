@@ -17,7 +17,7 @@ class CreateChoicesTable extends Migration
             $table->enum('choice', array('A', 'B', 'C', 'D'));
             $table->bigInteger('question_id');
             $table->text('text');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->timestamps();
             
             $table->foreign('question_id')->references('id')
