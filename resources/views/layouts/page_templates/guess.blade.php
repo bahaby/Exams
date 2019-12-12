@@ -1,8 +1,5 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
-    @include('layouts.navbars.navs.guess')
-</nav>
 
-<main class="py-4">
+<main class="py-4 container">
     <div class="container">
         <div class="row">
 

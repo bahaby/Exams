@@ -1,11 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="col-10">
-    <div class="card">
-        <div class="card-header">Soru Ekle</div>
+<div class="container-fluid">
 
-        <div class="card-body">
+        <div>
             @if (session('status'))
                 <div class="alert alert-success" role="alert">
                     {{ session('status') }}
@@ -68,6 +66,5 @@
                 <button type="submit" class="btn btn-primary">Ekle</button>
             </form>
         </div>
-    </div>
 </div>
 @endsection

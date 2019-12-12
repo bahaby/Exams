@@ -40,6 +40,8 @@
 
                 <input type="submit" class="fadeIn fifth " value="Register">
         </form>
+        <hr>
+        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
 
     </div>
 </div>

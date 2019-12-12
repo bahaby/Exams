@@ -1,9 +1,50 @@
-<div class="col-2">
-    <div class="">
-        <div class="list-group bg-light">
-                <a href="/question/create" class="list-group-item list-group-item-action bg-success mb-2">Soru Ekle</a>
-                <a href="" class="list-group-item list-group-item-action bg-success mb-2">Sonuçları Göster</a>
-                <a href="" class="list-group-item list-group-item-action bg-success">çıkış</a>
-        </div>
+
+<!-- Sidebar - Brand -->
+<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <div class="sidebar-brand-icon rotate-n-15">
+        <i class="fas fa-microscope"></i>
     </div>
-</div>
+    <div class="sidebar-brand-text mx-3">E-Class <sup>2</sup></div>
+  </a>
+
+  <!-- Divider -->
+  <hr class="sidebar-divider my-0">
+
+  <!-- Nav Item - Dashboard -->
+  <li class="nav-item active">
+    <a class="nav-link" href="index.html">
+      <i class="fas fa-home"></i>
+      <span>Anasayfa</span></a>
+  </li>
+
+  <!-- Divider -->
+  <hr class="sidebar-divider">
+
+  <!-- Nav Item - Sınav Ol -->
+  <li class="nav-item">
+    <a class="nav-link" href="/question/create">
+      <i class="fas fa-square-root-alt"></i>
+      <span>Soru Ekle</span></a>
+  </li>
+
+  <!-- Nav Item - Charts -->
+  <li class="nav-item">
+    <a class="nav-link" href="charts.html">
+      <i class="fas fa-fw fa-chart-area"></i>
+      <span>Başarı Grafiği</span></a>
+  </li>
+
+  <!-- Nav Item - Tables -->
+  <li class="nav-item">
+    <a class="nav-link" href="tables.html">
+      <i class="fas fa-fw fa-table"></i>
+      <span>Geçmiş Sınavlar</span></a>
+  </li>
+
+  <!-- Divider -->
+  <hr class="sidebar-divider d-none d-md-block">
+
+  <!-- Sidebar Toggler (Sidebar) -->
+  <div class="text-center d-none d-md-inline">
+    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+  </div>

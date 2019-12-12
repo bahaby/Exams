@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="wrapper fadeInDown">
-      <div id="formContent">
+      <div id="formContent" class>
           <div class="fadeIn first">
           <img src="img/user.svg" class = "p-5" id="icon" alt="User Icon" />
           </div>
@@ -27,6 +27,8 @@
 
                 <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
+    <hr>
+    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
 
 
       </div>
