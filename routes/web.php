@@ -21,3 +21,5 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/question/create', 'QuestionController@create');
 Route::post('/question', 'QuestionController@store');
 Route::get('/question', 'QuestionController@index');
+Route::get('/exam', 'ExamController@index');
+Route::get('/lecture', 'LectureController@index');

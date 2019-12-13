@@ -19,6 +19,8 @@ class CreateAnswersTable extends Migration
             $table->enum('answer', array('A', 'B', 'C', 'D'))->nullable();
             $table->timestamps();
 
+            $table->unique(['question_id', 'exam_id']);
+            
             $table->foreign('exam_id')->references('id')
                 ->on('exams')->onDelete('cascade')->onUpdate('cascade');
 

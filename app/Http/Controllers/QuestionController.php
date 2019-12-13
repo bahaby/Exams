@@ -47,7 +47,7 @@ class QuestionController extends Controller
         }
 
 
-        redirect('/question');
+        return redirect('/question');
     }
     public function index(){
         $questions = \App\Question::all();

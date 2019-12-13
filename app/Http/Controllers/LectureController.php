@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Exam;
 use App\Lecture;
 use Illuminate\Http\Request;
 
-class ExamController extends Controller
+class LectureController extends Controller
 {
     public function __construct()
     {
@@ -16,27 +15,12 @@ class ExamController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index(Request  $request)
+    public function index()
     {
-        $lecture = \App\Lecture::findOrFail($request->lecture);
-        $exams = auth()->user()->exams;
-        if (!$request->lecture || !($exams->last()->lecture->exists() && $exams->last()->lecture !== $request->lecture)){
-            return redirect('/');
-        }
-        if ($exams->where('lecture_id', $request->lecture)->where('created_at', '<', now()->subDays(1)->toDateTimeString())->first()=== null){
-            return redirect('/lecture')->withErrors("Bu dersten daha fazla sınava giremezsiniz");
-        }
-        /* $exam = \App\Exam::create([
-            'user_id' => auth()->user()->id,
-            'lecture_id' => $request->lecture,
-        ]); */
-        
-        
-
-
+        $lectures = Lecture::all();
+        return view('exam.index', compact('lectures'));
     }
 
     /**
@@ -63,10 +47,10 @@ class ExamController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Exam  $exam
+     * @param  \App\Lecture  $lecture
      * @return \Illuminate\Http\Response
      */
-    public function show(Exam $exam)
+    public function show(Lecture $lecture)
     {
         //
     }
@@ -74,10 +58,10 @@ class ExamController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Exam  $exam
+     * @param  \App\Lecture  $lecture
      * @return \Illuminate\Http\Response
      */
-    public function edit(Exam $exam)
+    public function edit(Lecture $lecture)
     {
         //
     }
@@ -86,10 +70,10 @@ class ExamController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Exam  $exam
+     * @param  \App\Lecture  $lecture
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Exam $exam)
+    public function update(Request $request, Lecture $lecture)
     {
         //
     }
@@ -97,10 +81,10 @@ class ExamController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Exam  $exam
+     * @param  \App\Lecture  $lecture
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Exam $exam)
+    public function destroy(Lecture $lecture)
     {
         //
     }

@@ -21,9 +21,11 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->tinyInteger('role')->default(0);
+            $table->integer('lecture_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
 
+            $table->foreign('lecture_id')->references('id')->on('lectures')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

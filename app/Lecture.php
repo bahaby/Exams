@@ -6,13 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lecture extends Model
 {
-    public function questions(){
-        return $this->hasMany('\App\Question');
-    }
     public function lessons(){
         return $this->hasMany('\App\Lesson');
     }
     public function teacher(){
-        return $this->belongsTo('\App\User', 'user_id');
+        return $this->belongsTo('\App\User', 'id');
     }
 }

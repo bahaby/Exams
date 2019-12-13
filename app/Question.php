@@ -8,12 +8,12 @@ class Question extends Model
 {
     protected $fillable = ['correct_answer', 'lesson_id', 'text', 'image'];
     public function lesson(){
-        return $this->belongsTo('\App\Lesson');
+        return $this->belongsTo(Lesson::class);
     }
     public function choices(){
-        return $this->hasMany('\App\Choice');
+        return $this->hasMany(Choice::class);
     }
     public function answer(){
-        return $this->hasOne('\App\Answer');
+        return $this->hasMany(Answer::class)->where('question_id', $this->id);
     }
 }

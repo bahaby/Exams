@@ -22,7 +22,7 @@
 
   <!-- Nav Item - Sınav Ol -->
   <li class="nav-item">
-    <a class="nav-link" href="#">
+    <a class="nav-link" href="/question">
       <i class="fas fa-square-root-alt"></i>
       <span>Sınava Gir</span></a>
   </li>

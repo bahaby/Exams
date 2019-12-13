@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Lesson extends Model
 {
     public function questions(){
-        return $this->hasMany('\App\Question');
+        return $this->hasMany(Question::class);
     }
     public function lecture(){
-        return $this->belongsTo('\App\Lecture');
+        return $this->belongsTo(Lecture::class);
     }
 }

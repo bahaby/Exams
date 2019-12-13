@@ -1,8 +1,10 @@
 
+    @forelse ($errors->all() as $error)
+    <div class="text-danger">{{ $error }}</div>
+    @empty
+    @endforelse
  <!-- Topbar Navbar -->
  <ul class="navbar-nav ml-auto">
-
-
     <!-- Nav Item - User Information -->
     <li class="nav-item dropdown no-arrow">
       <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
