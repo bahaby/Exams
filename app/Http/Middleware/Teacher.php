@@ -15,7 +15,7 @@ class Teacher
      */
     public function handle($request, Closure $next)
     {
-        if(auth()->user()->role == 'teacher'){
+        if(auth()->user()->role == 1){
             return $next($request);
         }
         return redirect('/')->with('error','You are not a teacher');
