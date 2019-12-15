@@ -1,6 +1,6 @@
 
     @forelse ($errors->all() as $error)
-    <div>{{ $error }}</div>
+    <div class="text-danger">{{ $error }}</div>
     @empty
     @endforelse
  <!-- Topbar Navbar -->

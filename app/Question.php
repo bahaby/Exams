@@ -13,7 +13,7 @@ class Question extends Model
     public function choices(){
         return $this->hasMany(Choice::class);
     }
-    public function answer(){
-        return $this->hasMany(Answer::class)->where('question_id', $this->id);
+    public function answers(){
+        return $this->hasMany(Answer::class);
     }
 }

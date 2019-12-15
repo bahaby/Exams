@@ -4,9 +4,7 @@
 <div class="col-10">
 
     <div class="list-group col-4">
-        @foreach ($lectures as $lecture)
-        <a href="/exam?lecture={{$lecture->id}}" class="list-group-item list-group-item-action list-group-item-dark">{{$lecture->name}}</a>
-        @endforeach
+      <a href="{{route('exam.create')}}">Sınava girmek için tıklayınız</a>
       </div>
 </div>
 @endsection

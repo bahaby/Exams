@@ -1,6 +1,6 @@
 
 <!-- Sidebar - Brand -->
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+<a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('home')}}">
     <div class="sidebar-brand-icon rotate-n-15">
         <i class="fas fa-microscope"></i>
     </div>
@@ -12,7 +12,7 @@
 
   <!-- Nav Item - Dashboard -->
   <li class="nav-item active">
-    <a class="nav-link" href="index.html">
+    <a class="nav-link" href="/">
       <i class="fas fa-home"></i>
       <span>Anasayfa</span></a>
   </li>
@@ -22,7 +22,7 @@
 
   <!-- Nav Item - Sınav Ol -->
   <li class="nav-item">
-    <a class="nav-link" href="/question">
+    <a class="nav-link" href="/lecture">
       <i class="fas fa-square-root-alt"></i>
       <span>Sınava Gir</span></a>
   </li>

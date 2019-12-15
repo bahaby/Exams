@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class Teacher
+class Role
 {
     /**
      * Handle an incoming request.
@@ -13,11 +13,11 @@ class Teacher
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $role)
     {
-        if(auth()->user()->role == 1){
+        if(auth()->user()->role == $role){
             return $next($request);
         }
-        return redirect('/')->with('error','You are not a teacher');
+        return redirect('/')->withErrors('You are not a '.(($role == 1)?'teacher':'student'));
     }
 }

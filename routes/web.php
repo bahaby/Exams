@@ -18,8 +18,11 @@ Route::get('/home', function () {
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/question/create', 'QuestionController@create');
+Route::get('/question/create', 'QuestionController@create')->name('question.create');
 Route::post('/question', 'QuestionController@store');
-Route::get('/question', 'QuestionController@index');
-Route::get('/exam', 'ExamController@index');
-Route::get('/lecture', 'LectureController@index');
+Route::get('/question', 'QuestionController@index')->name('question');
+Route::get('/exam', 'ExamController@index')->name('exam');
+Route::get('/exam/create', 'ExamController@create')->name('exam.create');
+Route::post('/exam', 'ExamController@store');
+Route::get('/lecture', 'LectureController@index')->name('lecture');
+

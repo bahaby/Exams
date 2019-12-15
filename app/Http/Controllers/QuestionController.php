@@ -9,8 +9,7 @@ class QuestionController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
-        $this->middleware('teacher')->only(['create']);
+        $this->middleware(['auth', 'role:1']);
     }
     public function create(){
         return view('question.create');

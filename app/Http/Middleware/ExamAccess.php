@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class Student
+class ExamAccess
 {
     /**
      * Handle an incoming request.
@@ -15,9 +15,9 @@ class Student
      */
     public function handle($request, Closure $next)
     {
-        if(auth()->user()->role == 0){
-            return $next($request);
+        if(auth()->user()->exams->last()->is_done == 1){
+            return redirect('/')->withErrors('Yetkisiz Giriş');
         }
-        return redirect('/')->with('error','You are not a student');
+        return $next($request);
     }
 }

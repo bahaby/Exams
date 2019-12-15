@@ -9,8 +9,7 @@ class LectureController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
-        $this->middleware('student');
+        $this->middleware(['auth', 'role:0']);
     }
     /**
      * Display a listing of the resource.
@@ -20,7 +19,7 @@ class LectureController extends Controller
     public function index()
     {
         $lectures = Lecture::all();
-        return view('exam.index', compact('lectures'));
+        return view('lecture.index', compact('lectures'));
     }
 
     /**
