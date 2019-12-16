@@ -5,7 +5,11 @@
 
     <div class="list-group col-4">
         @foreach ($lectures as $lecture)
-          <a href="/lecture/{{$lecture->id}}/exam" class="list-group-item list-group-item-action list-group-item-dark">{{$lecture->name}}</a>
+        <form action="{{route('exam')}}" method="post">
+          @csrf
+          <input type="hidden" name="lecture" value="{{$lecture->id}}">
+          <button class="list-group-item list-group-item-action list-group-item-dark">{{$lecture->name}}</button>
+        </form>
         @endforeach
       </div>
 </div>

@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Exam;
 use Illuminate\Http\Request;
-const TOTAL_QUESTIONS = 30;
+const TOTAL_QUESTIONS = 50;
 
 class ExamController extends Controller
 {
-    public function __construct(Request $request)
+    public function __construct()
     {
         $this->middleware(['auth', 'role:0']);
+        $this->middleware('exam')->only(['index', 'create']);
     }
     /**
      * Display a listing of the resource.
@@ -18,21 +19,37 @@ class ExamController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
+    {
+        return view('exam.index');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $exam = auth()->user()->exams->last();
+        $exam->is_done = 1;
+        $exam->save();
+        dd("ok");
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
         //trying to match lecture id in database
-        $lecture_id = $request->route('lecture_id');
-        $lecture = \App\Lecture::findOrFail($lecture_id);
+        $lecture = \App\Lecture::findOrFail($request->lecture);
         
         //gets logged user's exams
-        $exams = auth()->user()->exams->where('lecture_id', $lecture_id);
-        if ($exams->first() && $exams->last()->is_done == 0){
-            return view('exam.index', [
-                'exam_id' => $exams->last()->id,
-                'lecture_id' => $lecture_id,
-                'lecture_name' => $lecture->name,
-            ]);
-        }
+        $exams = auth()->user()->exams->where('lecture_id', $request->lecture);
         //checks
         if ($exams->first() && $exams->last()->created_at > now()->subDays(1)->toDateTimeString()){
             return redirect('/lecture')->withErrors("Bu dersten daha fazla sınava giremezsiniz");
@@ -41,7 +58,7 @@ class ExamController extends Controller
         //adds exams to database
         $examCreated = \App\Exam::create([
             'user_id' => auth()->user()->id,
-            'lecture_id' => $lecture_id,
+            'lecture_id' => $request->lecture,
         ]);
         //calculate answers
         $points = [];
@@ -88,31 +105,7 @@ class ExamController extends Controller
             $questions = $lecture->lessons->find($key)->questions->random($points[$key]);
             $examCreated->questions()->attach($questions);
         }
-        return view('exam.index', [
-            'exam_id' => $examCreated->id,
-            'lecture_id' => $lecture_id,
-            'lecture_name' => $lecture->name,
-        ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
+        return redirect(route('exam'));
     }
 
     /**

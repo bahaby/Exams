@@ -66,16 +66,5 @@
                 <button type="submit" class="btn btn-primary">Ekle</button>
             </form>
         </div>
-        <div class = "radio">
-            <label>
-               <input type = "radio" name = "optionsRadios" id = "optionsRadios1" value = "option1" checked> Suits
-            </label>
-         </div>
-         <div class = "radio">
-            <label>
-               <input type = "radio" name = "optionsRadios" id = "optionsRadios2" value = "option2">
-                  House of Cards
-            </label>
-         </div>
 </div>
 @endsection
