@@ -13,9 +13,10 @@ class ExamAccess
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $exam_id)
     {
-        if(auth()->user()->exams->last()->is_done == 1){
+        $exam = auth()->user()->exams->find($exam_id);
+        if (!$exam || $exam->is_done == 1){
             return redirect('/')->withErrors('Yetkisiz Giriş');
         }
         return $next($request);

@@ -18,11 +18,18 @@ Route::get('/home', function () {
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('/question', 'QuestionController@index')->name('question');
 Route::get('/question/create', 'QuestionController@create')->name('question.create');
 Route::post('/question', 'QuestionController@store');
-Route::get('/question', 'QuestionController@index')->name('question');
-Route::get('/exam', 'ExamController@index')->name('exam');
-Route::get('/exam/create', 'ExamController@create')->name('exam.create');
-Route::post('/exam', 'ExamController@store');
+
 Route::get('/lecture', 'LectureController@index')->name('lecture');
+Route::post('/lecture', 'LectureController@store');
+
+Route::get('/lecture/{lecture_id}/exam', 'ExamController@index')->name('exam');
+Route::get('/lecture/{lecture_id}/exam/create', 'ExamController@create')->name('exam.create');
+Route::post('lecture/{lecture_id}/exam', 'ExamController@store');
+
+Route::get('/lecture/{lecture_id}/exam/{exam_id}/answer', 'AnswerController@index')->name('answer');
+Route::post('/lecture/{lecture_id}/exam/{exam_id}/answer', 'AnswerController@store');
 
