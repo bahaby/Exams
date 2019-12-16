@@ -8,8 +8,8 @@
             @include('layouts.navbars.navs.student')
         </nav>
         @yield('content')
-        @include('layouts.footer')
     </div>
+    @include('layouts.footer')
 </div>
 
 
