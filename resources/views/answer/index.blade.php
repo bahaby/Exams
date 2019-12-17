@@ -6,20 +6,23 @@
         <div class="card-header">Sorular</div>
 
         <div class="card-body">
-            @foreach ($exam->questions as $question)
+        <form action="/lecture/{{$lecture_id}}/exam/{{$exam->id}}/answer" method="post">
+            @csrf
+            @foreach ($exam->answers as $answer)
                 <div class="p-2 border">
-                    {!!$question->text!!}
+                    {!!$answer->question->text!!}
                 </div>
                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                    @foreach ($question->choices as $choice)
+                    @foreach ($answer->question->choices as $choice)
                           <label class="btn btn-secondary active">
-                            <input type="radio" name="options" id="option1" autocomplete="off"> A
+                          <input type="radio" name="answers[{{$answer->id}}]" id="{{$choice->choice}}-{{$answer->id}}" autocomplete="off" value="{{$choice->choice}}"> {{$choice->choice}}
                           </label>
-                          <label for="option1" class="btn mr-5">cevap 1</label>
-                                
+                          <label for="{{$choice->choice}}-{{$answer->id}}" class="btn mr-5">{{$choice->text}}</label>    
                     @endforeach
                 </div>
             @endforeach
+            <button type="submit" class="btn btn-primary">Tamamla</button>
+        </form>
         </div>
     </div>
 </div>

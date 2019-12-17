@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exam;
+use App\Lecture;
 use Illuminate\Http\Request;
 const TOTAL_QUESTIONS = 30;
 
@@ -10,7 +11,9 @@ class ExamController extends Controller
 {
     public function __construct(Request $request)
     {
-        $this->middleware(['auth', 'role:0']);
+        $exam_id = $request->route('exam');
+        $this->middleware(['auth', 'role:0']);//0-student
+        $this->middleware('exam:0,'.$exam_id)->only(['show']);
     }
     /**
      * Display a listing of the resource.
@@ -18,30 +21,26 @@ class ExamController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
-    {
-        //trying to match lecture id in database
-        $lecture_id = $request->route('lecture_id');
-        $lecture = \App\Lecture::findOrFail($lecture_id);
-        
+    public function index(Request $request, Lecture $lecture)
+    {   
         //gets logged user's exams
-        $exams = auth()->user()->exams->where('lecture_id', $lecture_id);
+        $exams = auth()->user()->exams->where('lecture_id', $lecture->id);
         if ($exams->first() && $exams->last()->is_done == 0){
             return view('exam.index', [
                 'exam_id' => $exams->last()->id,
-                'lecture_id' => $lecture_id,
+                'lecture_id' => $lecture->id,
                 'lecture_name' => $lecture->name,
             ]);
         }
         //checks
-        if ($exams->first() && $exams->last()->created_at > now()->subDays(1)->toDateTimeString()){
+        if ($exams->first() && $exams->last()->created_at > now()->subDays(0)->toDateTimeString()){
             return redirect('/lecture')->withErrors("Bu dersten daha fazla sınava giremezsiniz");
         }
 
         //adds exams to database
         $examCreated = \App\Exam::create([
             'user_id' => auth()->user()->id,
-            'lecture_id' => $lecture_id,
+            'lecture_id' => $lecture->id,
         ]);
         //calculate answers
         $points = [];
@@ -90,7 +89,7 @@ class ExamController extends Controller
         }
         return view('exam.index', [
             'exam_id' => $examCreated->id,
-            'lecture_id' => $lecture_id,
+            'lecture_id' => $lecture->id,
             'lecture_name' => $lecture->name,
         ]);
     }
@@ -113,17 +112,19 @@ class ExamController extends Controller
      */
     public function store(Request $request)
     {
+
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Exam  $exam
+     * @param  \App\Lecture  $lecture
      * @return \Illuminate\Http\Response
      */
-    public function show(Exam $exam)
+    public function show(Lecture $lecture, Exam $exam)
     {
-        //
+        dd($exam);
     }
 
     /**

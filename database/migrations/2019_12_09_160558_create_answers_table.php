@@ -14,6 +14,7 @@ class CreateAnswersTable extends Migration
     public function up()
     {
         Schema::create('answers', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->bigInteger('exam_id');
             $table->bigInteger('question_id');
             $table->enum('answer', array('A', 'B', 'C', 'D'))->nullable();

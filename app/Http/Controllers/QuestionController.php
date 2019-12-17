@@ -9,7 +9,7 @@ class QuestionController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth', 'role:1']);
+        $this->middleware(['auth', 'role:1']);//1-teacher
     }
     public function create(){
         return view('question.create');
@@ -29,6 +29,7 @@ class QuestionController extends Controller
             'choiceDimage' => 'image',
             'answer' => 'required'
         ]);
+        dd($request->all());
         $question = \App\Question::create([
             'text' => $request->text,
             'correct_answer' => $request->answer,
