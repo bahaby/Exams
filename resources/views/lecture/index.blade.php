@@ -5,7 +5,7 @@
 
     <div class="list-group col-4">
         @foreach ($lectures as $lecture)
-          <a href="/lecture/{{$lecture->id}}/exam" class="list-group-item list-group-item-action list-group-item-dark">{{$lecture->name}}</a>
+          <a href="/lecture/{{$lecture->id}}/exam/create" class="list-group-item list-group-item-action list-group-item-dark">{{$lecture->name}}</a>
         @endforeach
       </div>
 </div>

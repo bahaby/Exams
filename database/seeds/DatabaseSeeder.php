@@ -65,12 +65,13 @@ class DatabaseSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now()
         ]);
-        /* DB::table('lessons')->insert([
+        DB::table('lessons')->insert([
             'name' => 'Vektörler',
             'lecture_id' => 2,
             'created_at' => now(),
             'updated_at' => now()
         ]);
+        /*
         DB::table('lessons')->insert([
             'name' => 'Momentum',
             'lecture_id' => 2,

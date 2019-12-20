@@ -5,12 +5,8 @@ namespace App\Http\Controllers;
 use App\Lecture;
 use Illuminate\Http\Request;
 
-class LectureController extends Controller
+class ResultController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'role:0']);
-    }
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +15,7 @@ class LectureController extends Controller
     public function index()
     {
         $lectures = Lecture::all();
-        return view('lecture.index', compact('lectures'));
+        return view('result.index', compact('lectures'));
     }
 
     /**
@@ -27,9 +23,9 @@ class LectureController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request, Lecture $lecture)
+    public function create()
     {
-        
+        //
     }
 
     /**
@@ -46,10 +42,10 @@ class LectureController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Lecture  $lecture
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Lecture $lecture)
+    public function show($id)
     {
         //
     }
@@ -57,10 +53,10 @@ class LectureController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Lecture  $lecture
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Lecture $lecture)
+    public function edit($id)
     {
         //
     }
@@ -69,10 +65,10 @@ class LectureController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Lecture  $lecture
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Lecture $lecture)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -80,10 +76,10 @@ class LectureController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Lecture  $lecture
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Lecture $lecture)
+    public function destroy($id)
     {
         //
     }
