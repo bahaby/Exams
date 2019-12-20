@@ -6,19 +6,37 @@
         <div class="card-header">Sorular</div>
 
         <div class="card-body">
-        <form action="/lecture/{{$lecture_id}}/exam/{{$exam->id}}/answer" method="post">
+        <form action="/lecture/{{$lecture_id}}/exam/{{$exam->id}}/answer" method="post" class="form">
             @csrf
             @foreach ($exam->answers as $answer)
                 <div class="p-2 border">
                     {!!$answer->question->text!!}
                 </div>
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                    @foreach ($answer->question->choices as $choice)
-                          <label class="btn btn-secondary active">
-                          <input type="radio" name="answers[{{$answer->id}}]" id="{{$choice->choice}}-{{$answer->id}}" autocomplete="off" value="{{$choice->choice}}"> {{$choice->choice}}
-                          </label>
-                          <label for="{{$choice->choice}}-{{$answer->id}}" class="btn mr-5">{{$choice->text}}</label>    
-                    @endforeach
+                <div class="row">
+                @foreach ($answer->question->choices as $choice)
+                    @if ($choice->choice == 'C')
+                        </div>
+                        <div class="row">
+                    @endif
+                    <div class="inputGroup col-6">
+                        <label class="row"  for="{{$choice->choice}}-{{$answer->id}}">
+                            @if ($choice->image != '1')
+                                <div class="col-4">
+                                    <label class="choicePic" for="{{$choice->choice}}-{{$answer->id}}">
+                                            <img src="/img/emre.jpg"/>    
+                                    </label> 
+                                </div>
+                                <div class="col-8">
+                            @else
+                                <div class="col-12">
+                            @endif
+                                <input id="{{$choice->choice}}-{{$answer->id}}" name="answers[{{$answer->id}}]" type="radio"/>
+                                <label class="choice" for="{{$choice->choice}}-{{$answer->id}}">{{$choice->choice}}-) {!!$choice->text!!}</label> 
+                            </div>
+                        </label>
+                    </div>  
+
+                @endforeach
                 </div>
             @endforeach
             <button type="submit" class="btn btn-primary">Tamamla</button>
