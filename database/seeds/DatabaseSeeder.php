@@ -274,7 +274,7 @@ class DatabaseSeeder extends Seeder
             'updated_at' => now()
         ]);
         DB::table('choices')->insert([
-            'choice' => 'C',
+            'choice' => 'A',
             'question_id' => 4,
             'text' => '5',
             'image' => '/img/test.svg',

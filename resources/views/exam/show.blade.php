@@ -13,9 +13,9 @@
           </div>
           <div class="card-body">
             <hr>
-            @foreach ($percentage as $key => $item)
-                <li class="list-group-item list-group-item-warning" style="color: black;">{{$lecture->lessons->find($key)->name}} - {{$item}}</li>                
-            @endforeach
+            <div>
+            {!! $chart->container() !!}
+          </div>
           </p>
           <hr>
             <a href="/" class="btn btn-primary">Ana Sayfa</a>
@@ -25,4 +25,5 @@
   </div>
 </div>
 </div>
+{!! $chart->script() !!}
 @endsection

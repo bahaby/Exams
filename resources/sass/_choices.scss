@@ -4,12 +4,9 @@
     margin: 10px 0;
     position: relative;
 
-    label.choicePic {
+    label.choicePic, label.choicePic img  {
         width: 100%;
         display: block;
-    }
-    label.choicePic img {
-        height: 150px;
     }
 
     label.choice {
@@ -90,7 +87,6 @@
 
 // codepen formatting
 .form {
-  padding: 0 16px;
   font-size: 18px;
   font-weight: 600;
   line-height: 36px;

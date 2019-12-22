@@ -13051,13 +13051,10 @@ body.sidebar-toggled footer.sticky-footer {
   position: relative;
 }
 
-.inputGroup label.choicePic {
+.inputGroup label.choicePic,
+.inputGroup label.choicePic img {
   width: 100%;
   display: block;
-}
-
-.inputGroup label.choicePic img {
-  height: 150px;
 }
 
 .inputGroup label.choice {
@@ -13143,7 +13140,6 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 .form {
-  padding: 0 16px;
   font-size: 18px;
   font-weight: 600;
   line-height: 36px;

@@ -1,5 +1,6 @@
 <?php
 
+use App\Charts\ExamChart;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,5 +38,8 @@ Route::post('/lecture/{lecture}/exam/{exam}/answer', 'AnswerController@store');
 Route::get('/result', 'ResultController@index')->name('result');
 
 Route::get('/test', function(){
-    return view('test');
+    $chart = new ExamChart;
+    $chart->labels(['2 days ago', 'Yesterday', 'Today']);
+    $chart->dataset('My dataset', 'line', [6, 11, 29]);
+    return view('test', compact('chart'));
 });

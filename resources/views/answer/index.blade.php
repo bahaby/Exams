@@ -23,14 +23,14 @@
                             @if ($choice->image != '1')
                                 <div class="col-4">
                                     <label class="choicePic" for="{{$choice->choice}}-{{$answer->id}}">
-                                            <img src="/img/emre.jpg"/>    
+                                            <img class="img-thumbnail" src="/img/emre.jpg"/>    
                                     </label> 
                                 </div>
                                 <div class="col-8">
                             @else
                                 <div class="col-12">
                             @endif
-                                <input id="{{$choice->choice}}-{{$answer->id}}" name="answers[{{$answer->id}}]" type="radio"/>
+                                <input id="{{$choice->choice}}-{{$answer->id}}" name="answers[{{$answer->id}}]" value="{{$choice->choice}}" type="radio"/>
                                 <label class="choice" for="{{$choice->choice}}-{{$answer->id}}">{{$choice->choice}}-) {!!$choice->text!!}</label> 
                             </div>
                         </label>

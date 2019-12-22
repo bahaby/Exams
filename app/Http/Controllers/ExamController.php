@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Exam;
 use App\Lecture;
 use Illuminate\Http\Request;
-const TOTAL_QUESTIONS = 30;
+use App\Charts\ExamChart;
+const TOTAL_QUESTIONS = 50;
 
 class ExamController extends Controller
 {
@@ -23,9 +24,35 @@ class ExamController extends Controller
      */
     public function index(Request $request, Lecture $lecture)
     {   
-        $exams = auth()->user()->exams->where('lecture_id', $lecture->id)->sortByDesc('id');
-        //eklenecek
-        return view('exam.index', compact('exams', 'lecture'));
+        $exams = auth()->user()->exams->where('lecture_id', $lecture->id)->sortByDesc('id')->take(10);
+
+        $grades = [];
+        $labels = [];
+        foreach ($exams as $exam){
+            $count = 0;
+            $point = 0;
+            //get the correct answers for each lesson
+            foreach ($exam->questions as $question){
+                //increase question number for each exam
+                $count++;
+                if ($question->answers->where('exam_id', $exam->id)->first()->answer === $question->correct_answer){
+                    //increase correct answers
+                    $point++;
+                }
+            }
+            if($count == 0) $count = 1;
+            array_push($grades, round(($point / $count) * 100));
+            array_push($labels, $exam->created_at->format('d-m-y'));
+        }
+
+        $chart = new ExamChart;
+        $chart->labels($labels)
+            ->dataset('Genel Not', 'bar', $grades)
+            ->color('red')
+            ->backgroundColor('red')
+            ->fill(true);
+
+        return view('exam.index', compact('exams', 'lecture', 'chart'));
     }
 
     /**
@@ -54,17 +81,18 @@ class ExamController extends Controller
             'user_id' => auth()->user()->id,
             'lecture_id' => $lecture->id,
         ]);
-        //calculate answers
+        //variable resets..
         $points = [];
-        $counts = [];
-        $temp = 0;
         $totalPoint = 0;
-        $questionCount = TOTAL_QUESTIONS;
+        $counts = [];
+        $lessonQuestionCount = [];
         foreach ($lecture->lessons as $lesson) {
             $points[$lesson->id]=0;
             $counts[$lesson->id]=0;
-            $questionCount--;
+            $lessonQuestionCount[$lesson->id]=0;
         }
+        $totalQuestion = TOTAL_QUESTIONS-count($points);//total question number that will be created with data
+        $questionCount = $totalQuestion;
         //get the correct answers for each lesson
         foreach ($exams as $exam) {
             foreach ($exam->questions as $question){
@@ -76,6 +104,7 @@ class ExamController extends Controller
                 }
             }
         }
+        //dd([$points, $counts]);
         //calculate points for each lesson
         foreach ($points as $key => $point) {
             //for divide 0 error
@@ -87,16 +116,29 @@ class ExamController extends Controller
         }
         //calculate question numbers for each lesson
         foreach ($points as $key => $point) {
-            //normalization by total question number
-            $points[$key] *= ($questionCount/$totalPoint); 
-            $points[$key] += $temp;//to deal with decimals
-            $temp = $points[$key] - floor($points[$key]); 
-            $points[$key] = floor($points[$key]);
-            if($key === array_key_last($points)) {
-                $points[$key] = round($points[$key]+$temp);
+            $points[$key] *= ($totalQuestion/$totalPoint); 
+            while($points[$key]>=1){
+                $points[$key]--;
+                $lessonQuestionCount[$key]++;
+                $questionCount--;
             }
-            $points[$key]++;//adds 1 question for each lesson
-            $questions = $lecture->lessons->find($key)->questions->random($points[$key]);
+        }
+        //dealing with decimals
+        while($questionCount>0){
+            $big = max($points);
+            foreach ($points as $key => $point) {
+                if($point == $big){
+                    $lessonQuestionCount[$key]++;
+                    $questionCount--;
+                    $points[$key]=0;
+                    break;
+                }
+            }
+        }
+        //inserting exam data
+        foreach ($lessonQuestionCount as $key => $value) {
+            $lessonQuestionCount[$key]++;//adding 1 for each lesson by default
+            $questions = $lecture->lessons->find($key)->questions->random($lessonQuestionCount[$key]);
             $examCreated->questions()->attach($questions);
         }
         return view('exam.create', [
@@ -131,8 +173,10 @@ class ExamController extends Controller
         }
         $points = [];
         $counts = [];
+        $labels = [];
         $percentage = [];
         foreach ($lecture->lessons as $lesson) {
+            array_push($labels, $lesson->name);
             $points[$lesson->id]=0;
             $counts[$lesson->id]=0;
         }
@@ -147,10 +191,22 @@ class ExamController extends Controller
         }
         //calculate points for each lesson
         foreach ($points as $key => $point) {
-            //reconfigure points array
-            $percentage[$key] = ($point * 100)/$counts[$key];
+            if($counts[$key] == 0) $counts[$key] = 1;
+            $percentage[$key] = round(($point * 100)/$counts[$key], 2);
         }
-        return view('exam.show', compact('lecture', 'percentage'));
+        $chart = new ExamChart;
+        $chart->labels($labels)
+            ->dataset('Doğru Cevap', 'bar', array_values($points))
+            ->color('red')
+            ->backgroundColor('red')
+            ->fill(true);
+        $chart->labels($labels)
+            ->dataset('Toplam Soru', 'bar', array_values($counts))
+            ->color('gray')
+            ->backgroundColor('gray')
+            ->fill(true);
+
+        return view('exam.show', compact('lecture', 'percentage', 'chart'));
     }
 
     /**
@@ -185,5 +241,5 @@ class ExamController extends Controller
     public function destroy(Exam $exam)
     {
         //
-    }
+    } 
 }
