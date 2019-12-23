@@ -1,12 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="col-10">
+<div class="col-lg-12">
 
-    <div class="list-group col-4">
+      <div class="row">
         @foreach ($lectures as $lecture)
-          <a href="/lecture/{{$lecture->id}}/exam/create" class="list-group-item list-group-item-action list-group-item-dark">{{$lecture->name}}</a>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-header"><b>Ders: </b>{{$lecture->name}}</div>
+            <div class="card-body">
+              <p class="card-text">{{$lecture->name}} sınavına girmek için başla tuşuna basınız.</p>
+              <a href="/lecture/{{$lecture->id}}/exam/create" class="btn btn-primary">Başla</a>
+            </div>
+          </div>
+        </div>
         @endforeach
-      </div>
+
+    </div>
+
 </div>
 @endsection

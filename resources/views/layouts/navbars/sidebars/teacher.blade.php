@@ -11,7 +11,7 @@
   <hr class="sidebar-divider my-0">
 
   <!-- Nav Item - Dashboard -->
-  <li class="nav-item active">
+  <li class="nav-item {{ Request::is('/') ? 'active' : '' }}">
     <a class="nav-link" href="/">
       <i class="fas fa-home"></i>
       <span>Anasayfa</span></a>
@@ -21,7 +21,7 @@
   <hr class="sidebar-divider">
 
   <!-- Nav Item - Sınav Ol -->
-  <li class="nav-item">
+  <li class="nav-item {{ Request::is('question/create') ? 'active' : '' }}">
     <a class="nav-link" href="/question/create">
       <i class="fas fa-square-root-alt"></i>
       <span>Soru Ekle</span></a>

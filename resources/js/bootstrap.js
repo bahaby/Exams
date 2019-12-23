@@ -10,8 +10,10 @@ window._ = require('lodash');
 try {
     window.Popper = require('popper.js').default;
     window.$ = window.jQuery = require('jquery');
+    require("jquery-simple-timer");
 
     require('bootstrap');
+    require('bs4-summernote');
 } catch (e) {}
 
 /**
@@ -44,3 +46,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.Vue = require('vue');
 
 window.Chart = require('chart.js');
+
+$(document).ready(function() {
+    $('#textArea').summernote();
+});

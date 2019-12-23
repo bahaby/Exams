@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Lesson;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,14 +12,23 @@ class QuestionController extends Controller
     {
         $this->middleware(['auth', 'role:1']);//1-teacher
     }
+
+
+    public function index(){
+        $questions = \App\Question::all();
+        return view('question.index', compact('questions'));
+    }
+    
     public function create(){
-        return view('question.create');
+        $lessons = Lesson::where('lecture_id', auth()->user()->lecture->id)->get();
+        return view('question.create', compact('lessons'));
     }
 
     public function store(Request $request){
         $request->validate([
             'text' => 'required',
             'image' => 'image',
+            'lesson' => 'required',
             'choiceAtext' => 'required',
             'choiceBtext' => 'required',
             'choiceCtext' => 'required',
@@ -29,12 +39,11 @@ class QuestionController extends Controller
             'choiceDimage' => 'image',
             'answer' => 'required'
         ]);
-        dd($request->all());
         $question = \App\Question::create([
             'text' => $request->text,
             'correct_answer' => $request->answer,
             'image' => $request->image,
-            'lesson_id' => 1
+            'lesson_id' => $request->lesson,
         ]);
 
         foreach (array('A', 'B', 'C', 'D') as $choice) {
@@ -48,9 +57,5 @@ class QuestionController extends Controller
 
 
         return redirect('/question');
-    }
-    public function index(){
-        $questions = \App\Question::all();
-        return view('question.index', compact('questions'));
     }
 }

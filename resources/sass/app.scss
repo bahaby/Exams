@@ -5,14 +5,16 @@
 // Variables
 @import 'variables';
 
+@import '~bootstrap/scss/bootstrap';
+@import 'sb-admin-2';
+@import '~bs4-summernote/dist/summernote-bs4.css';
 // Custom Css
 @import 'custom';
 
-@import 'sb-admin-2';
 @import 'choices';
+@import 'add-question';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
 
 @import '~@fortawesome/fontawesome-free/scss/brands';
 @import '~@fortawesome/fontawesome-free/scss/regular';

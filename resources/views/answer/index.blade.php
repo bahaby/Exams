@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="">
+{{header("Refresh: 5; url=/")}}
+<div class="container-fluid">
     <div class="card">
         <div class="card-header">Sorular</div>
 

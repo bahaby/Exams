@@ -2,14 +2,11 @@
 
 @section('content')
 
-<div class="container-fluid">
-<div class="row">
-
   <div class="col-lg-12 mb-4">
     
       <div class="card">
           <div class="card-header">
-            {{$lecture->name}} 
+            <h5 class="card-title">{{$lecture->name}}</h5>
           </div>
           <div class="card-body">
             <hr>
@@ -23,7 +20,5 @@
         </div>
 
   </div>
-</div>
-</div>
 {!! $chart->script() !!}
 @endsection

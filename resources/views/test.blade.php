@@ -1,82 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Example Component</div>
+@extends('layouts.app')
 
-                    <div class="panel-body">
-                        <canvas id="myChart" height="100"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
+@section('content')
+
+<div class="container">
+  
+  <!-- Soru textarea Başlangıç -->
+    <div class="soru">
+    <i class="fas fa-pencil-alt prefix"></i>
+    <label for="textArea" class="sorutextheader">Soru Metnini Giriniz :</label>
+    <div class="sorutext">
+
+      <textarea id="textArea" rows="3">
+
+      </textarea>
     </div>
-</body>
-</html>
+    </div>
+     <!-- Soru textarea Bitiş -->
+      <!-- Soru resim butonu Başlangıç -->
+    <div class="upload-btn-wrapper">
+      <button class="btn imgBtn ml-3">Resim Ekle</button>
+      <input type="file" name="myfile" />
+    </div>
+     <!-- Soru resim butonu bitiş -->
+      <!-- Soru konu butonu Başlangıç -->
+    <div class="dropdown">
+      <button class="btn imgBtn dropdown-toggle konusec" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Konu Seç
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Üslü Sayılar</a>
+        <a class="dropdown-item" href="#">Köklü Sayılar</a>
+        <a class="dropdown-item" href="#">Fonksiyonlar</a>
+      </div>
+    </div>
+     <!-- Soru konu butonu Bitiş -->
+    
+    <div class="mt-4">
+        Doğru Şıkkı İşaretle
+     <div class="mt-2">
+     <div class="row border rounded m-0">
+      <div class="col-1">
+          <section class="plan cf">
+            <input type="radio" name="radio1" id="a" value="a"><label class="m-0 mt-2" for="a">A</label>
+          </section>
+      </div>
+      <div class="col-10">
+        <div class="input-group border m-1 rounded">
+          <input type="text" class="form-control m-0 p-0" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+      </div>
+      <div class="col-1 upload-btn-wrapper">
+        <button class="imgBtn btn m-0 mt-2">img</button>
+        <input type="file" name="myfile" />
+      </div>
+    </div>
+    <div class="row border rounded m-0">
+      <div class="col-1">
+          <section class="plan cf">
+            <input type="radio" name="radio1" id="a" value="a"><label class="m-0 mt-2" for="a">A</label>
+          </section>
+      </div>
+      <div class="col-10">
+        <div class="input-group border m-1 rounded">
+          <input type="text" class="form-control m-0 p-0" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+      </div>
+      <div class="col-1 upload-btn-wrapper">
+        <button class="imgBtn btn m-0 mt-2">img</button>
+        <input type="file" name="myfile" />
+      </div>
+    </div>
+    <div class="row border rounded m-0">
+      <div class="col-1">
+          <section class="plan cf">
+            <input type="radio" name="radio1" id="a" value="a"><label class="m-0 mt-2" for="a">A</label>
+          </section>
+      </div>
+      <div class="col-10">
+        <div class="input-group border m-1 rounded">
+          <input type="text" class="form-control m-0 p-0" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+      </div>
+      <div class="col-1 upload-btn-wrapper">
+        <button class="imgBtn btn m-0 mt-2">img</button>
+        <input type="file" name="myfile" />
+      </div>
+    </div>
+  </div>
+          
+          
 
-<script src="{{ asset('js/app.js') }}" defer></script>
-<script>
-    import Chart from 'chart.js'
 
-    export default {
-        data() {
-            return {
-                count: 0,
-                labels: ['Online']
-            }
-        },
-        mounted() {
-            this.update();
-            this.drawChart();
-        },
-        methods: {
-            drawChart() {
-                let ctx = document.getElementById("myChart");
-                let myChart = new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: this.labels,
-                        datasets: [{
-                            label: '# of Users',
-                            data: [this.count],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero:true
-                                }
-                            }]
-                        }
-                    }
-                });
-            },
-            update() {
-                Echo.join('chart')
-                    .here((users) => {
-                        this.count = users.length;
-                        this.drawChart();
-                    })
-                    .joining((user) => {
-                        this.count++;
-                        this.drawChart();
-                    })
-                    .leaving((user) => {
-                        this.count--;
-                        this.drawChart();
-                    });
-            }
-        }
-    }
-</script>
+
+  
+  </div>
+  <!-- Gövde Bitiş -->
+@endsection
