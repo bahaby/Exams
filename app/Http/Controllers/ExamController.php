@@ -63,7 +63,7 @@ class ExamController extends Controller
     public function create(Request $request, Lecture $lecture)
     {
         //gets logged user's exams
-        $exams = auth()->user()->exams->where('lecture_id', $lecture->id);
+        $exams = auth()->user()->exams->where('lecture_id', $lecture->id)->sortByDesc('id')->take(10);
         if ($exams->first() && $exams->last()->is_done == 0){
             return view('exam.create', [
                 'exam_id' => $exams->last()->id,
