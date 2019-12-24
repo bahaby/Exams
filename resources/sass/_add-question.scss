@@ -1,12 +1,15 @@
-textarea
+textarea, .note-editing-area
 {
     border: none;
+    line-height: 40px;
     border-bottom: 2px solid #696969;
     background-color: #f8f9fc;
-    resize: none;
     width: 100%;
 
 }
+  .note-editing-area p{
+    margin: 0px;
+  }
 
 .prefix
 {

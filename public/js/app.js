@@ -39550,286 +39550,6 @@ module.exports = function isBuffer (obj) {
 
 /***/ }),
 
-/***/ "./node_modules/jquery-simple-timer/jquery.simple.timer.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/jquery-simple-timer/jquery.simple.timer.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-/*
-* jQuery-Simple-Timer
-*
-* Creates a countdown timer.
-*
-* Example:
-*   $('.timer').startTimer();
-*
-*/
-
-(function (factory) {
-  // Using as a CommonJS module
-  if( true && typeof module.exports === "object") {
-    // jQuery must be provided as argument when used
-    // as a CommonJS module.
-    //
-    // For example:
-    //   let $ = require("jquery");
-    //   require("jquery-simple-timer")($);
-    module.exports = function(jq) {
-      factory(jq, window, document);
-    }
-  } else {
-    // Using as script tag
-    //
-    // For example:
-    //   <script src="jquery.simple.timer.js"></script>
-    factory(jQuery, window, document);
-  }
-}(function($, window, document, undefined) {
-
-  // Polyfill new JS features for older browser
-  Number.isFinite = Number.isFinite || function(value) {
-    return typeof value === 'number' && isFinite(value);
-  }
-
-  var timer;
-
-  var Timer = function(targetElement){
-    this._options = {};
-    this.targetElement = targetElement;
-    return this;
-  };
-
-  Timer.start = function(userOptions, targetElement){
-    timer = new Timer(targetElement);
-    mergeOptions(timer, userOptions);
-    return timer.start(userOptions);
-  };
-
-  // Writes to `this._options` object so that other
-  // functions can access it without having to
-  // pass this object as argument multiple times.
-  function mergeOptions(timer, opts) {
-    opts = opts || {};
-
-    // Element that will be created for hours, minutes, and seconds.
-    timer._options.elementContainer = opts.elementContainer || 'div';
-
-    var classNames = opts.classNames || {};
-
-    timer._options.classNameSeconds       = classNames.seconds  || 'jst-seconds'
-      , timer._options.classNameMinutes   = classNames.minutes  || 'jst-minutes'
-      , timer._options.classNameHours     = classNames.hours    || 'jst-hours'
-      , timer._options.classNameClearDiv  = classNames.clearDiv || 'jst-clearDiv'
-      , timer._options.classNameTimeout   = classNames.timeout || 'jst-timeout';
-  }
-
-  Timer.prototype.start = function(options) {
-
-    var that = this;
-
-    var createSubElements = function(timerBoxElement){
-      var seconds = document.createElement(that._options.elementContainer);
-      seconds.className = that._options.classNameSeconds;
-
-      var minutes = document.createElement(that._options.elementContainer);
-      minutes.className = that._options.classNameMinutes;
-
-      var hours = document.createElement(that._options.elementContainer);
-      hours.className = that._options.classNameHours;
-
-      var clearElement = document.createElement(that._options.elementContainer);
-      clearElement.className = that._options.classNameClearDiv;
-
-      return timerBoxElement.
-        append(hours).
-        append(minutes).
-        append(seconds).
-        append(clearElement);
-    };
-
-    this.targetElement.each(function(_index, timerBox) {
-      var that = this;
-      var timerBoxElement = $(timerBox);
-      var cssClassSnapshot = timerBoxElement.attr('class');
-
-      timerBoxElement.on('complete', function() {
-        clearInterval(timerBoxElement.intervalId);
-      });
-
-      timerBoxElement.on('complete', function() {
-        timerBoxElement.onComplete(timerBoxElement);
-      });
-
-      timerBoxElement.on('complete', function(){
-        timerBoxElement.addClass(that._options.classNameTimeout);
-      });
-
-      timerBoxElement.on('complete', function(){
-        if(options && options.loop === true) {
-          timer.resetTimer(timerBoxElement, options, cssClassSnapshot);
-        }
-      });
-
-      timerBoxElement.on('pause', function() {
-        clearInterval(timerBoxElement.intervalId);
-        timerBoxElement.paused = true;
-      });
-
-      timerBoxElement.on('resume', function() {
-        timerBoxElement.paused = false;
-        const secondsLeft = timerBoxElement.data('timeLeft');
-        const onComplete = timerBoxElement.onComplete;
-        that.startCountdown(timerBoxElement, { secondsLeft, onComplete });
-      });
-
-      createSubElements(timerBoxElement);
-      return this.startCountdown(timerBoxElement, options);
-    }.bind(this));
-  };
-
-  /**
-   * Resets timer and add css class 'loop' to indicate the timer is in a loop.
-   * $timerBox {jQuery object} - The timer element
-   * options {object} - The options for the timer
-   * css - The original css of the element
-   */
-  Timer.prototype.resetTimer = function($timerBox, options, css) {
-    var interval = 0;
-    if(options.loopInterval) {
-      interval = parseInt(options.loopInterval, 10) * 1000;
-    }
-    setTimeout(function() {
-      $timerBox.trigger('reset');
-      $timerBox.attr('class', css + ' loop');
-      timer.startCountdown($timerBox, options);
-    }, interval);
-  }
-
-  Timer.prototype.fetchSecondsLeft = function(element){
-    var secondsLeft = element.data('seconds-left');
-    var minutesLeft = element.data('minutes-left');
-
-    if(Number.isFinite(secondsLeft)){
-      return parseInt(secondsLeft, 10);
-    } else if(Number.isFinite(minutesLeft)) {
-      return parseFloat(minutesLeft) * 60;
-    }else {
-      throw 'Missing time data';
-    }
-  };
-
-  Timer.prototype.startCountdown = function(element, options) {
-    options = options || {};
-
-    var intervalId = null;
-    var defaultComplete = function(){
-      clearInterval(intervalId);
-      return this.clearTimer(element);
-    }.bind(this);
-
-    element.onComplete = options.onComplete || defaultComplete;
-    element.allowPause = options.allowPause || false;
-    if(element.allowPause){
-      element.on('click', function() {
-        if(element.paused){
-          element.trigger('resume');
-        }else{
-          element.trigger('pause');
-        }
-      });
-    }
-
-    var secondsLeft = options.secondsLeft || this.fetchSecondsLeft(element);
-
-    var refreshRate = options.refreshRate || 1000;
-    var endTime = secondsLeft + this.currentTime();
-    var timeLeft = endTime - this.currentTime();
-
-    this.setFinalValue(this.formatTimeLeft(timeLeft), element);
-
-    intervalId = setInterval((function() {
-      timeLeft = endTime - this.currentTime();
-      // When timer has been idle and only resumed past timeout,
-      // then we immediatelly complete the timer.
-      if(timeLeft < 0 ){
-        timeLeft = 0;
-      }
-      element.data('timeLeft', timeLeft);
-      this.setFinalValue(this.formatTimeLeft(timeLeft), element);
-    }.bind(this)), refreshRate);
-
-    element.intervalId = intervalId;
-  };
-
-  Timer.prototype.clearTimer = function(element){
-    element.find('.jst-seconds').text('00');
-    element.find('.jst-minutes').text('00:');
-    element.find('.jst-hours').text('00:');
-  };
-
-  Timer.prototype.currentTime = function() {
-    return Math.round((new Date()).getTime() / 1000);
-  };
-
-  Timer.prototype.formatTimeLeft = function(timeLeft) {
-
-    var lpad = function(n, width) {
-      width = width || 2;
-      n = n + '';
-
-      var padded = null;
-
-      if (n.length >= width) {
-        padded = n;
-      } else {
-        padded = Array(width - n.length + 1).join(0) + n;
-      }
-
-      return padded;
-    };
-
-    var hours = Math.floor(timeLeft / 3600);
-    timeLeft -= hours * 3600;
-
-    var minutes = Math.floor(timeLeft / 60);
-    timeLeft -= minutes * 60;
-
-    var seconds = parseInt(timeLeft % 60, 10);
-
-    if (+hours === 0 && +minutes === 0 && +seconds === 0) {
-      return [];
-    } else {
-      return [lpad(hours), lpad(minutes), lpad(seconds)];
-    }
-  };
-
-  Timer.prototype.setFinalValue = function(finalValues, element) {
-
-    if(finalValues.length === 0){
-      this.clearTimer(element);
-      element.trigger('complete');
-      return false;
-    }
-
-    element.find('.' + this._options.classNameSeconds).text(finalValues.pop());
-    element.find('.' + this._options.classNameMinutes).text(finalValues.pop() + ':');
-    element.find('.' + this._options.classNameHours).text(finalValues.pop() + ':');
-  };
-
-
-  $.fn.startTimer = function(options) {
-    this.TimerObject = Timer;
-    Timer.start(options, this);
-    return this;
-  };
-
-}));
-
-
-/***/ }),
-
 /***/ "./node_modules/jquery/dist/jquery.js":
 /*!********************************************!*\
   !*** ./node_modules/jquery/dist/jquery.js ***!
@@ -88259,6 +87979,354 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/twbs-pagination/jquery.twbsPagination.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/twbs-pagination/jquery.twbsPagination.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/*!
+ * jQuery pagination plugin v1.4.1
+ * http://esimakin.github.io/twbs-pagination/
+ *
+ * Copyright 2014-2016, Eugene Simakin
+ * Released under Apache 2.0 license
+ * http://apache.org/licenses/LICENSE-2.0.html
+ */
+(function ($, window, document, undefined) {
+
+    'use strict';
+
+    var old = $.fn.twbsPagination;
+
+    // PROTOTYPE AND CONSTRUCTOR
+
+    var TwbsPagination = function (element, options) {
+        this.$element = $(element);
+        this.options = $.extend({}, $.fn.twbsPagination.defaults, options);
+
+        if (this.options.startPage < 1 || this.options.startPage > this.options.totalPages) {
+            throw new Error('Start page option is incorrect');
+        }
+
+        this.options.totalPages = parseInt(this.options.totalPages);
+        if (isNaN(this.options.totalPages)) {
+            throw new Error('Total pages option is not correct!');
+        }
+
+        this.options.visiblePages = parseInt(this.options.visiblePages);
+        if (isNaN(this.options.visiblePages)) {
+            throw new Error('Visible pages option is not correct!');
+        }
+
+        if (this.options.onPageClick instanceof Function) {
+            this.$element.first().on('page', this.options.onPageClick);
+        }
+
+        // hide if only one page exists
+        if (this.options.hideOnlyOnePage && this.options.totalPages == 1) {
+            this.$element.trigger('page', 1);
+            return this;
+        }
+
+        if (this.options.totalPages < this.options.visiblePages) {
+            this.options.visiblePages = this.options.totalPages;
+        }
+
+        if (this.options.href) {
+            this.options.startPage = this.getPageFromQueryString();
+            if (!this.options.startPage) {
+                this.options.startPage = 1;
+            }
+        }
+
+        var tagName = (typeof this.$element.prop === 'function') ?
+            this.$element.prop('tagName') : this.$element.attr('tagName');
+
+        if (tagName === 'UL') {
+            this.$listContainer = this.$element;
+        } else {
+            this.$listContainer = $('<ul></ul>');
+        }
+
+        this.$listContainer.addClass(this.options.paginationClass);
+
+        if (tagName !== 'UL') {
+            this.$element.append(this.$listContainer);
+        }
+
+        if (this.options.initiateStartPageClick) {
+            this.show(this.options.startPage);
+        } else {
+            this.currentPage = this.options.startPage;
+            this.render(this.getPages(this.options.startPage));
+            this.setupEvents();
+        }
+
+        return this;
+    };
+
+    TwbsPagination.prototype = {
+
+        constructor: TwbsPagination,
+
+        destroy: function () {
+            this.$element.empty();
+            this.$element.removeData('twbs-pagination');
+            this.$element.off('page');
+
+            return this;
+        },
+
+        show: function (page) {
+            if (page < 1 || page > this.options.totalPages) {
+                throw new Error('Page is incorrect.');
+            }
+            this.currentPage = page;
+
+            this.render(this.getPages(page));
+            this.setupEvents();
+
+            this.$element.trigger('page', page);
+
+            return this;
+        },
+
+        enable: function () {
+            this.show(this.currentPage);
+        },
+
+        disable: function () {
+            var _this = this;
+            this.$listContainer.off('click').on('click', 'li', function (evt) {
+                evt.preventDefault();
+            });
+            this.$listContainer.children().each(function () {
+                var $this = $(this);
+                if (!$this.hasClass(_this.options.activeClass)) {
+                    $(this).addClass(_this.options.disabledClass);
+                }
+            });
+        },
+
+        buildListItems: function (pages) {
+            var listItems = [];
+
+            if (this.options.first) {
+                listItems.push(this.buildItem('first', 1));
+            }
+
+            if (this.options.prev) {
+                var prev = pages.currentPage > 1 ? pages.currentPage - 1 : this.options.loop ? this.options.totalPages  : 1;
+                listItems.push(this.buildItem('prev', prev));
+            }
+
+            for (var i = 0; i < pages.numeric.length; i++) {
+                listItems.push(this.buildItem('page', pages.numeric[i]));
+            }
+
+            if (this.options.next) {
+                var next = pages.currentPage < this.options.totalPages ? pages.currentPage + 1 : this.options.loop ? 1 : this.options.totalPages;
+                listItems.push(this.buildItem('next', next));
+            }
+
+            if (this.options.last) {
+                listItems.push(this.buildItem('last', this.options.totalPages));
+            }
+
+            return listItems;
+        },
+
+        buildItem: function (type, page) {
+            var $itemContainer = $('<li></li>'),
+                $itemContent = $('<a></a>'),
+                itemText = this.options[type] ? this.makeText(this.options[type], page) : page;
+
+            $itemContainer.addClass(this.options[type + 'Class']);
+            $itemContainer.data('page', page);
+            $itemContainer.data('page-type', type);
+            $itemContainer.append($itemContent.attr('href', this.makeHref(page)).addClass(this.options.anchorClass).html(itemText));
+
+            return $itemContainer;
+        },
+
+        getPages: function (currentPage) {
+            var pages = [];
+
+            var half = Math.floor(this.options.visiblePages / 2);
+            var start = currentPage - half + 1 - this.options.visiblePages % 2;
+            var end = currentPage + half;
+
+            // handle boundary case
+            if (start <= 0) {
+                start = 1;
+                end = this.options.visiblePages;
+            }
+            if (end > this.options.totalPages) {
+                start = this.options.totalPages - this.options.visiblePages + 1;
+                end = this.options.totalPages;
+            }
+
+            var itPage = start;
+            while (itPage <= end) {
+                pages.push(itPage);
+                itPage++;
+            }
+
+            return {"currentPage": currentPage, "numeric": pages};
+        },
+
+        render: function (pages) {
+            var _this = this;
+            this.$listContainer.children().remove();
+            var items = this.buildListItems(pages);
+            $.each(items, function(key, item){
+                _this.$listContainer.append(item);
+            });
+
+            this.$listContainer.children().each(function () {
+                var $this = $(this),
+                    pageType = $this.data('page-type');
+
+                switch (pageType) {
+                    case 'page':
+                        if ($this.data('page') === pages.currentPage) {
+                            $this.addClass(_this.options.activeClass);
+                        }
+                        break;
+                    case 'first':
+                            $this.toggleClass(_this.options.disabledClass, pages.currentPage === 1);
+                        break;
+                    case 'last':
+                            $this.toggleClass(_this.options.disabledClass, pages.currentPage === _this.options.totalPages);
+                        break;
+                    case 'prev':
+                            $this.toggleClass(_this.options.disabledClass, !_this.options.loop && pages.currentPage === 1);
+                        break;
+                    case 'next':
+                            $this.toggleClass(_this.options.disabledClass,
+                                !_this.options.loop && pages.currentPage === _this.options.totalPages);
+                        break;
+                    default:
+                        break;
+                }
+
+            });
+        },
+
+        setupEvents: function () {
+            var _this = this;
+            this.$listContainer.off('click').on('click', 'li', function (evt) {
+                var $this = $(this);
+                if ($this.hasClass(_this.options.disabledClass) || $this.hasClass(_this.options.activeClass)) {
+                    return false;
+                }
+                // Prevent click event if href is not set.
+                !_this.options.href && evt.preventDefault();
+                _this.show(parseInt($this.data('page')));
+            });
+        },
+
+        makeHref: function (page) {
+            return this.options.href ? this.generateQueryString(page) : "#";
+        },
+
+        makeText: function (text, page) {
+            return text.replace(this.options.pageVariable, page)
+                .replace(this.options.totalPagesVariable, this.options.totalPages)
+        },
+        getPageFromQueryString: function (searchStr) {
+            var search = this.getSearchString(searchStr),
+                regex = new RegExp(this.options.pageVariable + '(=([^&#]*)|&|#|$)'),
+                page = regex.exec(search);
+            if (!page || !page[2]) {
+                return null;
+            }
+            page = decodeURIComponent(page[2]);
+            page = parseInt(page);
+            if (isNaN(page)) {
+                return null;
+            }
+            return page;
+        },
+        generateQueryString: function (pageNumber, searchStr) {
+            var search = this.getSearchString(searchStr),
+                regex = new RegExp(this.options.pageVariable + '=*[^&#]*');
+            if (!search) return '';
+            return '?' + search.replace(regex, this.options.pageVariable + '=' + pageNumber);
+
+        },
+        getSearchString: function (searchStr) {
+            var search = searchStr || window.location.search;
+            if (search === '') {
+                return null;
+            }
+            if (search.indexOf('?') === 0) search = search.substr(1);
+            return search;
+        },
+        getCurrentPage: function () {
+            return this.currentPage;
+        }
+    };
+
+    // PLUGIN DEFINITION
+
+    $.fn.twbsPagination = function (option) {
+        var args = Array.prototype.slice.call(arguments, 1);
+        var methodReturn;
+
+        var $this = $(this);
+        var data = $this.data('twbs-pagination');
+        var options = typeof option === 'object' ? option : {};
+
+        if (!data) $this.data('twbs-pagination', (data = new TwbsPagination(this, options) ));
+        if (typeof option === 'string') methodReturn = data[ option ].apply(data, args);
+
+        return ( methodReturn === undefined ) ? $this : methodReturn;
+    };
+
+    $.fn.twbsPagination.defaults = {
+        totalPages: 1,
+        startPage: 1,
+        visiblePages: 5,
+        initiateStartPageClick: true,
+        hideOnlyOnePage: false,
+        href: false,
+        pageVariable: '{{page}}',
+        totalPagesVariable: '{{total_pages}}',
+        page: null,
+        first: 'First',
+        prev: 'Previous',
+        next: 'Next',
+        last: 'Last',
+        loop: false,
+        onPageClick: null,
+        paginationClass: 'pagination',
+        nextClass: 'page-item next',
+        prevClass: 'page-item prev',
+        lastClass: 'page-item last',
+        firstClass: 'page-item first',
+        pageClass: 'page-item',
+        activeClass: 'active',
+        disabledClass: 'disabled',
+        anchorClass: 'page-link'
+    };
+
+    $.fn.twbsPagination.Constructor = TwbsPagination;
+
+    $.fn.twbsPagination.noConflict = function () {
+        $.fn.twbsPagination = old;
+        return this;
+    };
+
+    $.fn.twbsPagination.version = "1.4.1";
+
+})(window.jQuery, window, document);
+
+
+/***/ }),
+
 /***/ "./node_modules/vue/dist/vue.common.dev.js":
 /*!*************************************************!*\
   !*** ./node_modules/vue/dist/vue.common.dev.js ***!
@@ -100334,6 +100402,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./sb-admin-2 */ "./resources/js/sb-admin-2.js");
 
+__webpack_require__(/*! ./custom */ "./resources/js/custom.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -100354,11 +100424,9 @@ try {
   window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js")["default"];
   window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
-  __webpack_require__(/*! jquery-simple-timer */ "./node_modules/jquery-simple-timer/jquery.simple.timer.js");
-
   __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
 
-  __webpack_require__(/*! bs4-summernote */ "./node_modules/bs4-summernote/dist/summernote-bs4.js");
+  __webpack_require__(/*! twbs-pagination */ "./node_modules/twbs-pagination/jquery.twbsPagination.js");
 } catch (e) {}
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -100385,8 +100453,55 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 window.Chart = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/Chart.js");
+
+__webpack_require__(/*! bs4-summernote */ "./node_modules/bs4-summernote/dist/summernote-bs4.js");
+
+/***/ }),
+
+/***/ "./resources/js/custom.js":
+/*!********************************!*\
+  !*** ./resources/js/custom.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
 $(document).ready(function () {
-  $('#textArea').summernote();
+  $('.textArea').summernote({
+    airMode: true
+  });
+});
+$('#page-pagination').twbsPagination({
+  totalPages: 50,
+  // the current page that show on start
+  startPage: 1,
+  // maximum visible pages
+  visiblePages: 5,
+  initiateStartPageClick: true,
+  // template for pagination links
+  href: false,
+  // variable name in href template for page number
+  hrefVariable: '{{number}}',
+  // Text labels
+  first: 'İlk',
+  prev: 'Önceki',
+  next: 'Sonraki',
+  last: 'Son',
+  // carousel-style pagination
+  loop: false,
+  // callback function
+  onPageClick: function onPageClick(event, page) {
+    $('.page-active').removeClass('page-active');
+    $('#page' + page).addClass('page-active');
+  },
+  // pagination Classes
+  paginationClass: 'pagination',
+  nextClass: 'next',
+  prevClass: 'prev',
+  lastClass: 'last',
+  firstClass: 'first',
+  pageClass: 'page',
+  activeClass: 'active',
+  disabledClass: 'disabled'
 });
 
 /***/ }),

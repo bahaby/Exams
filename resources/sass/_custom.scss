@@ -262,3 +262,10 @@ input[type=text]:placeholder, input[type=password]:placeholder {
 #icon {
   width:60%;
 }
+
+.page {
+  display: none;
+}
+.page-active {
+  display: block;
+}

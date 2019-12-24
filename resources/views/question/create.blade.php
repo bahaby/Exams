@@ -14,10 +14,10 @@
              <!-- Soru textarea Başlangıç -->
     <div class="soru">
         <i class="fas fa-pencil-alt prefix"></i>
-        <label for="textArea" class="sorutextheader">Soru Metnini Giriniz :</label>
+        <label class="sorutextheader">Soru Metnini Giriniz :</label>
         <div class="mb-4">
     
-          <textarea id="textArea" name="text" rows="5" >
+          <textarea class="textArea" name="text" rows="5" >
     
           </textarea>
         </div>
@@ -59,9 +59,9 @@
                </section>
            </div>
            <div class="col-10">
-             <div class="input-group border m-1 rounded">
-               <input type="text" name="choice{{$value}}text" class="form-control m-0 p-0" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-             </div>
+             <div class="m-1">
+               <textarea name="choice{{$value}}text" class="textArea"></textarea>
+               </div>
            </div>
            <div class="col-1 upload-btn-wrapper">
              <button class="imgBtn btn m-0 mt-2">img</button>
@@ -69,8 +69,8 @@
            </div>
          </div>
           @endforeach
-         
-      <button type="submit" class="btn btnAdd btn-block mt-3">Ekle</button>
+         <div class="container"></div>
+      <button type="submit" class="btn btnAdd btn-block mt-4">Ekle</button>
   </form>
         </div>
 @endsection

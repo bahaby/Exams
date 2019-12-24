@@ -10,10 +10,8 @@ window._ = require('lodash');
 try {
     window.Popper = require('popper.js').default;
     window.$ = window.jQuery = require('jquery');
-    require("jquery-simple-timer");
-
     require('bootstrap');
-    require('bs4-summernote');
+    require('twbs-pagination');
 } catch (e) {}
 
 /**
@@ -47,6 +45,5 @@ window.Vue = require('vue');
 
 window.Chart = require('chart.js');
 
-$(document).ready(function() {
-    $('#textArea').summernote();
-});
+
+require('bs4-summernote');
