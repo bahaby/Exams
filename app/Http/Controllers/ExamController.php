@@ -25,7 +25,6 @@ class ExamController extends Controller
     public function index(Request $request, Lecture $lecture)
     {   
         $exams = auth()->user()->exams->where('lecture_id', $lecture->id)->sortByDesc('id')->take(10);
-
         $grades = [];
         $labels = [];
         foreach ($exams as $exam){

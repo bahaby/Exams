@@ -37,6 +37,10 @@ Route::post('/lecture/{lecture}/exam/{exam}/answer', 'AnswerController@store');
 
 Route::get('/result', 'ResultController@index')->name('result');
 
+Route::get('logout', 'Auth\LoginController@logout', function () {
+    return abort(404);
+});
+
 Route::get('test', function(){
     $data = [
         'lecture' => [
@@ -46,7 +50,7 @@ Route::get('test', function(){
                         [
                             'metin' => "Üçgenin bir köşesinden karşısındaki kenarın orta noktasına çizilen doğru parçasına ne ad verilir ?",
                             'sık' => [
-                                'A' => ["Açıortay","asdad"],
+                                'A' => ["Açıortay",""],
                                 'B' => ["Yükseklik",""],
                                 'C' => ["Kenarortay",""],
                                 'D' => ["Dikme",""],
@@ -76,8 +80,8 @@ Route::get('test', function(){
     ];
     $string = '';
     $lection_id = 1;
-    $lesson_id = 5;
-    $question_id = 61;
+    $lesson_id = 7;
+    $question_id = 91;
     foreach ($data['lecture'] as $lecture) {
         foreach ($lecture as $lesson){
             foreach ($lesson['sorular'] as $soru){
