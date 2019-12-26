@@ -4,6 +4,7 @@ $(document).ready(function() {
   $('.textArea').summernote({
     airMode: true
   });
+  
 });
 
 $('#page-pagination').twbsPagination({

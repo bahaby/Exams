@@ -8,7 +8,7 @@
         width: 100%;
         display: block;
     }
-
+    
     label.choice {
       padding: 12px 30px;
       width: 100%;
@@ -16,6 +16,7 @@
       text-align: left;
       color: #3C454C;
       cursor: pointer;
+      border-radius: 10px;
       position: relative;
       z-index: 2;
       transition: color 200ms ease-in;
@@ -54,6 +55,12 @@
         cursor: pointer;
         transition: all 200ms ease-in;
       }
+      p{
+        display:inline;
+      }
+    }
+    label:hover label.choice {
+        background-color: rgb(227, 236, 255);
     }
 
     input:checked ~ label {

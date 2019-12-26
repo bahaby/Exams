@@ -15,8 +15,13 @@
             @endphp
             @foreach ($exam->answers as $answer)
             <div class="page" id="page{{++$i}}">
-                <div class="p-2 border">
-                    {{$i}}) {!!$answer->question->text!!}
+                @if ($answer->question->image != null)
+                    <div class="mt-3 mb-3">
+                        <img class="img-thumbnail" src="{{$answer->question->image}}"/>  
+                    </div>
+                @endif
+                <div class="p-2 mt-3 mb-2 list-group-item list-group-item-warning text-dark rounded">
+                    <b class="text-primary">{{$i}})</b> {!!$answer->question->text!!}
                 </div>
                 <div class="row">
                 @foreach ($answer->question->choices as $choice)
@@ -26,19 +31,23 @@
                     @endif
                     <div class="inputGroup col-6">
                         <label class="row"  for="{{$choice->choice}}-{{$answer->id}}">
-                            @if ($choice->image != '1')
+                            @if ($choice->image != null)
+                                <div class="col-8">
+                            @else 
+                                <div class="col-12">
+                            @endif
+                            <input id="{{$choice->choice}}-{{$answer->id}}" name="answers[{{$answer->id}}]" value="{{$choice->choice}}" type="radio"/>
+                            <label class="choice" for="{{$choice->choice}}-{{$answer->id}}"><b>{{$choice->choice}})</b> {!!$choice->text!!}</label> 
+                            @if ($choice->image != null)
+                                </div>
                                 <div class="col-4">
                                     <label class="choicePic" for="{{$choice->choice}}-{{$answer->id}}">
                                             <img class="img-thumbnail" src="{{$choice->image}}"/>    
                                     </label> 
                                 </div>
-                                <div class="col-8">
-                            @else
-                                <div class="col-12">
+                            @else 
+                                </div>
                             @endif
-                                <input id="{{$choice->choice}}-{{$answer->id}}" name="answers[{{$answer->id}}]" value="{{$choice->choice}}" type="radio"/>
-                                <label class="choice" for="{{$choice->choice}}-{{$answer->id}}">{{$choice->choice}}-) {!!$choice->text!!}</label> 
-                            </div>
                         </label>
                     </div>  
 

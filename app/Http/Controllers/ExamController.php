@@ -14,7 +14,7 @@ class ExamController extends Controller
     {
         $exam_id = $request->route('exam');
         $this->middleware(['auth', 'role:0']);//0-student
-        $this->middleware('exam:0,'.$exam_id)->only(['show']);//exam:{is_done},{exam_id}
+        $this->middleware('exam:1,'.$exam_id)->only(['show']);//exam:{is_done},{exam_id}
     }
     /**
      * Display a listing of the resource.
@@ -24,7 +24,7 @@ class ExamController extends Controller
      */
     public function index(Request $request, Lecture $lecture)
     {   
-        $exams = auth()->user()->exams->where('lecture_id', $lecture->id)->sortByDesc('id')->take(10);
+        $exams = auth()->user()->exams->where('lecture_id', $lecture->id)->where('is_done', 1)->sortByDesc('id')->take(10);
         $grades = [];
         $labels = [];
         foreach ($exams as $exam){
@@ -62,7 +62,7 @@ class ExamController extends Controller
     public function create(Request $request, Lecture $lecture)
     {
         //gets logged user's exams
-        $exams = auth()->user()->exams->where('lecture_id', $lecture->id)->sortByDesc('id')->take(10);
+        $exams = auth()->user()->exams->where('lecture_id', $lecture->id);
         if ($exams->first() && $exams->last()->is_done == 0){
             return view('exam.create', [
                 'exam_id' => $exams->last()->id,
@@ -71,6 +71,9 @@ class ExamController extends Controller
             ]);
         }
         //checks
+    /*     $x = $exams->last()->created_at;
+        $y = now()->subHours(1)->toDateTimeString();
+        dd($x." - ".$y); */
         if ($exams->first() && $exams->last()->created_at > now()->subDays(0)->toDateTimeString()){
             return redirect('/lecture')->withErrors("Bu dersten daha fazla sınava giremezsiniz");
         }
@@ -93,7 +96,7 @@ class ExamController extends Controller
         $totalQuestion = TOTAL_QUESTIONS-count($points);//total question number that will be created with data
         $questionCount = $totalQuestion;
         //get the correct answers for each lesson
-        foreach ($exams as $exam) {
+        foreach ($exams->sortByDesc('id')->take(10) as $exam) {
             foreach ($exam->questions as $question){
                 //increase question number for each exam
                 $counts[$question->lesson->id] ++;

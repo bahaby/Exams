@@ -151,7 +151,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 1,
             'correct_answer' => 'B',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => 'Hangi seçenekte verilen sayı tam kare sayıdır?',
             'created_at' => now(),
             'updated_at' => now()
@@ -188,7 +187,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 1,
             'correct_answer' => 'C',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => '256 sayısının karekökü aşağıdakilerden kaçtır?',
             'created_at' => now(),
             'updated_at' => now()
@@ -225,7 +223,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 1,
             'correct_answer' => 'A',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => 'Kareleri 144 ve 81 olan sayıların toplamı kaçtır?',
             'created_at' => now(),
             'updated_at' => now()
@@ -262,7 +259,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 1,
             'correct_answer' => 'A',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => '√49 işleminin sonucu kaçtır?',
             'created_at' => now(),
             'updated_at' => now()
@@ -270,28 +266,32 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'A',
             'question_id' => 4,
-            'text' => '5',
+
+            'image' => '/img/undraw_posting_photo.svg',            'text' => '5',
             'created_at' => now(),
             'updated_at' => now()
         ]);
         DB::table('choices')->insert([
             'choice' => 'B',
             'question_id' => 4,
-            'text' => '6',
+
+            'image' => '/img/undraw_posting_photo.svg',            'text' => '6',
             'created_at' => now(),
             'updated_at' => now()
         ]);
         DB::table('choices')->insert([
             'choice' => 'C',
             'question_id' => 4,
-            'text' => '7',
+
+            'image' => '/img/undraw_posting_photo.svg',            'text' => '7',
             'created_at' => now(),
             'updated_at' => now()
         ]);
         DB::table('choices')->insert([
             'choice' => 'D',
             'question_id' => 4,
-            'text' => '8',
+
+            'image' => '/img/undraw_posting_photo.svg',            'text' => '8',
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -299,7 +299,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 1,
             'correct_answer' => 'C',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => '√576 sayısının değeri hangisidir?',
             'created_at' => now(),
             'updated_at' => now()
@@ -336,7 +335,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 1,
             'correct_answer' => 'D',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => '√64 + √121 işleminin sonucu aşağıdakilerden hangisidir?',
             'created_at' => now(),
             'updated_at' => now()
@@ -373,7 +371,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 1,
             'correct_answer' => 'B',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => '√45 sayısına en yakın doğal sayı aşağıdakilerden hangisidir?',
             'created_at' => now(),
             'updated_at' => now()
@@ -410,7 +407,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 1,
             'correct_answer' => 'B',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => '√240 sayısından küçük, en büyük tam sayı kaçtır?',
             'created_at' => now(),
             'updated_at' => now()
@@ -447,7 +443,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 1,
             'correct_answer' => 'C',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => 'Aşağıdaki sayılardan hangisi rasyonel sayı değildir?',
             'created_at' => now(),
             'updated_at' => now()
@@ -484,7 +479,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 1,
             'correct_answer' => 'D',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => '√40+a   ifadesinin rasyonel sayı olması için a yerine yazılabilecek en küçük doğal sayı kaçtır?',
             'created_at' => now(),
             'updated_at' => now()
@@ -521,7 +515,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 1,
             'correct_answer' => 'B',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => '−√16 sayısı için aşağıdakilerden hangisi yanlıştır?',
             'created_at' => now(),
             'updated_at' => now()
@@ -558,7 +551,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 1,
             'correct_answer' => 'C',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => '• √85 sayısına en yakın tam sayı x dir.<br>• √180 sayısına en yakın sayı y dir.<br>Yukarıdaki bilgilere göre x + y kaçtır?',
             'created_at' => now(),
             'updated_at' => now()
@@ -595,7 +587,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 1,
             'correct_answer' => 'B',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => '−√148 sayısı hangi seçenekteki iki tam sayının arasındadır?',
             'created_at' => now(),
             'updated_at' => now()
@@ -632,7 +623,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 1,
             'correct_answer' => 'D',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => '√? sembolünün içine aşağıdaki sayılardan hangisi yazılırsa sonucu rasyonel sayı olmaz?',
             'created_at' => now(),
             'updated_at' => now()
@@ -669,7 +659,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 1,
             'correct_answer' => 'C',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => 'Alanı 49 br<sup>2</sup> olan bir karenin bir kenar uzunluğu kaç br\'dir?',
             'created_at' => now(),
             'updated_at' => now()
@@ -706,7 +695,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 2,
             'correct_answer' => 'B',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => '3<sup>-3</sup> ifadesinin eşiti aşağıdakilerden hangisidir?',
             'created_at' => now(),
             'updated_at' => now()
@@ -743,7 +731,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 2,
             'correct_answer' => 'C',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => '(-4)<sup>3</sup> işleminin sonucu aşağıdakilerden hangisidir?',
             'created_at' => now(),
             'updated_at' => now()
@@ -780,7 +767,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 2,
             'correct_answer' => 'A',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => '-6<sup>2</sup> işleminin sonucu aşağıdakilerden hangisidir?',
             'created_at' => now(),
             'updated_at' => now()
@@ -817,7 +803,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 2,
             'correct_answer' => 'B',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => '1. (-1)<sup>13</sup> = -1<br>2. (-2)<sup>3</sup><br>3. 3<sup>2</sup> = 9<br>Yukarıdakilerden hangisi ya da hangileri doğrudur?',
             'created_at' => now(),
             'updated_at' => now()
@@ -854,7 +839,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 2,
             'correct_answer' => 'C',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => 'Bir okulda toplanan 2<sup>5</sup> ton atık kâğıt geri dönüşüme gönderilerek 4<sup>4</sup> ağaç kesilmekten kurtarılmıştır. Buna göre 1 ton atık kâğıt ile kaç ağaç kesilmekten kurtarılabilir?',
             'created_at' => now(),
             'updated_at' => now()
@@ -891,7 +875,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 2,
             'correct_answer' => 'D',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => '2<sup>7</sup>. 2<sup>5</sup> işleminin sonucu aşağıdakilerden hangisidir?',
             'created_at' => now(),
             'updated_at' => now()
@@ -928,7 +911,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 2,
             'correct_answer' => 'C',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => '14<sup>9</sup>  / 14<sup>5</sup> işleminin sonucu kaçtır?',
             'created_at' => now(),
             'updated_at' => now()
@@ -965,7 +947,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 2,
             'correct_answer' => 'A',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => '23\'ün kaçıncı kuvvetinin değeri 1\'e eşittir?',
             'created_at' => now(),
             'updated_at' => now()
@@ -1002,7 +983,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 2,
             'correct_answer' => 'B',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => 'Beş üssü altının beşinci kuvveti aşağıdakilerden hangisidir?',
             'created_at' => now(),
             'updated_at' => now()
@@ -1039,7 +1019,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 2,
             'correct_answer' => 'C',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => '(0,4)<sup>-1</sup> işleminin sonucu aşağıdakilerden hangisidir?',
             'created_at' => now(),
             'updated_at' => now()
@@ -1076,7 +1055,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 2,
             'correct_answer' => 'A',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => '2<sup>8</sup> tane kalemin tamamı 8 çocuğa eşit sayıda dağıtılacağına göre her bir çocuğa kaç kalem düşer?',
             'created_at' => now(),
             'updated_at' => now()
@@ -1113,7 +1091,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 2,
             'correct_answer' => 'D',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => '250.5<sup>2</sup>  / 5<sup>5</sup> işleminin sonucu aşağıdakilerden hangisidir?',
             'created_at' => now(),
             'updated_at' => now()
@@ -1150,7 +1127,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 2,
             'correct_answer' => 'A',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => 'Aşağıdakilerden hangisinin sonucu negatiftir?',
             'created_at' => now(),
             'updated_at' => now()
@@ -1187,7 +1163,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 2,
             'correct_answer' => 'D',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => '4.3<sup>2</sup> + 3<sup>2</sup> işleminin sonucu kaçtır?',
             'created_at' => now(),
             'updated_at' => now()
@@ -1224,7 +1199,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 2,
             'correct_answer' => 'B',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => '2<sup>0</sup>−2<sup>1</sup>+3.2<sup>-1</sup> işleminin sonucu kaçtır ?',
             'created_at' => now(),
             'updated_at' => now()
@@ -1261,7 +1235,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 3,
             'correct_answer' => 'B',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => 'Aşağıdakilerden hangisi 42 sayısının asal çarpanı değildir ?',
             'created_at' => now(),
             'updated_at' => now()
@@ -1298,7 +1271,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 3,
             'correct_answer' => 'B',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => 'Aşağıdakilerden hangisi 102 sayısının asal çarpanı değildir ?',
             'created_at' => now(),
             'updated_at' => now()
@@ -1335,7 +1307,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 3,
             'correct_answer' => 'A',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => 'Asal çarpanları 2-3-5-7 olan sayı aşağıdakilerden hangisidir ?',
             'created_at' => now(),
             'updated_at' => now()
@@ -1372,7 +1343,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 3,
             'correct_answer' => 'B',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => 'Boyutları 5 cm, 7 cm ve 10 cm olan tuğlalardan oluşturulan küpün bir kenarı en az kaç cm\'dir ?',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1409,7 +1379,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 3,
             'correct_answer' => 'D',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => '150 m ve 200 m uzunluğundaki iki tel, eşit uzunlukta en büyük parçalara ayrılmak isteniyor. Buna göre bu parçaların birinin uzunluğu kaç metredir ?',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1446,7 +1415,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 3,
             'correct_answer' => 'D',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => 'Kemal 1\' den 100\' e kadar olan sayılardan 12\'nin Katlarını Tuğçe ise 1\' den 100\' e kadar olan sayılardan 16\' nın katlarını defterine yazıyor. Buna göre Kemal ve Tuğçe\'nin yazdığı sayılardan Kaç tanesi aynıdır?',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1483,7 +1451,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 3,
             'correct_answer' => 'C',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => '90\'nın kaç farklı pozitif asal çarpanı vardır ?',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1520,7 +1487,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 3,
             'correct_answer' => 'A',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => 'Aşağıdakilerden hangisi 48 ile aralarında asaldır ?',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1557,7 +1523,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 3,
             'correct_answer' => 'A',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => 'Aşağıda verilen sayılardan hangisi aralarında asaldır ?',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1594,7 +1559,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 3,
             'correct_answer' => 'B',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => '• 25 ve 50<br>• 15 ve 29<br>• 13 ve 33<br>• 21 ve 42<br>Yukarıda verilen sayılardan kaç tanesi aralarında asal değildir ?',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1602,6 +1566,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'A',
             'question_id' => 40,
+            'image' => '/img/undraw_posting_photo.svg',
             'text' => '1',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1609,6 +1574,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'B',
             'question_id' => 40,
+            'image' => '/img/undraw_posting_photo.svg',
             'text' => '2',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1616,6 +1582,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'C',
             'question_id' => 40,
+            'image' => '/img/undraw_posting_photo.svg',
             'text' => '3',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1623,6 +1590,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'D',
             'question_id' => 40,
+            'image' => '/img/undraw_posting_photo.svg',
             'text' => '4',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1631,7 +1599,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 3,
             'correct_answer' => 'A',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => '56 ile aşağıdaki sayılardan hangisi aralarında asaldır ?',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1639,6 +1606,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'A',
             'question_id' => 41,
+            'image' => '/img/undraw_posting_photo.svg',
             'text' => '41',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1646,6 +1614,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'B',
             'question_id' => 41,
+            'image' => '/img/undraw_posting_photo.svg',
             'text' => '34',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1653,6 +1622,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'C',
             'question_id' => 41,
+            'image' => '/img/undraw_posting_photo.svg',
             'text' => '28',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1660,6 +1630,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'D',
             'question_id' => 41,
+            'image' => '/img/undraw_posting_photo.svg',
             'text' => '16',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1668,7 +1639,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 3,
             'correct_answer' => 'A',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => 'Asal çarpanları 2 ve 3 olan tek basamaklı kaç doğal sayı vardır ?',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1676,6 +1646,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'A',
             'question_id' => 42,
+            'image' => '/img/undraw_posting_photo.svg',
             'text' => '1',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1683,6 +1654,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'B',
             'question_id' => 42,
+            'image' => '/img/undraw_posting_photo.svg',
             'text' => '2',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1690,6 +1662,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'C',
             'question_id' => 42,
+            'image' => '/img/undraw_posting_photo.svg',
             'text' => '3',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1697,6 +1670,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'D',
             'question_id' => 42,
+            'image' => '/img/undraw_posting_photo.svg',
             'text' => '4',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1705,7 +1679,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 3,
             'correct_answer' => 'C',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => '246 sayısının kaç tane asal çarpanı vardır ?',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1713,6 +1686,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'A',
             'question_id' => 43,
+            'image' => '/img/undraw_posting_photo.svg',
             'text' => '5',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1720,6 +1694,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'B',
             'question_id' => 43,
+            'image' => '/img/undraw_posting_photo.svg',
             'text' => '2',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1727,6 +1702,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'C',
             'question_id' => 43,
+            'image' => '/img/undraw_posting_photo.svg',
             'text' => '3',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1734,6 +1710,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'D',
             'question_id' => 43,
+            'image' => '/img/undraw_posting_photo.svg',
             'text' => '4',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1742,7 +1719,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 3,
             'correct_answer' => 'C',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => 'A = 2<sup>3</sup>. 3<sup>2</sup>. 6<sup>2</sup> olduğuna göre A sayısının kaç tane asal çarpanı vardır ?',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1750,6 +1726,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'A',
             'question_id' => 44,
+            'image' => '/img/undraw_posting_photo.svg',
             'text' => '5',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1757,6 +1734,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'B',
             'question_id' => 44,
+            'image' => '/img/undraw_posting_photo.svg',
             'text' => '7',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1764,6 +1742,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'C',
             'question_id' => 44,
+            'image' => '/img/undraw_posting_photo.svg',
             'text' => '3',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1771,6 +1750,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'D',
             'question_id' => 44,
+            'image' => '/img/undraw_posting_photo.svg',
             'text' => '8',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1779,7 +1759,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 3,
             'correct_answer' => 'C',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => 'Aşağıda verilen sayılardan hangisinin bir tane asal çarpanı vardır ?',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1787,6 +1766,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'A',
             'question_id' => 45,
+            'image' => '/img/undraw_posting_photo.svg',
             'text' => '123',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1794,6 +1774,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'B',
             'question_id' => 45,
+            'image' => '/img/undraw_posting_photo.svg',
             'text' => '132',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1801,6 +1782,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'C',
             'question_id' => 45,
+            'image' => '/img/undraw_posting_photo.svg',
             'text' => '141',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1808,6 +1790,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'D',
             'question_id' => 45,
+            'image' => '/img/undraw_posting_photo.svg',
             'text' => '153',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1822,6 +1805,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'A',
          'question_id' => 46,
+            'image' => '/img/undraw_posting_photo.svg',
          'text' => "S, L, D, R",
          'created_at' => now(),
          'updated_at' => now(),
@@ -1829,6 +1813,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'B',
          'question_id' => 46,
+            'image' => '/img/undraw_posting_photo.svg',
          'text' => "S, A, L, D, R",
          'created_at' => now(),
          'updated_at' => now(),
@@ -1836,6 +1821,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'C',
          'question_id' => 46,
+            'image' => '/img/undraw_posting_photo.svg',
          'text' => "S, A, L, D, I, R, I",
          'created_at' => now(),
          'updated_at' => now(),
@@ -1843,6 +1829,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'D',
          'question_id' => 46,
+            'image' => '/img/undraw_posting_photo.svg',
          'text' => "S, L, D, I, R, I",
          'created_at' => now(),
          'updated_at' => now(),
@@ -1858,6 +1845,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'A',
          'question_id' => 47,
+            'image' => '/img/undraw_posting_photo.svg',
          'text' => "1",
          'created_at' => now(),
          'updated_at' => now(),
@@ -1865,6 +1853,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'B',
          'question_id' => 47,
+            'image' => '/img/undraw_posting_photo.svg',
          'text' => "2",
          'created_at' => now(),
          'updated_at' => now(),
@@ -1872,6 +1861,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'C',
          'question_id' => 47,
+            'image' => '/img/undraw_posting_photo.svg',
          'text' => "3",
          'created_at' => now(),
          'updated_at' => now(),
@@ -1879,6 +1869,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'D',
          'question_id' => 47,
+            'image' => '/img/undraw_posting_photo.svg',
          'text' => "4",
          'created_at' => now(),
          'updated_at' => now(),
@@ -1894,6 +1885,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'A',
          'question_id' => 48,
+            'image' => '/img/undraw_posting_photo.svg',
          'text' => "İşçi",
          'created_at' => now(),
          'updated_at' => now(),
@@ -1901,6 +1893,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'B',
          'question_id' => 48,
+            'image' => '/img/undraw_posting_photo.svg',
          'text' => "Kaptan",
          'created_at' => now(),
          'updated_at' => now(),
@@ -1908,6 +1901,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'C',
          'question_id' => 48,
+            'image' => '/img/undraw_posting_photo.svg',
          'text' => "Öğretmen",
          'created_at' => now(),
          'updated_at' => now(),
@@ -1915,6 +1909,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'D',
          'question_id' => 48,
+            'image' => '/img/undraw_posting_photo.svg',
          'text' => "Mühendis",
          'created_at' => now(),
          'updated_at' => now(),
@@ -1930,6 +1925,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'A',
          'question_id' => 49,
+            'image' => '/img/undraw_posting_photo.svg',
          'text' => "2/12",
          'created_at' => now(),
          'updated_at' => now(),
@@ -1937,6 +1933,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'B',
          'question_id' => 49,
+            'image' => '/img/undraw_posting_photo.svg',
          'text' => "1/2",
          'created_at' => now(),
          'updated_at' => now(),
@@ -1944,6 +1941,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'C',
          'question_id' => 49,
+            'image' => '/img/undraw_posting_photo.svg',
          'text' => "1/5",
          'created_at' => now(),
          'updated_at' => now(),
@@ -1951,6 +1949,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'D',
          'question_id' => 49,
+            'image' => '/img/undraw_posting_photo.svg',
          'text' => "1/8",
          'created_at' => now(),
          'updated_at' => now(),
@@ -3436,7 +3435,556 @@ class DatabaseSeeder extends Seeder
          'created_at' => now(),
          'updated_at' => now(),
         ]);
-        
+            //---------------------------------91
+        DB::table('questions')->insert([
+            'lesson_id' => 7,
+            'correct_answer' => 'C',
+            'text' => "Üçgenin bir köşesinden karşısındaki kenarın orta noktasına çizilen doğru parçasına ne ad verilir ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 91,
+            'text' => "Açıortay",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 91,
+            'text' => "Yükseklik",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 91,
+            'text' => "Kenarortay",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 91,
+            'text' => "Dikme",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------92
+        DB::table('questions')->insert([
+            'lesson_id' => 7,
+            'correct_answer' => 'B',
+            'image' => '/img/question/geo-2.jpg',
+            'text' => "KLM üçgeninde [LN] açıortay ve m( KLMˆ ) = 88 º ise m( KLNˆ ) kaç derecedir ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 92,
+            'text' => "43 º",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 92,
+            'text' => "44 º",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 92,
+            'text' => "45 º",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 92,
+            'text' => "46 º",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------93
+        DB::table('questions')->insert([
+            'lesson_id' => 7,
+            'correct_answer' => 'A',
+            'image' => '/img/question/geo-3.jpg',
+            'text' => "Verilen ADC üçgeninin DC kenarına ait yüksekliği aşağıdakilerden hangisidir ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 93,
+            'text' => "[AB]",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 93,
+            'text' => "[AD]",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 93,
+            'text' => "[AC]",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 93,
+            'text' => "[BC]",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------94
+        DB::table('questions')->insert([
+            'lesson_id' => 7,
+            'correct_answer' => 'C',
+            'text' => "PRS üçgeninde IPRI = 14 cm ve IRSI = 19 cm'dir. Buna göre SP kenarının uzunluğu aşağıdakilerden hangisi olabilir ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 94,
+            'text' => "5 cm",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 94,
+            'text' => "4 cm",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 94,
+            'text' => "32 cm",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 94,
+            'text' => "33 cm",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------95
+        DB::table('questions')->insert([
+            'lesson_id' => 7,
+            'correct_answer' => 'A',
+            'image' => '/img/question/geo-5.jpg',
+            'text' => "Şekildeki LKM üçgeninde verilenlere göre a yerine yazılabilecek en küçük ve en büyük doğal sayıların toplamı kaçtır ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 95,
+            'text' => "28",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 95,
+            'text' => "27",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 95,
+            'text' => "26",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 95,
+            'text' => "25",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------96
+        DB::table('questions')->insert([
+            'lesson_id' => 7,
+            'correct_answer' => 'D',
+            'image' => '/img/question/geo-6.jpg',
+            'text' => "Şekildeki ABC üçgeninde verilenlere göre aşağıdaki ifadelerden hangisi doğrudur ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 96,
+            'text' => "En uzun kenar AC kenarıdır.",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 96,
+            'text' => "En uzun kenar AB kenarıdır.",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 96,
+            'text' => "En kısa kenar AC kenarıdır.",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 96,
+            'text' => "En kısa kenar AB kenarıdır.",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------97
+        DB::table('questions')->insert([
+            'lesson_id' => 7,
+            'correct_answer' => 'D',
+            'image' => '/img/question/geo-7.jpg',
+            'text' => "Şekildeki PRS üçgeninde  m( PSTˆ ) = 115 º ve IPRI = IPSI' dir. Buna göre üçgenin kenar uzunluklarının büyükten küçüğe sıralanışı aşağıdakilerden hangisidir ? ",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 97,
+            'text' => "IPRI = IPSI = IRSI",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 97,
+            'text' => "IPRI < IPSI = IRSI",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 97,
+            'text' => "IPRI > IPSI > IRSI",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 97,
+            'text' => "IPRI = IPSI > IRSI",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------98
+        DB::table('questions')->insert([
+            'lesson_id' => 7,
+            'correct_answer' => 'B',
+            'image' => '/img/question/geo-8.jpg',
+            'text' => "Şekildeki ABC üçgeninde verilenlere göre, üçgenin kenar uzunluklarının büyükten küçüğe sıralanışı aşağıdakilerden hangisinde doğru verilmiştir ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 98,
+            'text' => "IACI < IBCI < IABI",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 98,
+            'text' => "IACI > IBCI > IABI",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 98,
+            'text' => "IABI > IBCI > IACI",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 98,
+            'text' => "IBCI > IACI > IABI",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------99
+        DB::table('questions')->insert([
+            'lesson_id' => 7,
+            'correct_answer' => 'A',
+            'text' => "Üç kenar uzunluğu bilinen bir üçgeni çizmek için cetvel dışında hangi aracı kullanmak yeterlidir ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 99,
+            'text' => "Pergel",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 99,
+            'text' => "Gönye",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 99,
+            'text' => "İletki",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 99,
+            'text' => "Hesap makinesi",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------100
+        DB::table('questions')->insert([
+            'lesson_id' => 7,
+            'correct_answer' => 'D',
+            'text' => "İki iç açısının ölçüsü bilinen bir üçgen için aşağıdakilerden hangisi bilinirse bu üçgen çizilebilir ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 100,
+            'text' => "Alanı",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 100,
+            'text' => "Üçüncü açı ölçüsü",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 100,
+            'text' => "Çevre uzunluğu",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 100,
+            'text' => "Bir kenar uzunluğu",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------101
+        DB::table('questions')->insert([
+            'lesson_id' => 7,
+            'correct_answer' => 'C',
+            'image' => '/img/question/geo-11.jpg',
+            'text' => "Şekildeki dik üçgende verilenlere göre x aşağıdakilerden hangisidir ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 101,
+            'text' => "13",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 101,
+            'text' => "14",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 101,
+            'text' => "15",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 101,
+            'text' => "16",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------102
+        DB::table('questions')->insert([
+            'lesson_id' => 7,
+            'correct_answer' => 'D',
+            'image' => '/img/question/geo-12.jpg',
+            'text' => "Şekildeki dik üçgende verilenlere göre x aşağıdakilerden hangisidir ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 102,
+            'text' => "13",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 102,
+            'text' => "14",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 102,
+            'text' => "15",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 102,
+            'text' => "16",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------103
+        DB::table('questions')->insert([
+            'lesson_id' => 7,
+            'correct_answer' => 'A',
+            'image' => '/img/question/geo-13.jpg',
+            'text' => "Şekilde verilenlere göre, IKNI uzunluğu kaç cm dir ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 103,
+            'text' => "13",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 103,
+            'text' => "15",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 103,
+            'text' => "17",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 103,
+            'text' => "19",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------104
+        DB::table('questions')->insert([
+            'lesson_id' => 7,
+            'correct_answer' => 'B',
+            'image' => '/img/question/geo-14.jpg',
+            'text' => "Yukarıdaki PRS üçgeninde verilenlere göre, PS kenarının uzunluğu kaç cm dir ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 104,
+            'text' => "18",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 104,
+            'text' => "√212",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 104,
+            'text' => "√312",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 104,
+            'text' => "√12",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------105
+        DB::table('questions')->insert([
+            'lesson_id' => 7,
+            'correct_answer' => 'D',
+            'text' => "Yukarıdaki üçgende verilenlere göre IBCI kaç cm'dir ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 105,
+            'text' => "√53",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 105,
+            'text' => "√35",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 105,
+            'text' => "√43",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 105,
+            'text' => "√45",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
         
    
         //Questions and Choices
@@ -3444,7 +3992,6 @@ class DatabaseSeeder extends Seeder
         /* DB::table('questions')->insert([
             'lesson_id' => 1,
             'correct_answer' => 'D',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => 'Kök 81 nedir?',
             'created_at' => now(),
             'updated_at' => now()
@@ -3481,7 +4028,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 2,
             'correct_answer' => 'B',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => '2^5 nedir?',
             'created_at' => now(),
             'updated_at' => now()
@@ -3518,7 +4064,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 3,
             'correct_answer' => 'C',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => 'sin(90) nedir?',
             'created_at' => now(),
             'updated_at' => now()
@@ -3555,7 +4100,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 4,
             'correct_answer' => 'A',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => 'birbirine dik 4 ve 3 birimlik vektörlerin birleşiminin büyüklüğü nedir?',
             'created_at' => now(),
             'updated_at' => now()
@@ -3563,28 +4107,32 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'A',
             'question_id' => 4,
-            'text' => '5',
+
+            'image' => '/img/undraw_posting_photo.svg',            'text' => '5',
             'created_at' => now(),
             'updated_at' => now()
         ]);
         DB::table('choices')->insert([
             'choice' => 'B',
             'question_id' => 4,
-            'text' => '8',
+
+            'image' => '/img/undraw_posting_photo.svg',            'text' => '8',
             'created_at' => now(),
             'updated_at' => now()
         ]);
         DB::table('choices')->insert([
             'choice' => 'C',
             'question_id' => 4,
-            'text' => '12',
+
+            'image' => '/img/undraw_posting_photo.svg',            'text' => '12',
             'created_at' => now(),
             'updated_at' => now()
         ]);
         DB::table('choices')->insert([
             'choice' => 'D',
             'question_id' => 4,
-            'text' => '2',
+
+            'image' => '/img/undraw_posting_photo.svg',            'text' => '2',
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -3592,7 +4140,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 5,
             'correct_answer' => 'B',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => 'Momentum?',
             'created_at' => now(),
             'updated_at' => now()
@@ -3629,7 +4176,6 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             'lesson_id' => 6,
             'correct_answer' => 'D',
-            'image' => '/img/undraw_posting_photo.svg',
             'text' => 'Enerji?',
             'created_at' => now(),
             'updated_at' => now()
@@ -3750,7 +4296,8 @@ class DatabaseSeeder extends Seeder
         DB::table('answers')->insert([
             'exam_id' => 5,
             'question_id' => 4,
-            'created_at' => now(),
+
+            'image' => '/img/undraw_posting_photo.svg',            'created_at' => now(),
             'updated_at' => now()
         ]);
         DB::table('answers')->insert([

@@ -13,7 +13,7 @@ class AnswerController extends Controller
     {
         $exam_id = $request->route('exam');
         $this->middleware(['auth', 'role:0']);
-        $this->middleware('exam:1,'.$exam_id)->except(['store']);
+        $this->middleware('exam:0,'.$exam_id)->except(['store']);
     }
     /**
      * Display a listing of the resource.
@@ -53,7 +53,9 @@ class AnswerController extends Controller
     {
         $lecture_id = $request->route('lecture');
         $exam_id = $request->route('exam');
+        //validate
 
+        //
         if($answers = $request->input('answers')){
             foreach ($answers as $key => $answer){
                 $data = Answer::find($key);

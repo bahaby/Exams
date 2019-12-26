@@ -13360,6 +13360,7 @@ input[type=password]:placeholder {
   text-align: left;
   color: #3C454C;
   cursor: pointer;
+  border-radius: 10px;
   position: relative;
   z-index: 2;
   -webkit-transition: color 200ms ease-in;
@@ -13403,6 +13404,14 @@ input[type=password]:placeholder {
   cursor: pointer;
   -webkit-transition: all 200ms ease-in;
   transition: all 200ms ease-in;
+}
+
+.inputGroup label.choice p {
+  display: inline;
+}
+
+.inputGroup label:hover label.choice {
+  background-color: #e3ecff;
 }
 
 .inputGroup input:checked ~ label {

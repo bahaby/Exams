@@ -17,7 +17,7 @@
         <label class="sorutextheader">Soru Metnini Giriniz :</label>
         <div class="mb-4">
     
-          <textarea class="textArea" name="text" rows="5" >
+          <textarea class="textArea" name="text">
     
           </textarea>
         </div>
@@ -32,7 +32,7 @@
           <!-- Soru konu butonu Başlangıç -->
         <div class="dropdown">
             <select class="custom-select btn imgBtn" name="lesson">
-              <option selected>Konu seç...</option>
+              <option selected value="">Konu seç...</option>
               @foreach ($lessons as $lesson)
                 <option value="{{$lesson->id}}">{{$lesson->name}}</option>
               @endforeach

@@ -47,7 +47,7 @@ class QuestionController extends Controller
          
             $destinationPath = public_path('/img/question');
             $img = Image::make($image->path());
-            $img->resize(512, 512, function ($constraint) {
+            $img->resize(256, 256, function ($constraint) {
                 $constraint->aspectRatio();
             })->save($destinationPath.'/'.$imagename);
             $imagepath = '/img/question/'.$imagename;
@@ -68,7 +68,7 @@ class QuestionController extends Controller
             
                 $destinationPath = public_path('/img/choice');
                 $img = Image::make($image->path());
-                $img->resize(512, 512, function ($constraint) {
+                $img->resize(256, 256, function ($constraint) {
                     $constraint->aspectRatio();
                 })->save($destinationPath.'/'.$imagename);
                 $imagepath = '/img/choice/'.$imagename;

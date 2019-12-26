@@ -9,7 +9,7 @@ class ResultController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth', 'role:0']);
+        $this->middleware(['auth', 'role:0']);//student
     }
     /**
      * Display a listing of the resource.
