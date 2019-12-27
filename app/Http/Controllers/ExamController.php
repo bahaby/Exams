@@ -96,7 +96,7 @@ class ExamController extends Controller
         $totalQuestion = TOTAL_QUESTIONS-count($points);//total question number that will be created with data
         $questionCount = $totalQuestion;
         //get the correct answers for each lesson
-        foreach ($exams->sortByDesc('id')->take(10) as $exam) {
+        foreach ($exams->sortByDesc('id')->take(3) as $exam) {
             foreach ($exam->questions as $question){
                 //increase question number for each exam
                 $counts[$question->lesson->id] ++;

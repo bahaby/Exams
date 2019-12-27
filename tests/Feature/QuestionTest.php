@@ -42,7 +42,7 @@ class QuestionTest extends TestCase
     public function teachers_can_add_question(){
         $this->actingAs(User::find(1));
         $count = \App\Question::all()->count();
-        $response= $this->post('/question', [
+        $response = $this->post('/question', [
             '_token' => csrf_token(),
             'text' => 'question text',
             //'image' => UploadedFile::fake()->image('question.jpg'),
@@ -60,4 +60,29 @@ class QuestionTest extends TestCase
         $this->assertCount($count+1, \App\Question::all());
         $response->assertRedirect('/question');
     }
+
+    /** @test */
+    /* public function student_can_take_exam(){
+        $this->withoutExceptionHandling();
+        $this->actingAs(User::find(3));
+        $exams = User::find(3)->exams;
+        $count = $exams->count();
+
+        $response = $this->get('/lecture/1/exam/create');
+        $response->assertOk();
+        $response = $this->get('/lecture/1/exam/'.($count+1).'/answer');
+
+        $response->assertSeeText('/lecture/1/exam/'.($count+1).'/answer');
+        //$response->assertRedirect('/lecture/1/exam/'.$count.'/);
+
+        $data = [];
+        foreach ($exams->last()->answers as $key => $value){
+            $data[$key] = 'A';
+        }
+        $response = $this->post('/lecture', $data);
+
+        $response->assertOk();
+    } */
+
+    
 }

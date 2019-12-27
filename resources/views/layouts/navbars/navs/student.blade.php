@@ -3,6 +3,13 @@
 <div class="text-danger">{{ $error }}</div>
 @empty
 @endforelse
+
+@if (Route::currentRouteName() == 'answer')
+<div class="flipTimer text-center">
+  <div class="minutes"></div>
+  <div class="seconds"></div>
+</div>
+@endif
  <!-- Topbar Navbar -->
  <ul class="navbar-nav ml-auto">
 		<!-- Nav Item - User Information -->

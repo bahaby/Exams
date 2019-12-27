@@ -4,6 +4,23 @@ $(document).ready(function() {
   $('.textArea').summernote({
     airMode: true
   });
+  const date = new Date();
+  date.setHours( date.getHours() + 1 );
+  $('.flipTimer').flipTimer({ 
+
+  // count up or countdown
+  direction: 'down', 
+
+  // the target <a href="https://www.jqueryscript.net/time-clock/">date</a>
+  date: date, 
+
+  // callback works only with direction = "down"
+  callback: function() {
+    $('#exam-form').submit();  
+  },
+  days:false,
+  hours: false,
+  });
   
 });
 
@@ -49,5 +66,4 @@ $('#page-pagination').twbsPagination({
     disabledClass: 'disabled'
     
     });
-    
     

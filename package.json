@@ -28,7 +28,6 @@
         "chart": "^0.1.2",
         "chart.js": "^2.9.3",
         "codemirror": "^5.50.0",
-        "jquery-simple-timer": "^1.0.2",
         "twbs-pagination": "^1.4.1",
         "vue": "^2.6.11"
     }

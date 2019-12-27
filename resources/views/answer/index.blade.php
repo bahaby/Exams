@@ -7,7 +7,7 @@
 
         <div class="card-body">
         <ul id="page-pagination" class="pagination-lg center"></ul>
-        <form action="/lecture/{{$lecture_id}}/exam/{{$exam->id}}/answer" method="post" class="form">
+        <form id="exam-form" action="/lecture/{{$lecture_id}}/exam/{{$exam->id}}/answer" method="post" class="form">
             @csrf
             @php 
                 $i = 0;
