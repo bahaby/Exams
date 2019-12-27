@@ -88,10 +88,12 @@ class ExamController extends Controller
         $totalPoint = 0;
         $counts = [];
         $lessonQuestionCount = [];
+        $maxLessonQuestionCount = [];
         foreach ($lecture->lessons as $lesson) {
             $points[$lesson->id]=0;
             $counts[$lesson->id]=0;
             $lessonQuestionCount[$lesson->id]=0;
+            $maxLessonQuestionCount[$lesson->id] = $lesson->questions->count() -1;
         }
         $totalQuestion = TOTAL_QUESTIONS-count($points);//total question number that will be created with data
         $questionCount = $totalQuestion;
@@ -117,8 +119,13 @@ class ExamController extends Controller
             $totalPoint += $points[$key]; 
         }
         //calculate question numbers for each lesson
+        arsort($points);
         foreach ($points as $key => $point) {
             $points[$key] *= ($totalQuestion/$totalPoint); 
+            //for not enough questions
+            if ($points[$key] > $maxLessonQuestionCount[$key]){
+                $points[$key] = $maxLessonQuestionCount[$key];
+            }
             while($points[$key]>=1){
                 $points[$key]--;
                 $lessonQuestionCount[$key]++;
@@ -128,8 +135,11 @@ class ExamController extends Controller
         //dealing with decimals
         while($questionCount>0){
             $big = max($points);
-            foreach ($points as $key => $point) {
-                if($point == $big){
+            //shorts each time 
+            asort($lessonQuestionCount);
+            foreach ($lessonQuestionCount as $key => $value) {
+                //dealing with decimals en not enough questions
+                if($points[$key] == $big && !($lessonQuestionCount[$key] >= $maxLessonQuestionCount[$key])){
                     $lessonQuestionCount[$key]++;
                     $questionCount--;
                     $points[$key]=0;
