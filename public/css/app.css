@@ -13341,7 +13341,13 @@ input[type=password]:placeholder {
 }
 
 .flipTimer {
-  zoom: 0.4;
+  margin-top: -15px;
+  margin-bottom: -20px;
+  zoom: 0.3;
+}
+
+.baslik {
+  vertical-align: middle;
 }
 
 @-webkit-keyframes flipTop {

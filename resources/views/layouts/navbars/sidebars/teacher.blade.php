@@ -27,7 +27,7 @@
       <span>Soru Ekle</span></a>
   </li>
 
-  <!-- Nav Item - Charts -->
+ {{--  <!-- Nav Item - Charts -->
   <li class="nav-item">
     <a class="nav-link" href="charts.html">
       <i class="fas fa-fw fa-chart-area"></i>
@@ -39,7 +39,7 @@
     <a class="nav-link" href="tables.html">
       <i class="fas fa-fw fa-table"></i>
       <span>Geçmiş Sınavlar</span></a>
-  </li>
+  </li> --}}
 
   <!-- Divider -->
   <hr class="sidebar-divider d-none d-md-block">

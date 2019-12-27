@@ -30,6 +30,7 @@ class QuestionTest extends TestCase
 
         $response = $this->get('/question/create');
         $response->assertRedirect('/');
+        $response->assertSessionHasErrors();
     }
 
     /** @test */

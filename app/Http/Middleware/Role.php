@@ -18,6 +18,6 @@ class Role
         if(auth()->user()->role == $role){
             return $next($request);
         }
-        return redirect('/')->withErrors('You are not a '.(($role == 1)?'teacher':'student'));
+        return redirect('/')->withErrors('Bu sayfa sayfa '.(($role == 1)?'öğretmen':'öğrenci').'ler için.');
     }
 }

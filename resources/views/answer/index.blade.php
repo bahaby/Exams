@@ -3,7 +3,18 @@
 @section('content')
 {{header("Refresh: 3605; url=/")}}
     <div class="card">
-        <div class="card-header">Sorular</div>
+        <div class="card-header baslik">
+            
+            Sorular
+            
+
+            @if (Route::currentRouteName() == 'answer')
+            <div class="flipTimer text-center float-right">
+            <div class="minutes"></div>
+            <div class="seconds"></div>
+            </div>
+            @endif
+        </div>
 
         <div class="card-body">
         <ul id="page-pagination" class="pagination-lg center"></ul>

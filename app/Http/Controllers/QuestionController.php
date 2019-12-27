@@ -62,7 +62,7 @@ class QuestionController extends Controller
 
         foreach (array('A', 'B', 'C', 'D') as $choice) {
             $imagepath = null;
-            if ($request->hasFile('image')) {
+            if ($request->hasFile('choice'.$choice.'image')) {
                 $image = $request->file('choice'.$choice.'image');
                 $imagename = 'choice-' . time(). Str::random(40) . '.' . $image->getClientOriginalExtension();
             
