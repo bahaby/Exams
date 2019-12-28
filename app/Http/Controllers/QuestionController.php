@@ -54,7 +54,7 @@ class QuestionController extends Controller
         }
 
         $question = \App\Question::create([
-            'text' => $request->text,
+            'text' => clean($request->text),
             'correct_answer' => $request->answer,
             'image' => $imagepath,
             'lesson_id' => $request->lesson,
@@ -73,10 +73,10 @@ class QuestionController extends Controller
                 })->save($destinationPath.'/'.$imagename);
                 $imagepath = '/img/choice/'.$imagename;
             }
-
+            
             \App\Choice::create([
                 'choice' => $choice,
-                'text' => $request['choice'.$choice.'text'],
+                'text' => clean($request['choice'.$choice.'text']),
                 'image' => $imagepath,
                 'question_id' => $question->id,
             ]);
