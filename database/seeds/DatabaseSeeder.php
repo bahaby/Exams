@@ -27,6 +27,21 @@ class DatabaseSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now()
         ]);
+        /* DB::table('lectures')->insert([
+            'name' => 'Türkçe',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        DB::table('lectures')->insert([
+            'name' => 'İnklap',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        DB::table('lectures')->insert([
+            'name' => 'İngilizce',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]); */
 
         //Lessons
         DB::table('lessons')->insert([
@@ -72,12 +87,30 @@ class DatabaseSeeder extends Seeder
             'updated_at' => now()
         ]);
         DB::table('lessons')->insert([
+            'name' => 'Veri Analizi',
+            'lecture_id' => 1,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        DB::table('lessons')->insert([
+            'name' => 'Cebirsel İfadeler',
+            'lecture_id' => 1,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        DB::table('lessons')->insert([
+            'name' => 'Geometrik Cisimler',
+            'lecture_id' => 1,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        DB::table('lessons')->insert([
             'name' => 'Vektörler',
             'lecture_id' => 2,
             'created_at' => now(),
             'updated_at' => now()
         ]);
-        /*
+        
         DB::table('lessons')->insert([
             'name' => 'Momentum',
             'lecture_id' => 2,
@@ -89,7 +122,7 @@ class DatabaseSeeder extends Seeder
             'lecture_id' => 2,
             'created_at' => now(),
             'updated_at' => now()
-        ]); */
+        ]);
 
         //Users
         DB::table('users')->insert([
@@ -99,7 +132,7 @@ class DatabaseSeeder extends Seeder
             'lecture_id' => 1,
             'username' => 'baha',
             'email_verified_at' => now(),
-            'password' => '$2y$10$qwoFlF83uv1Y6eYzJSaFzOlYsEFSahNnXHQhZSQ5wU.d55Gw12jpG', // password
+            'password' => '$2y$10$uKhPZrYceLRUHPZVr5OI5.a0tqr.Wp5K9DzlcBsJi9wY3qOrC7qJG', // password
             'remember_token' => Str::random(10),
             'created_at' => now(),
             'updated_at' => now()
@@ -111,7 +144,17 @@ class DatabaseSeeder extends Seeder
             'lecture_id' => 2,
             'username' => 'emre',
             'email_verified_at' => now(),
-            'password' => '$2y$10$qwoFlF83uv1Y6eYzJSaFzOlYsEFSahNnXHQhZSQ5wU.d55Gw12jpG', // password
+            'password' => '$2y$10$uKhPZrYceLRUHPZVr5OI5.a0tqr.Wp5K9DzlcBsJi9wY3qOrC7qJG', // password
+            'remember_token' => Str::random(10),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Example Student',
+            'email' => 'ogr@gmail.com',
+            'username' => 'ogr',
+            'email_verified_at' => now(),
+            'password' => '$2y$10$uKhPZrYceLRUHPZVr5OI5.a0tqr.Wp5K9DzlcBsJi9wY3qOrC7qJG', // password
             'remember_token' => Str::random(10),
             'created_at' => now(),
             'updated_at' => now()
@@ -121,7 +164,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'onur@gmail.com',
             'username' => 'onur',
             'email_verified_at' => now(),
-            'password' => '$2y$10$qwoFlF83uv1Y6eYzJSaFzOlYsEFSahNnXHQhZSQ5wU.d55Gw12jpG', // password
+            'password' => '$2y$10$uKhPZrYceLRUHPZVr5OI5.a0tqr.Wp5K9DzlcBsJi9wY3qOrC7qJG', // password
             'remember_token' => Str::random(10),
             'created_at' => now(),
             'updated_at' => now()
@@ -131,7 +174,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'sercan@gmail.com',
             'username' => 'sercan',
             'email_verified_at' => now(),
-            'password' => '$2y$10$qwoFlF83uv1Y6eYzJSaFzOlYsEFSahNnXHQhZSQ5wU.d55Gw12jpG', // password
+            'password' => '$2y$10$uKhPZrYceLRUHPZVr5OI5.a0tqr.Wp5K9DzlcBsJi9wY3qOrC7qJG', // password
             'remember_token' => Str::random(10),
             'created_at' => now(),
             'updated_at' => now()
@@ -141,7 +184,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'mert@gmail.com',
             'username' => 'mert',
             'email_verified_at' => now(),
-            'password' => '$2y$10$qwoFlF83uv1Y6eYzJSaFzOlYsEFSahNnXHQhZSQ5wU.d55Gw12jpG', // password
+            'password' => '$2y$10$uKhPZrYceLRUHPZVr5OI5.a0tqr.Wp5K9DzlcBsJi9wY3qOrC7qJG', // password
             'remember_token' => Str::random(10),
             'created_at' => now(),
             'updated_at' => now()
@@ -267,7 +310,7 @@ class DatabaseSeeder extends Seeder
             'choice' => 'A',
             'question_id' => 4,
 
-            'image' => '/img/undraw_posting_photo.svg',            'text' => '5',
+            'image' => '/img/student.svg',            'text' => '5',
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -275,7 +318,7 @@ class DatabaseSeeder extends Seeder
             'choice' => 'B',
             'question_id' => 4,
 
-            'image' => '/img/undraw_posting_photo.svg',            'text' => '6',
+            'image' => '/img/student.svg',            'text' => '6',
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -283,7 +326,7 @@ class DatabaseSeeder extends Seeder
             'choice' => 'C',
             'question_id' => 4,
 
-            'image' => '/img/undraw_posting_photo.svg',            'text' => '7',
+            'image' => '/img/student.svg',            'text' => '7',
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -291,7 +334,7 @@ class DatabaseSeeder extends Seeder
             'choice' => 'D',
             'question_id' => 4,
 
-            'image' => '/img/undraw_posting_photo.svg',            'text' => '8',
+            'image' => '/img/student.svg',            'text' => '8',
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -1566,7 +1609,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'A',
             'question_id' => 40,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
             'text' => '1',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1574,7 +1617,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'B',
             'question_id' => 40,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
             'text' => '2',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1582,7 +1625,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'C',
             'question_id' => 40,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
             'text' => '3',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1590,7 +1633,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'D',
             'question_id' => 40,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
             'text' => '4',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1606,7 +1649,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'A',
             'question_id' => 41,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
             'text' => '41',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1614,7 +1657,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'B',
             'question_id' => 41,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
             'text' => '34',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1622,7 +1665,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'C',
             'question_id' => 41,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
             'text' => '28',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1630,7 +1673,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'D',
             'question_id' => 41,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
             'text' => '16',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1646,7 +1689,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'A',
             'question_id' => 42,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
             'text' => '1',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1654,7 +1697,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'B',
             'question_id' => 42,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
             'text' => '2',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1662,7 +1705,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'C',
             'question_id' => 42,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
             'text' => '3',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1670,7 +1713,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'D',
             'question_id' => 42,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
             'text' => '4',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1686,7 +1729,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'A',
             'question_id' => 43,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
             'text' => '5',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1694,7 +1737,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'B',
             'question_id' => 43,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
             'text' => '2',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1702,7 +1745,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'C',
             'question_id' => 43,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
             'text' => '3',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1710,7 +1753,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'D',
             'question_id' => 43,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
             'text' => '4',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1726,7 +1769,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'A',
             'question_id' => 44,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
             'text' => '5',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1734,7 +1777,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'B',
             'question_id' => 44,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
             'text' => '7',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1742,7 +1785,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'C',
             'question_id' => 44,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
             'text' => '3',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1750,7 +1793,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'D',
             'question_id' => 44,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
             'text' => '8',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1766,7 +1809,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'A',
             'question_id' => 45,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
             'text' => '123',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1774,7 +1817,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'B',
             'question_id' => 45,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
             'text' => '132',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1782,7 +1825,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'C',
             'question_id' => 45,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
             'text' => '141',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1790,7 +1833,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'D',
             'question_id' => 45,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
             'text' => '153',
             'created_at' => now(),
             'updated_at' => now(),
@@ -1805,7 +1848,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'A',
          'question_id' => 46,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
          'text' => "S, L, D, R",
          'created_at' => now(),
          'updated_at' => now(),
@@ -1813,7 +1856,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'B',
          'question_id' => 46,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
          'text' => "S, A, L, D, R",
          'created_at' => now(),
          'updated_at' => now(),
@@ -1821,7 +1864,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'C',
          'question_id' => 46,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
          'text' => "S, A, L, D, I, R, I",
          'created_at' => now(),
          'updated_at' => now(),
@@ -1829,7 +1872,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'D',
          'question_id' => 46,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
          'text' => "S, L, D, I, R, I",
          'created_at' => now(),
          'updated_at' => now(),
@@ -1845,7 +1888,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'A',
          'question_id' => 47,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
          'text' => "1",
          'created_at' => now(),
          'updated_at' => now(),
@@ -1853,7 +1896,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'B',
          'question_id' => 47,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
          'text' => "2",
          'created_at' => now(),
          'updated_at' => now(),
@@ -1861,7 +1904,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'C',
          'question_id' => 47,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
          'text' => "3",
          'created_at' => now(),
          'updated_at' => now(),
@@ -1869,7 +1912,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'D',
          'question_id' => 47,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
          'text' => "4",
          'created_at' => now(),
          'updated_at' => now(),
@@ -1885,7 +1928,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'A',
          'question_id' => 48,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
          'text' => "İşçi",
          'created_at' => now(),
          'updated_at' => now(),
@@ -1893,7 +1936,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'B',
          'question_id' => 48,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
          'text' => "Kaptan",
          'created_at' => now(),
          'updated_at' => now(),
@@ -1901,7 +1944,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'C',
          'question_id' => 48,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
          'text' => "Öğretmen",
          'created_at' => now(),
          'updated_at' => now(),
@@ -1909,7 +1952,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'D',
          'question_id' => 48,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
          'text' => "Mühendis",
          'created_at' => now(),
          'updated_at' => now(),
@@ -1925,7 +1968,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'A',
          'question_id' => 49,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
          'text' => "2/12",
          'created_at' => now(),
          'updated_at' => now(),
@@ -1933,7 +1976,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'B',
          'question_id' => 49,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
          'text' => "1/2",
          'created_at' => now(),
          'updated_at' => now(),
@@ -1941,7 +1984,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'C',
          'question_id' => 49,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
          'text' => "1/5",
          'created_at' => now(),
          'updated_at' => now(),
@@ -1949,7 +1992,7 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'D',
          'question_id' => 49,
-            'image' => '/img/undraw_posting_photo.svg',
+            'image' => '/img/student.svg',
          'text' => "1/8",
          'created_at' => now(),
          'updated_at' => now(),
@@ -2073,32 +2116,28 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
          'choice' => 'A',
          'question_id' => 53,
-         'text' => "Zarın üst yüzeyine çift sayı gelme olasılığı 12 dir.
-                                        ",
+         'text' => "Zarın üst yüzeyine çift sayı gelme olasılığı 12 dir.",
          'created_at' => now(),
          'updated_at' => now(),
         ]);
         DB::table('choices')->insert([
          'choice' => 'B',
          'question_id' => 53,
-         'text' => "Zarın üst yüzeyine 4'den büyük bir sayı gelme olasılığı 12 dir.
-                                        ",
+         'text' => "Zarın üst yüzeyine 4'den büyük bir sayı gelme olasılığı 12 dir.",
          'created_at' => now(),
          'updated_at' => now(),
         ]);
         DB::table('choices')->insert([
          'choice' => 'C',
          'question_id' => 53,
-         'text' => "Zarın üst yüzeyine 5 gelme olasılığı 16 dır.
-                                        ",
+         'text' => "Zarın üst yüzeyine 5 gelme olasılığı 16 dır.",
          'created_at' => now(),
          'updated_at' => now(),
         ]);
         DB::table('choices')->insert([
          'choice' => 'D',
          'question_id' => 53,
-         'text' => "Zarın üst yüzüne asal sayı gelme olasılığı 12 dir.
-                                        ",
+         'text' => "Zarın üst yüzüne asal sayı gelme olasılığı 12 dir.",
          'created_at' => now(),
          'updated_at' => now(),
         ]);
@@ -3985,337 +4024,1632 @@ class DatabaseSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
         ]);
-        
-   
-        //Questions and Choices
-        //---------------------------------1
-        /* DB::table('questions')->insert([
-            'lesson_id' => 1,
-            'correct_answer' => 'D',
-            'text' => 'Kök 81 nedir?',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        DB::table('choices')->insert([
-            'choice' => 'A',
-            'question_id' => 1,
-            'text' => '6',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        DB::table('choices')->insert([
-            'choice' => 'B',
-            'question_id' => 1,
-            'text' => '7',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        DB::table('choices')->insert([
-            'choice' => 'C',
-            'question_id' => 1,
-            'text' => '8',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        DB::table('choices')->insert([
-            'choice' => 'D',
-            'question_id' => 1,
-            'text' => '9',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        //---------------------------------2
+        //---------------------------------106
         DB::table('questions')->insert([
-            'lesson_id' => 2,
+            'lesson_id' => 8,
             'correct_answer' => 'B',
-            'text' => '2^5 nedir?',
+            'text' => "Çok sayıda verinin gruplandırılarak sütun grafiği biçiminde temsil edilmesi aşağıdakilerden hangisidir ?",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
         DB::table('choices')->insert([
             'choice' => 'A',
-            'question_id' => 2,
-            'text' => '33',
+            'question_id' => 106,
+            'text' => "Çizgi Grafiği",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
         DB::table('choices')->insert([
             'choice' => 'B',
-            'question_id' => 2,
-            'text' => '32',
+            'question_id' => 106,
+            'text' => "Histogram",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
         DB::table('choices')->insert([
             'choice' => 'C',
-            'question_id' => 2,
-            'text' => '34',
+            'question_id' => 106,
+            'text' => "Daire Grafiği",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
         DB::table('choices')->insert([
             'choice' => 'D',
-            'question_id' => 2,
-            'text' => '35',
+            'question_id' => 106,
+            'text' => "Grup Grafiği",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
-        //---------------------------------3
+        //---------------------------------107
         DB::table('questions')->insert([
-            'lesson_id' => 3,
+            'lesson_id' => 8,
             'correct_answer' => 'C',
-            'text' => 'sin(90) nedir?',
+            'text' => "En küçük değer = 6<br>En büyük değer = 110<br>Bir veri grubuna ait yukarıdaki bilgiler verilmiştir. Bu veri grubu ile oluşturulacak 12 gruplu histogramın grup genişliği kaçtır ?",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
         DB::table('choices')->insert([
             'choice' => 'A',
-            'question_id' => 3,
-            'text' => '2',
+            'question_id' => 107,
+            'text' => "9",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
         DB::table('choices')->insert([
             'choice' => 'B',
-            'question_id' => 3,
-            'text' => '-1',
+            'question_id' => 107,
+            'text' => "10",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
         DB::table('choices')->insert([
             'choice' => 'C',
-            'question_id' => 3,
-            'text' => '1',
+            'question_id' => 107,
+            'text' => "11",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
         DB::table('choices')->insert([
             'choice' => 'D',
-            'question_id' => 3,
-            'text' => '0',
+            'question_id' => 107,
+            'text' => "12",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
-        //---------------------------------4
+        //---------------------------------108
         DB::table('questions')->insert([
-            'lesson_id' => 4,
+            'lesson_id' => 8,
             'correct_answer' => 'A',
-            'text' => 'birbirine dik 4 ve 3 birimlik vektörlerin birleşiminin büyüklüğü nedir?',
+            'image' => '/img/question/veri-3.jpg',
+            'text' => "Bir partiye katılan davetlilerin sayıları ve yaş aralıkları verilmiştir. Tabloya göre yaşı 18 den büyük 25 ten küçük kaç davetli vardır ?",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
         DB::table('choices')->insert([
             'choice' => 'A',
-            'question_id' => 4,
-
-            'image' => '/img/undraw_posting_photo.svg',            'text' => '5',
+            'question_id' => 108,
+            'text' => "34",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
         DB::table('choices')->insert([
             'choice' => 'B',
-            'question_id' => 4,
-
-            'image' => '/img/undraw_posting_photo.svg',            'text' => '8',
+            'question_id' => 108,
+            'text' => "32",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
         DB::table('choices')->insert([
             'choice' => 'C',
-            'question_id' => 4,
-
-            'image' => '/img/undraw_posting_photo.svg',            'text' => '12',
+            'question_id' => 108,
+            'text' => "33",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
         DB::table('choices')->insert([
             'choice' => 'D',
-            'question_id' => 4,
-
-            'image' => '/img/undraw_posting_photo.svg',            'text' => '2',
+            'question_id' => 108,
+            'text' => "30",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
-        //---------------------------------5
+        //---------------------------------109
         DB::table('questions')->insert([
-            'lesson_id' => 5,
+            'lesson_id' => 8,
             'correct_answer' => 'B',
-            'text' => 'Momentum?',
+            'text' => "Tablo oluşturulurken veri grubunun genişliği kaç alınmıştır ?",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
         DB::table('choices')->insert([
             'choice' => 'A',
-            'question_id' => 5,
-            'text' => '5',
+            'question_id' => 109,
+            'text' => "12",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
         DB::table('choices')->insert([
             'choice' => 'B',
-            'question_id' => 5,
-            'text' => '8',
+            'question_id' => 109,
+            'text' => "13",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
         DB::table('choices')->insert([
             'choice' => 'C',
-            'question_id' => 5,
-            'text' => '12',
+            'question_id' => 109,
+            'text' => "14",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
         DB::table('choices')->insert([
             'choice' => 'D',
-            'question_id' => 5,
-            'text' => '2',
+            'question_id' => 109,
+            'text' => "15",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
-        //---------------------------------6
+        //---------------------------------110
         DB::table('questions')->insert([
-            'lesson_id' => 6,
+            'lesson_id' => 8,
             'correct_answer' => 'D',
-            'text' => 'Enerji?',
+            'text' => "Yaşı 22 den büyük 28 ten küçük toplam kaç davetli vardır ?",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
         DB::table('choices')->insert([
             'choice' => 'A',
-            'question_id' => 6,
-            'text' => 'at',
+            'question_id' => 110,
+            'text' => "27",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
         DB::table('choices')->insert([
             'choice' => 'B',
-            'question_id' => 6,
-            'text' => 'test',
+            'question_id' => 110,
+            'text' => "29",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
         DB::table('choices')->insert([
             'choice' => 'C',
-            'question_id' => 6,
-            'text' => 'esek',
+            'question_id' => 110,
+            'text' => "32",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
         DB::table('choices')->insert([
             'choice' => 'D',
-            'question_id' => 6,
-            'text' => 'yanlış',
+            'question_id' => 110,
+            'text' => "35",
             'created_at' => now(),
-            'updated_at' => now()
-        ]); */
-
-        //Exams->questions
-        //--------------------------1
-        /* DB::table('exams')->insert([
-            'user_id' => 3,
-            'lecture_id' => 1,
+            'updated_at' => now(),
+        ]);
+        //---------------------------------111
+        DB::table('questions')->insert([
+            'lesson_id' => 8,
+            'correct_answer' => 'A',
+            'image' => '/img/question/veri-6.jpg',
+            'text' => "Yukarıdaki histogramda Wembley Park'ta yarışan araçların 1. kolu geçme sürelerine göre dağılımı verilmiştir. Buna göre 1. kolu 48 - 63 sn aralığında geçen kaç araç vardır ?",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
-        DB::table('answers')->insert([
-            'exam_id' => 1,
-            'question_id' => 1,
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 111,
+            'text' => "15",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
-        DB::table('answers')->insert([
-            'exam_id' => 1,
-            'question_id' => 2,
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 111,
+            'text' => "14",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
-        //--------------------------2
-        DB::table('exams')->insert([
-            'user_id' => 3,
-            'lecture_id' => 2,
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 111,
+            'text' => "13",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
-        DB::table('answers')->insert([
-            'exam_id' => 2,
-            'question_id' => 5,
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 111,
+            'text' => "12",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
-        DB::table('answers')->insert([
-            'exam_id' => 2,
-            'question_id' => 6,
+        //---------------------------------112
+        DB::table('questions')->insert([
+            'lesson_id' => 8,
+            'correct_answer' => 'C',
+            'text' => "1.kolu 56 - 67 sn aralığında geçen kaç araç vardır ?",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
-        //--------------------------3
-        DB::table('exams')->insert([
-            'user_id' => 3,
-            'lecture_id' => 1,
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 112,
+            'text' => "15",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
-        DB::table('answers')->insert([
-            'exam_id' => 3,
-            'question_id' => 3,
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 112,
+            'text' => "14",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
-        DB::table('answers')->insert([
-            'exam_id' => 3,
-            'question_id' => 2,
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 112,
+            'text' => "16",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
-        //--------------------------4
-        DB::table('exams')->insert([
-            'user_id' => 4,
-            'lecture_id' => 1,
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 112,
+            'text' => "17",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
-        DB::table('answers')->insert([
-            'exam_id' => 4,
-            'question_id' => 1,
+        //---------------------------------113
+        DB::table('questions')->insert([
+            'lesson_id' => 8,
+            'correct_answer' => 'B',
+            'text' => "Hangi sn aralığında 1. kolu geçen araç sayısı en azdır ?",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
-        DB::table('answers')->insert([
-            'exam_id' => 4,
-            'question_id' => 3,
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 113,
+            'text' => "56-60",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
-        //--------------------------5
-        DB::table('exams')->insert([
-            'user_id' => 4,
-            'lecture_id' => 2,
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 113,
+            'text' => "61-63",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
-        DB::table('answers')->insert([
-            'exam_id' => 5,
-            'question_id' => 4,
-
-            'image' => '/img/undraw_posting_photo.svg',            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        DB::table('answers')->insert([
-            'exam_id' => 5,
-            'question_id' => 6,
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 113,
+            'text' => "45-47",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
-        //--------------------------6
-        DB::table('exams')->insert([
-            'user_id' => 4,
-            'lecture_id' => 1,
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 113,
+            'text' => "48-51",
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
- */
-
-
-        
+        //---------------------------------114
+        DB::table('questions')->insert([
+            'lesson_id' => 8,
+            'correct_answer' => 'A',
+            'text' => "Sınıfımızdaki öğrencilerin seçtiği kişilerin yaş aralığı; 10, 10, 11, 12, 13, 13, 13, 15, 15, 16, 16, 17, 17, 18, 19, 21, 21, 22, 22, 23, 23, 24, 24, 24, 25, 26, 27, 28, 30, 31, 31, 31, 32, 33, 33, 34, 35, 36, 36, 36, 37, 37, 38, 38, 39, 39, 40, 43, 45, 47, 48, 49 olarak veriliyor. Bu verileri tabloda 8 gruba ayırdığımızda grup genişliği kaç olur ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 114,
+            'text' => "5",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 114,
+            'text' => "6",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 114,
+            'text' => "7",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 114,
+            'text' => "8",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------115
+        DB::table('questions')->insert([
+            'lesson_id' => 8,
+            'correct_answer' => 'B',
+            'text' => "1.Bir oto galeride satılan araçların dağılımı<br>2. Bir şehirde saatlere göre sıcaklık değişimi<br>3.Bir markete bir gün içerisinde gelen 800 müşterinin alışveriş sürelerinin dağılımı <br> Yukarıdakilerden hangisi yada hangileri çizgi grafiği ile gösterilmesi uygun değildir ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 115,
+            'text' => "I",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 115,
+            'text' => "I - III",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 115,
+            'text' => "III",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 115,
+            'text' => "II - III",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------116
+        DB::table('questions')->insert([
+            'lesson_id' => 8,
+            'correct_answer' => 'B',
+            'text' => "1.Bir ağacın boyundaki değişim her ay not alınıyor.<br>2.Bir futbol kulübünde başkanlık seçimlerinde kullanılan oylar not alınıyor.<br>3.Üç ayrı ilde üretilen fındık miktarı not alınıyor.<br>Yukarıda verilen ifadelerle ilgili toplanan verilerin hangisi yada hangilerini sütun grafiğinde göstermek uygun değildir ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 116,
+            'text' => "I",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 116,
+            'text' => "I - II",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 116,
+            'text' => "II - III",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 116,
+            'text' => "I - II - III",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------117
+        DB::table('questions')->insert([
+            'lesson_id' => 8,
+            'correct_answer' => 'C',
+            'text' => "Bir veri grubunun açıklığı 80 ve grup sayısı 12 ise oluşturulacak histogramın grup genişliği kaçtır ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 117,
+            'text' => "5",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 117,
+            'text' => "6",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 117,
+            'text' => "7",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 117,
+            'text' => "8",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------118
+        DB::table('questions')->insert([
+            'lesson_id' => 8,
+            'correct_answer' => 'A',
+            'text' => "Sıklık tablosu verilmiş bir veri grubundaki en küçük değer 21, en büyük değer 48 dir. Bu veriler ile 7 gruplu bir histogram oluşturmak istenirse bu histogramın grup genişliğinin kaç olması gerekir ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 118,
+            'text' => "4",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 118,
+            'text' => "5",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 118,
+            'text' => "6",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 118,
+            'text' => "7",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------119
+        DB::table('questions')->insert([
+            'lesson_id' => 8,
+            'correct_answer' => 'D',
+            'text' => "1.Histogram; ölçülebilir bir nitelik ile  ilgili gözlem değerlerinin dağılımını gösteren bir sütun grafiğidir.<br>2.Bir veri grubunun genişliğini belirlemek için, verilerin açıklığı karar verilen grup sayısına bölünür.<br>Yukarıdaki bilgilerle ilgili aşağıdakilerden hangisi doğrudur ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 119,
+            'text' => "I doğru II yanlıştır.",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 119,
+            'text' => "Her ikisi de yanlıştır.",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 119,
+            'text' => "I yanlış II doğrudur.",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 119,
+            'text' => "Her ikisi de doğrudur.",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------120
+        DB::table('questions')->insert([
+            'lesson_id' => 8,
+            'correct_answer' => 'B',
+            'text' => "En küçük değeri 12 en büyük değeri 88 olan bir veri grubu ile oluşturulacak 13 gruplu histogramın grup genişliği kaçtır ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 120,
+            'text' => "5",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 120,
+            'text' => "6",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 120,
+            'text' => "7",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 120,
+            'text' => "8",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------121
+        DB::table('questions')->insert([
+            'lesson_id' => 9,
+            'correct_answer' => 'B',
+            'text' => "- 4a + 3b <br> 6x - 3 - 5y <br> Yukarıda verilen cebirsel ifadelerin terim sayısı sırasıyla hangi şıkta doğru verilmiştir ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 121,
+            'text' => "4;5",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 121,
+            'text' => "2;3",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 121,
+            'text' => "3;4",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 121,
+            'text' => "2;4",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------122
+        DB::table('questions')->insert([
+            'lesson_id' => 9,
+            'correct_answer' => 'D',
+            'text' => "a . (a - 2) işleminin sonucu aşağıdakilerden hangisinde doğru verilmiştir ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 122,
+            'text' => "a<sup>2</sup>+2",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 122,
+            'text' => "a<sup>2</sup>-2",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 122,
+            'text' => "a<sup>2</sup>+2a",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 122,
+            'text' => "a<sup>2</sup>-2a",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------123
+        DB::table('questions')->insert([
+            'lesson_id' => 9,
+            'correct_answer' => 'B',
+            'text' => "2x . ( 4x + 2y ) işleminin sonucu aşağıdakilerden hangisidir ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 123,
+            'text' => "4x<sup>2</sup>-4xy",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 123,
+            'text' => "8x<sup>2</sup>+4xy",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 123,
+            'text' => "4x<sup>2</sup>+4xy",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 123,
+            'text' => "8x<sup>2</sup>-4xy",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------124
+        DB::table('questions')->insert([
+            'lesson_id' => 9,
+            'correct_answer' => 'A',
+            'text' => "( x + 1 ) . ( - x - 1 ) işleminin sonucu aşağıdakilerden hangisidir ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 124,
+            'text' => "-x<sup>2</sup>-2x-1",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 124,
+            'text' => "-x<sup>2</sup>+2x-1",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 124,
+            'text' => "-x<sup>2</sup>-2x+1",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 124,
+            'text' => "-x<sup>2</sup>-1",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------125
+        DB::table('questions')->insert([
+            'lesson_id' => 9,
+            'correct_answer' => 'C',
+            'text' => "( 2x - 3y )<sup>2</sup> ifadesinin eşiti aşağıdakilerden hangisidir ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 125,
+            'text' => "2x<sup>2</sup>-12xy+9y<sup>2</sup>",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 125,
+            'text' => "4x<sup>2</sup>+12xy-9y<sup>2</sup>",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 125,
+            'text' => "4x<sup>2</sup>-12xy+9y<sup>2</sup>",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 125,
+            'text' => "4x<sup>2</sup>-12xy-9y<sup>2</sup>",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------126
+        DB::table('questions')->insert([
+            'lesson_id' => 9,
+            'correct_answer' => 'B',
+            'text' => "6 . ( 3x - 5 ) = 18x - A ifadesi bir özdeşlik olduğuna göre A kaçtır ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 126,
+            'text' => "25",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 126,
+            'text' => "30",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 126,
+            'text' => "35",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 126,
+            'text' => "40",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------127
+        DB::table('questions')->insert([
+            'lesson_id' => 9,
+            'correct_answer' => 'A',
+            'text' => "36 - 4x2 ifadesinin çarpanlarına ayrılmış şekli aşağıdakilerden hangisidir ?    ",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 127,
+            'text' => "( 6 - 2x ) . ( 6 + 2x )",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 127,
+            'text' => "( 36 - 2x ) . ( 36 + 2x )",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 127,
+            'text' => "( 6 - 2x ) . ( 6 - 2x )",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 127,
+            'text' => "( 36 - 2x ) . ( 6 - 2x )",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------128
+        DB::table('questions')->insert([
+            'lesson_id' => 9,
+            'correct_answer' => 'A',
+            'text' => "x<sup>2</sup> - 10x + 25 ifadesinin çarpanlarına ayrılmış şekli aşağıdakilerden hangisidir ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 128,
+            'text' => "( x - 5 ) . ( x - 5 )",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 128,
+            'text' => "( x - 5 ) . ( x + 5 )",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 128,
+            'text' => "( x + 5 ) . ( x + 5 )",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 128,
+            'text' => "( x - 25 ) . ( x - 25 )",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------129
+        DB::table('questions')->insert([
+            'lesson_id' => 9,
+            'correct_answer' => 'A',
+            'text' => "-144x<sup>2</sup> + 121y<sup>2</sup> ifadesinin çarpanlara ayrılmış şekli aşağıdakilerden hangisidir ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 129,
+            'text' => "( 11y - 12x ) . ( 11y + 12x )",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 129,
+            'text' => "( 11y + 12x ) . ( 11y + 12x )",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 129,
+            'text' => "( 11y - 12x ) . ( 11y - 12x )",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 129,
+            'text' => "( 10x - 11y ) . ( 10x + 11y )",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------130
+        DB::table('questions')->insert([
+            'lesson_id' => 9,
+            'correct_answer' => 'B',
+            'text' => "x<sup>2</sup> - 14x + 49 ifadesinin çarpanları x - A ve x - A olduğuna göre, A kaçtır ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 130,
+            'text' => "-6",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 130,
+            'text' => "7",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 130,
+            'text' => "6",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 130,
+            'text' => "-7",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------131
+        DB::table('questions')->insert([
+            'lesson_id' => 9,
+            'correct_answer' => 'B',
+            'text' => "Aşağıda verilen ifadelerden hangisi 4a<sup>2</sup>x - 16b<sup>2</sup>x cebirsel ifadesinin çarpanlarından değildir ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 131,
+            'text' => "4x",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 131,
+            'text' => "x-2b",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 131,
+            'text' => "a-2b",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 131,
+            'text' => "a+2b",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------132
+        DB::table('questions')->insert([
+            'lesson_id' => 9,
+            'correct_answer' => 'C',
+            'text' => "9x<sup>2</sup> + 30xy + 25y<sup>2</sup> = ( Kx + Ly )<sup>2</sup> eşitliğine göre K ve L yerine yazılması gereken sayıların toplamı kaçtır ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 132,
+            'text' => "0",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 132,
+            'text' => "7",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 132,
+            'text' => "8",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 132,
+            'text' => "9",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------133
+        DB::table('questions')->insert([
+            'lesson_id' => 9,
+            'correct_answer' => 'A',
+            'text' => "Kısa kenar uzunluğu ( x - 6 ) birim, alanı ( x<sup>2</sup> - 36 ) birimkare olan dikdörtgenin uzun kenarı kaç birimdir ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 133,
+            'text' => "( x + 6 ) birim",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 133,
+            'text' => "( x + 8 ) birim",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 133,
+            'text' => "( x + 10 ) birim",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 133,
+            'text' => "( x + 12 ) birim",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------134
+        DB::table('questions')->insert([
+            'lesson_id' => 9,
+            'correct_answer' => 'D',
+            'text' => "6 . ( 3x - 8 ) = 18x - A ifadesi bir özdeşlik olduğuna göre A kaçtır ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 134,
+            'text' => "28",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 134,
+            'text' => "35",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 134,
+            'text' => "-48",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 134,
+            'text' => "48",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------135
+        DB::table('questions')->insert([
+            'lesson_id' => 9,
+            'correct_answer' => 'A',
+            'text' => "a . (a - 5) işleminin sonucu aşağıdakilerden hangisinde doğru verilmiştir ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 135,
+            'text' => "a<sup>2</sup>-5a",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 135,
+            'text' => "a<sup>2</sup>-8a",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 135,
+            'text' => "a<sup>3</sup>+5a",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 135,
+            'text' => "a<sup>2</sup>-4",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------136
+        DB::table('questions')->insert([
+            'lesson_id' => 10,
+            'correct_answer' => 'D',
+            'image' => '/img/question/cisim-1.jpg',
+            'text' => "Verilen şekillerden hangisi üçgen prizmanın açınımı olamaz ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 136,
+            'text' => "1",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 136,
+            'text' => "2",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 136,
+            'text' => "3",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 136,
+            'text' => "4",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------137
+        DB::table('questions')->insert([
+            'lesson_id' => 10,
+            'correct_answer' => 'B',
+            'text' => "1.Taban<br>2.Köşe<br>3.Eksen<br>Yukarıdakilerden hangisi ya da hangileri bir dik prizmanın temel elemanlarındandır ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 137,
+            'text' => "1",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 137,
+            'text' => "1-2",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 137,
+            'text' => "2-3",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 137,
+            'text' => "1-2-3",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------138
+        DB::table('questions')->insert([
+            'lesson_id' => 10,
+            'correct_answer' => 'A',
+            'image' => '/img/question/cisim-3.jpg',
+            'text' => "Verilenlerden hangisi dik dairesel silindirin açık şekli olabilir ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 138,
+            'text' => "1",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 138,
+            'text' => "2",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 138,
+            'text' => "3",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 138,
+            'text' => "4",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------139
+        DB::table('questions')->insert([
+            'lesson_id' => 10,
+            'correct_answer' => 'C',
+            'text' => "1.Kare<br>2.Daire<br>3.Dikdörtgen<br>4.Üçgen <br>Yukarıdakilerden hangisi ya da hangileri silindirin yan yüzünün açık şekli olabilir ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 139,
+            'text' => "1-4",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 139,
+            'text' => "2-3",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 139,
+            'text' => "1-3",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 139,
+            'text' => "2-4",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------140
+        DB::table('questions')->insert([
+            'lesson_id' => 10,
+            'correct_answer' => 'C',
+            'text' => "Kare dik prizma tabanından geçen ekseni etrafında en az kaç derece döndürülürse şekli değişmez ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 140,
+            'text' => "45",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 140,
+            'text' => "60",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 140,
+            'text' => "90",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 140,
+            'text' => "180",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------141
+        DB::table('questions')->insert([
+            'lesson_id' => 10,
+            'correct_answer' => 'C',
+            'text' => "Yarıçap uzunluğu 2 cm, yüksekliği 6 cm olan bir dik dairesel silindirin yüzey alanı kaç cm2 dir ? (π = 3 alınız. )  ",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 141,
+            'text' => "24",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 141,
+            'text' => "48",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 141,
+            'text' => "72",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 141,
+            'text' => "96",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------142
+        DB::table('questions')->insert([
+            'lesson_id' => 10,
+            'correct_answer' => 'B',
+            'text' => "Taban yarıçapının uzunluğu 5 cm ve yüksekliği 10 cm olan dik dairesel silindirin alanı kaç cm2 dir ? ( π = 3 alınız. )",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 142,
+            'text' => "300",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 142,
+            'text' => "450",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 142,
+            'text' => "550",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 142,
+            'text' => "650",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------143
+        DB::table('questions')->insert([
+            'lesson_id' => 10,
+            'correct_answer' => 'D',
+            'text' => "Taban yarıçapının uzunluğu ve yüksekliği 10 cm olan dik dairesel silindir yapman için en az kaç cm2 karton gerekir ? ( π = 3 alınız. )",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 143,
+            'text' => "600",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 143,
+            'text' => "800",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 143,
+            'text' => "1000",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 143,
+            'text' => "1200",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------144
+        DB::table('questions')->insert([
+            'lesson_id' => 10,
+            'correct_answer' => 'B',
+            'text' => "Bir düzgün sekizgen piramit simetri ekseni etrafında en az kaç derece döndürülürse şekli değişmez ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 144,
+            'text' => "30",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 144,
+            'text' => "45",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 144,
+            'text' => "60",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 144,
+            'text' => "90",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------145
+        DB::table('questions')->insert([
+            'lesson_id' => 10,
+            'correct_answer' => 'B',
+            'image' => '/img/question/cisim-10.jpg',
+            'text' => "Kare dik prizma tabanından geçen ekseni etrafında en az kaç derece döndürülürse şekli değişmez ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 145,
+            'text' => "900",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 145,
+            'text' => "700",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 145,
+            'text' => "850",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 145,
+            'text' => "600",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------146
+        DB::table('questions')->insert([
+            'lesson_id' => 10,
+            'correct_answer' => 'A',
+            'text' => "Çap uzunluğu ile yüksekliği birbirine eşit olan dik dairesel silindirin taban alanı 147 cm2 ise hacmi kaç cm3 tür ? ( π = 3 alınız. )",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 146,
+            'text' => "1029",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 146,
+            'text' => "958",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 146,
+            'text' => "978",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 146,
+            'text' => "889",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------147
+        DB::table('questions')->insert([
+            'lesson_id' => 10,
+            'correct_answer' => 'C',
+            'text' => "Aşağıdaki bilgilerden hangisi yanlıştır?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 147,
+            'text' => "Üçgen dik prizmanın ayrıt sayısı 9 dur.",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 147,
+            'text' => "Kare dik prizmanın yüzey sayısı 6 dır.",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 147,
+            'text' => "Beşgen dik prizmanın köşe sayısı 15 dir.",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 147,
+            'text' => "Altıgen dik prizmanın ayrıt sayısı 18 dir.",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------148
+        DB::table('questions')->insert([
+            'lesson_id' => 10,
+            'correct_answer' => 'C',
+            'text' => "Düzgün altıgen dik piramidin yüz sayısı aşağıdakilerden hangisidir ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 148,
+            'text' => "9",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 148,
+            'text' => "8",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 148,
+            'text' => "7",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 148,
+            'text' => "6",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------149
+        DB::table('questions')->insert([
+            'lesson_id' => 10,
+            'correct_answer' => 'A',
+            'text' => "Taban çevresinin uzunluğu 24 cm ve yüksekliği 8 cm olan dik koninin ana doğrusunun uzunluğu kaç cm'dir ? ( π = 3 alınız. )",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 149,
+            'text' => "4√5",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 149,
+            'text' => "12",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 149,
+            'text' => "3√5",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 149,
+            'text' => "4",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //---------------------------------150
+        DB::table('questions')->insert([
+            'lesson_id' => 10,
+            'correct_answer' => 'C',
+            'text' => "Üçgen dik piramidin köşe sayısı aşağıdakilerden hangisidir ?",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'A',
+            'question_id' => 150,
+            'text' => "6",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'B',
+            'question_id' => 150,
+            'text' => "5",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'C',
+            'question_id' => 150,
+            'text' => "4",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('choices')->insert([
+            'choice' => 'D',
+            'question_id' => 150,
+            'text' => "3",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+   
+   
     }
 }

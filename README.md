@@ -5,10 +5,10 @@ Projemiz öğrencilerin sınav olup öğretmenlerinde öğrenciler için soru ek
 
 ## Gereksinimler
 
-[Laravel](https://laravel.com/docs/6.x#installation)
-[Php](https://www.apachefriends.org/tr/index.html)
-[Composer](https://getcomposer.org/doc/00-intro.md)
-[Node.js](https://nodejs.org/en/download/)
+- [Laravel](https://laravel.com/docs/6.x#installation)
+- [Php](https://www.apachefriends.org/tr/index.html)
+- [Composer](https://getcomposer.org/doc/00-intro.md)
+- [Node.js](https://nodejs.org/en/download/)
 
 ## Yükleme
 Projeyi indirdikten sonra proje dizinine girip şu komutları çalıştırınız.
@@ -28,6 +28,6 @@ Projeyi indirdikten sonra proje dizinine girip şu komutları çalıştırınız
 Komut satırında oluşturulan urlden uygulamayı kullanmaya başlayabilirsiniz.
 
 - Öğrenci hesabı için kullanıcı adı: ogr şifre: 123
-- Mateamati Öğretmeni için kullanıcı adı: baha şifre: 123
+- Matematik Öğretmeni için kullanıcı adı: baha şifre: 123
 - Fizik Öğretmeni için kullanıcı adı: emre şifre: 123
 

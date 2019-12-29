@@ -39,7 +39,6 @@ class ExamController extends Controller
                     $point++;
                 }
             }
-            if($count == 0) $count = 1;
             array_push($grades, round(($point / $count) * 100));
             array_push($labels, $exam->created_at->format('d-m-y'));
         }
@@ -78,25 +77,30 @@ class ExamController extends Controller
             return redirect('/lecture')->withErrors("Bu dersten daha fazla sınava giremezsiniz");
         }
 
+        //variable resets..
+        $totalPoint = 0;
+        $points = [];
+        $counts = [];
+        $lessonQuestionCount = [];
+        $maxLessonQuestionCount = [];
+        foreach ($lecture->lessons as $lesson) {
+            if ($lesson->questions->count() > 0){
+                $points[$lesson->id]=0;
+                $counts[$lesson->id]=0;
+                $lessonQuestionCount[$lesson->id]=0;
+                $maxLessonQuestionCount[$lesson->id] = $lesson->questions->count() -1;
+            }
+        }
+        $totalQuestion = TOTAL_QUESTIONS-count($points);//total question number that will be created with data
+        $questionCount = $totalQuestion;
+        if (array_sum($maxLessonQuestionCount) < $totalQuestion){
+            return redirect('/lecture')->withErrors("Henüz yeterli soru eklenmemiş");
+        }
         //adds exams to database
         $examCreated = \App\Exam::create([
             'user_id' => auth()->user()->id,
             'lecture_id' => $lecture->id,
         ]);
-        //variable resets..
-        $points = [];
-        $totalPoint = 0;
-        $counts = [];
-        $lessonQuestionCount = [];
-        $maxLessonQuestionCount = [];
-        foreach ($lecture->lessons as $lesson) {
-            $points[$lesson->id]=0;
-            $counts[$lesson->id]=0;
-            $lessonQuestionCount[$lesson->id]=0;
-            $maxLessonQuestionCount[$lesson->id] = $lesson->questions->count() -1;
-        }
-        $totalQuestion = TOTAL_QUESTIONS-count($points);//total question number that will be created with data
-        $questionCount = $totalQuestion;
         //get the correct answers for each lesson
         foreach ($exams->sortByDesc('id')->take(3) as $exam) {
             foreach ($exam->questions as $question){
@@ -161,17 +165,6 @@ class ExamController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  \App\Exam  $exam
@@ -188,9 +181,11 @@ class ExamController extends Controller
         $labels = [];
         $percentage = [];
         foreach ($lecture->lessons as $lesson) {
-            array_push($labels, $lesson->name);
-            $points[$lesson->id]=0;
-            $counts[$lesson->id]=0;
+            if ($lesson->questions->count() > 0){
+                array_push($labels, $lesson->name);
+                $points[$lesson->id]=0;
+                $counts[$lesson->id]=0;
+            }
         }
         //get the correct answers for each lesson
         foreach ($exam->questions as $question){
@@ -203,7 +198,6 @@ class ExamController extends Controller
         }
         //calculate points for each lesson
         foreach ($points as $key => $point) {
-            if($counts[$key] == 0) $counts[$key] = 1;
             $percentage[$key] = round(($point * 100)/$counts[$key], 2);
         }
         $chart = new ExamChart;
@@ -220,38 +214,4 @@ class ExamController extends Controller
 
         return view('exam.show', compact('lecture', 'percentage', 'chart'));
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Exam  $exam
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Exam $exam)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Exam  $exam
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Exam $exam)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Exam  $exam
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Exam $exam)
-    {
-        //
-    } 
 }

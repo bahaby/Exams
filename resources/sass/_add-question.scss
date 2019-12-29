@@ -59,6 +59,10 @@ textarea, .note-editing-area
     box-sizing: border-box;
     border-radius: 50px;
 }
+.plan input:hover + label{
+	background-color: #d47c29;
+	border: 1px solid #333;
+}
 
 .plan input:checked + label{
 	border: 1px solid #333;
@@ -75,8 +79,8 @@ textarea, .note-editing-area
 	background-color: #2fcc71;
 	z-index: 999;
 	position: absolute;
-	top: -10px;
-    right: -10px;
+	top: -8px;
+    right: -8px;
 }
 .dropdown
 {

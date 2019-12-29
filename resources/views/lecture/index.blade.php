@@ -5,7 +5,7 @@
 
       <div class="row">
         @foreach ($lectures as $lecture)
-        <div class="col-sm-6">
+        <div class="col-sm-6 mb-3">
           <div class="card">
             <div class="card-header"><b>Ders: </b>{{$lecture->name}}</div>
             <div class="card-body">

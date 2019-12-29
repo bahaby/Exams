@@ -272,9 +272,18 @@ input[type=text]:placeholder, input[type=password]:placeholder {
 
 
 .flipTimer{
-  margin-top: -15px;
-  margin-bottom: -20px;
-  zoom: 0.3;
+  margin-top: -39px;
+  margin-bottom: -39px;
+  transform: scale(.3);
+  transform-origin: right;
+  -ms-transform: scale(.3); 
+  -ms-transform-origin: right;
+  -webkit-transform: scale(.3); 
+  -webkit-transform-origin: right;
+  -o-transform: scale(.3); 
+  -o-transform-origin: right;
+  -moz-transform: scale(.3);
+  -moz-transform-origin: right; 
 }
 
 .baslik{
