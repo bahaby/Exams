@@ -13364,6 +13364,10 @@ input[type=password]:placeholder {
   vertical-align: middle;
 }
 
+.img-question {
+  width: 256px;
+}
+
 @-webkit-keyframes flipTop {
   0% {
     -webkit-transform: perspective(400px) rotateX(0deg);

@@ -20,7 +20,7 @@
             <div class="card-body mb-3 rounded" style="background-color:aliceblue;">
                 @if ($question->image != null)
                     <div class="mt-3 mb-3">
-                        <img class="img-thumbnail" src="{{$question->image}}"/>  
+                        <img class="img-thumbnail img-question" src="{{$question->image}}"/>  
                     </div>
                 @endif
                 <div class="p-2 mt-3 mb-2 list-group-item list-group-item-warning text-dark rounded">

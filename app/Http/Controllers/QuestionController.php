@@ -40,26 +40,14 @@ class QuestionController extends Controller
             'choiceBtext' => 'required',
             'choiceCtext' => 'required',
             'choiceDtext' => 'required',
-            'choiceAimage' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'choiceBimage' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'choiceCimage' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'choiceDimage' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'choiceAimage' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'choiceBimage' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'choiceCimage' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'choiceDimage' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'answer' => 'required'
         ]);
-        $imagepath = null;
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imagename = 'question-' . time(). Str::random(40) . '.' . $image->getClientOriginalExtension();
-         
-            $destinationPath = public_path('/img/question');
-            File::isDirectory($destinationPath) or File::makeDirectory($destinationPath, 0777, true, true);
-            
-            $img = Image::make($image->path());
-            $img->resize(256, 256, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save($destinationPath.'/'.$imagename);
-            $imagepath = '/img/question/'.$imagename;
-        }
+        
+        $imagepath = $this->saveImage($request, 'image', 'question');
 
         $question = \App\Question::create([
             'text' => clean($request->text),
@@ -69,20 +57,7 @@ class QuestionController extends Controller
         ]);
 
         foreach (array('A', 'B', 'C', 'D') as $choice) {
-            $imagepath = null;
-            if ($request->hasFile('choice'.$choice.'image')) {
-                $image = $request->file('choice'.$choice.'image');
-                $imagename = 'choice-' . time(). Str::random(40) . '.' . $image->getClientOriginalExtension();
-            
-                $destinationPath = public_path('/img/choice');
-                File::isDirectory($destinationPath) or File::makeDirectory($destinationPath, 0777, true, true);
-
-                $img = Image::make($image->path());
-                $img->resize(256, 256, function ($constraint) {
-                    $constraint->aspectRatio();
-                })->save($destinationPath.'/'.$imagename);
-                $imagepath = '/img/choice/'.$imagename;
-            }
+            $imagepath = $this->saveImage($request, 'choice'.$choice.'image', 'choice');
             
             \App\Choice::create([
                 'choice' => $choice,
@@ -93,5 +68,27 @@ class QuestionController extends Controller
         }
         
         return redirect('/question');
+    }
+
+    private function saveImage($request, $input, $path){
+        $imagepath = null;
+        if ($request->hasFile($input)) {
+            $image = $request->file($input);
+            $imagename = $path.'-' . time(). Str::random(40) . '.' . $image->getClientOriginalExtension();
+            $imagepath = '/img/'.$path.'/'.$imagename;
+        
+            $destinationPath = public_path('/img/'.$path);
+            File::isDirectory($destinationPath) or File::makeDirectory($destinationPath, 0777, true, true);
+
+            if($image->getClientOriginalExtension() != 'svg'){
+                $img = Image::make($image->path());
+                $img->resize(256, 256, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->save($destinationPath.'/'.$imagename);
+            }else{
+                File::copy($image->path(), $destinationPath.'/'.$imagename);
+            }
+        }
+        return $imagepath;
     }
 }
