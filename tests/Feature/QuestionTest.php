@@ -21,8 +21,49 @@ class QuestionTest extends TestCase
      */
     protected function setUp(): void{
         parent::setUp();
-        //Artisan::call('migrate:fresh --seed');
+        Artisan::call('migrate:fresh --seed');
         Session::start();
+    }
+    /** @test */
+    public function only_teachers_can_enter_teachers_page(){
+        $this->actingAs(User::find(3));//student
+
+        $response = $this->get('/question/create');
+        $response->assertRedirect('/');
+        $response->assertSessionHasErrors();
+
+        $response = $this->get('/question');
+        $response->assertRedirect('/');
+        $response->assertSessionHasErrors();
+    }
+    /** @test */
+    public function only_students_can_enter_students_page(){
+        $this->actingAs(User::find(1));//student
+
+        factory(\App\Exam::class)->create([
+            'lecture_id' => 1,
+            'user_id' => 3,
+        ]);
+
+        $response = $this->get('/result');
+        $response->assertRedirect('/');
+        $response->assertSessionHasErrors();
+        
+        $response = $this->get('/lecture');
+        $response->assertRedirect('/');
+        $response->assertSessionHasErrors();
+
+        $response = $this->get('/lecture/1/exam/create');
+        $response->assertRedirect('/');
+        $response->assertSessionHasErrors();
+
+        $response = $this->get('/lecture/1/exam');
+        $response->assertRedirect('/');
+        $response->assertSessionHasErrors();
+
+        $response = $this->get('/lecture/1/exam/1');
+        $response->assertRedirect('/');
+        $response->assertSessionHasErrors();
     }
     /** @test */
     public function only_teachers_can_enter_add_question_page(){

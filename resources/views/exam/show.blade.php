@@ -15,7 +15,7 @@
           </div>
           </p>
           <hr>
-            <a href="/" class="btn btn-primary">Ana Sayfa</a>
+            <a href="/lecture/{{$lecture->id}}/exam" class="btn btn-primary">Geri dön</a>
           </div>
         </div>
 

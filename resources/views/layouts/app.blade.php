@@ -26,10 +26,10 @@
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
-            @if (Auth::user()->role == 1)
-                @include('layouts.page_templates.teacher')
-            @else
+            @if (Auth::user()->lecture_id == null)
                 @include('layouts.page_templates.student')
+            @else
+                @include('layouts.page_templates.teacher')
             @endif
         @else
             @include('layouts.page_templates.guess')

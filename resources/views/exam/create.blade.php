@@ -16,6 +16,7 @@
               <li class="list-group-item list-group-item-warning" style="color: black;">· Sınav Süresi 60 dakika'dır.</li>
               <li class="list-group-item list-group-item-warning" style="color: black;">· 50 Sorudan Oluşmaktadır.</li>
               <li class="list-group-item list-group-item-warning" style="color: black;">· Boş bırakılan sorular yanlış olarak değerlendirilmektedir.</li>
+              <li class="list-group-item list-group-item-warning" style="color: black;">· Sınav ekranından sınavı bitir demeden ayrılırsanız sınavınız iptal olur.</li>
           </p>
           <hr>
             <p class="card-text">Sınava başlamak için aşağıdaki butona tıklayın.</p>

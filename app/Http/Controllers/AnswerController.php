@@ -12,7 +12,7 @@ class AnswerController extends Controller
     public function __construct(Request $request)
     {
         $exam_id = $request->route('exam');
-        $this->middleware(['auth', 'role:0']);
+        $this->middleware(['auth', 'role']);
         $this->middleware('exam:0,'.$exam_id)->except(['store']);
     }
     /**

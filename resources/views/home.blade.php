@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-  @if (Auth::user()->role == 1)
-      @include('layouts.content.teacher')
+  @if (Auth::user()->lecture_id == null)
+    @include('layouts.home.student')
   @else
-      @include('layouts.content.student')
+    @include('layouts.home.teacher')
   @endif
 @endsection

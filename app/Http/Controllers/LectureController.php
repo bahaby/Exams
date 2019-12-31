@@ -9,7 +9,7 @@ class LectureController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth', 'role:0']);
+        $this->middleware(['auth', 'role']);
     }
     /**
      * Display a listing of the resource.

@@ -13,11 +13,11 @@ class Role
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $role)
+    public function handle($request, Closure $next, $role = null)
     {
-        if(auth()->user()->role == $role){
+        if(is_null(auth()->user()->lecture_id) == is_null($role)){
             return $next($request);
         }
-        return redirect('/')->withErrors('Bu sayfa sayfa '.(($role == 1)?'öğretmen':'öğrenci').'ler için.');
+        return redirect('/')->withErrors('Bu sayfa sayfa '.((is_null($role))?'öğrenci':'öğretmen').'ler için.');
     }
 }

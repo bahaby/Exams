@@ -11,12 +11,17 @@ class QuestionController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth', 'role:1']);//1-teacher
+        $this->middleware(['auth', 'role:1']);//not null - teacher
     }
 
 
     public function index(){
-        $questions = \App\Question::all();
+        $lessons = auth()->user()->lecture->lessons;
+        $lesson_ids = [];
+        foreach ($lessons as $lesson){
+            array_push($lesson_ids, $lesson->id);
+        }
+        $questions = \App\Question::all()->whereIn('lesson_id', $lesson_ids)->sortByDesc('id');
         return view('question.index', compact('questions'));
     }
     
@@ -34,10 +39,10 @@ class QuestionController extends Controller
             'choiceBtext' => 'required',
             'choiceCtext' => 'required',
             'choiceDtext' => 'required',
-            'choiceAimage' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'choiceBimage' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'choiceCimage' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'choiceDimage' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'choiceAimage' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'choiceBimage' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'choiceCimage' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'choiceDimage' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
             'answer' => 'required'
         ]);
         $imagepath = null;

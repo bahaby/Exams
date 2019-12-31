@@ -13,7 +13,7 @@ class ExamController extends Controller
     public function __construct(Request $request)
     {
         $exam_id = $request->route('exam');
-        $this->middleware(['auth', 'role:0']);//0-student
+        $this->middleware(['auth', 'role']);//student
         $this->middleware('exam:1,'.$exam_id)->only(['show']);//exam:{is_done},{exam_id}
     }
     /**
@@ -24,10 +24,14 @@ class ExamController extends Controller
      */
     public function index(Request $request, Lecture $lecture)
     {   
-        $exams = auth()->user()->exams->where('lecture_id', $lecture->id)->where('is_done', 1)->sortByDesc('id')->take(10);
+        $exams = auth()->user()->exams->where('lecture_id', $lecture->id)->where('is_done', 1)->sortByDesc('id');
+        if ($exams->count() == 0){
+            return redirect('/result')->withErrors('Bu dersten daha önce sınav olmadınız.');
+        }
+        $chartExams = $exams->take(10)->sortBy('id');
         $grades = [];
         $labels = [];
-        foreach ($exams as $exam){
+        foreach ($chartExams as $exam){
             $count = 0;
             $point = 0;
             //get the correct answers for each lesson
@@ -46,11 +50,11 @@ class ExamController extends Controller
         $chart = new ExamChart;
         $chart->labels($labels)
             ->dataset('Genel Not', 'bar', $grades)
-            ->color('red')
-            ->backgroundColor('red')
+            ->color('#5cb85c')
+            ->backgroundColor('#5cb85c')
             ->fill(true);
 
-        return view('exam.index', compact('exams', 'lecture', 'chart'));
+        return view('exam.index', compact('exams', 'chartExams', 'lecture', 'chart'));
     }
 
     /**
@@ -203,8 +207,8 @@ class ExamController extends Controller
         $chart = new ExamChart;
         $chart->labels($labels)
             ->dataset('Doğru Cevap', 'bar', array_values($points))
-            ->color('red')
-            ->backgroundColor('red')
+            ->color('#5cb85c')
+            ->backgroundColor('#5cb85c')
             ->fill(true);
         $chart->labels($labels)
             ->dataset('Toplam Soru', 'bar', array_values($counts))

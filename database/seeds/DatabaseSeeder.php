@@ -127,25 +127,19 @@ class DatabaseSeeder extends Seeder
         //Users
         DB::table('users')->insert([
             'name' => 'Bahadır Bayraktar',
-            'email' => 'baho908@gmail.com',
-            'role' => 1,
+            'email' => 'baha@gmail.com',
             'lecture_id' => 1,
             'username' => 'baha',
-            'email_verified_at' => now(),
             'password' => '$2y$10$uKhPZrYceLRUHPZVr5OI5.a0tqr.Wp5K9DzlcBsJi9wY3qOrC7qJG', // password
-            'remember_token' => Str::random(10),
             'created_at' => now(),
             'updated_at' => now()
         ]);
         DB::table('users')->insert([
             'name' => 'Emre Demir',
             'email' => 'emre@gmail.com',
-            'role' => 1,
             'lecture_id' => 2,
             'username' => 'emre',
-            'email_verified_at' => now(),
             'password' => '$2y$10$uKhPZrYceLRUHPZVr5OI5.a0tqr.Wp5K9DzlcBsJi9wY3qOrC7qJG', // password
-            'remember_token' => Str::random(10),
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -153,9 +147,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Example Student',
             'email' => 'ogr@gmail.com',
             'username' => 'ogr',
-            'email_verified_at' => now(),
             'password' => '$2y$10$uKhPZrYceLRUHPZVr5OI5.a0tqr.Wp5K9DzlcBsJi9wY3qOrC7qJG', // password
-            'remember_token' => Str::random(10),
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -163,9 +155,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Onur Göz',
             'email' => 'onur@gmail.com',
             'username' => 'onur',
-            'email_verified_at' => now(),
             'password' => '$2y$10$uKhPZrYceLRUHPZVr5OI5.a0tqr.Wp5K9DzlcBsJi9wY3qOrC7qJG', // password
-            'remember_token' => Str::random(10),
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -173,9 +163,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Sercan Bayrambey',
             'email' => 'sercan@gmail.com',
             'username' => 'sercan',
-            'email_verified_at' => now(),
             'password' => '$2y$10$uKhPZrYceLRUHPZVr5OI5.a0tqr.Wp5K9DzlcBsJi9wY3qOrC7qJG', // password
-            'remember_token' => Str::random(10),
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -183,9 +171,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Mert Dürüm',
             'email' => 'mert@gmail.com',
             'username' => 'mert',
-            'email_verified_at' => now(),
             'password' => '$2y$10$uKhPZrYceLRUHPZVr5OI5.a0tqr.Wp5K9DzlcBsJi9wY3qOrC7qJG', // password
-            'remember_token' => Str::random(10),
             'created_at' => now(),
             'updated_at' => now()
         ]);
