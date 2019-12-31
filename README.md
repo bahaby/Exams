@@ -3,6 +3,15 @@
 
 Projemiz öğrencilerin sınav olup öğretmenlerinde öğrenciler için soru ekleyebildiği bir sistem.
 
+## Sınav Olma Ekranı
+![Sınav Olma Ekranı](demo/take-exam.gif)
+
+## Sonuç Ekranları
+![Sonuç Ekranları](demo/check-results.gif)
+
+## Soru Ekleme Ekranı
+![Soru Ekleme Ekranı](demo/add-question.gif)
+
 ## Gereksinimler
 
 - [Laravel](https://laravel.com/docs/6.x#installation)
