@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Lesson;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
@@ -51,6 +52,8 @@ class QuestionController extends Controller
             $imagename = 'question-' . time(). Str::random(40) . '.' . $image->getClientOriginalExtension();
          
             $destinationPath = public_path('/img/question');
+            File::isDirectory($destinationPath) or File::makeDirectory($destinationPath, 0777, true, true);
+            
             $img = Image::make($image->path());
             $img->resize(256, 256, function ($constraint) {
                 $constraint->aspectRatio();
@@ -72,6 +75,8 @@ class QuestionController extends Controller
                 $imagename = 'choice-' . time(). Str::random(40) . '.' . $image->getClientOriginalExtension();
             
                 $destinationPath = public_path('/img/choice');
+                File::isDirectory($destinationPath) or File::makeDirectory($destinationPath, 0777, true, true);
+
                 $img = Image::make($image->path());
                 $img->resize(256, 256, function ($constraint) {
                     $constraint->aspectRatio();
