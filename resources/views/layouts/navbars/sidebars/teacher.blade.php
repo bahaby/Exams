@@ -27,6 +27,12 @@
       <span>Soru Ekle</span></a>
   </li>
 
+  <!-- Nav Item - Tables -->
+  <li class="nav-item {{ Request::is('question') ? 'active' : '' }}">
+    <a class="nav-link" href="/question">
+      <i class="fas fa-fw fa-table"></i>
+      <span>Soru Havuzu</span></a>
+  </li>
  {{--  <!-- Nav Item - Charts -->
   <li class="nav-item">
     <a class="nav-link" href="charts.html">

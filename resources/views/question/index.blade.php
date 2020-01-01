@@ -3,15 +3,12 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h5 class="float-left">Sorular</h5>
-            <a href="/question/create" class="btn btn-primary btn-sm active float-right" role="button" aria-pressed="true">Geri dön</a>
+            <h5 class="float-left">Soru Havuzu</h5>
+            <a href="/question/create" class="btn btn-primary btn-sm active float-right" role="button" aria-pressed="true">Geri Dön</a>
 
         </div>
 
         <div class="card-body">
-
-
-
 
             @php 
                 $i = $questions->count();

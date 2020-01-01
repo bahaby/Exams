@@ -6,7 +6,7 @@
     
       <div class="card">
           <div class="card-header">
-            <h5 class="card-title">{{$lecture->name}}</h5>
+            <h4 class="m-0">Genel Not: <span class="badge {{($grade < 45)?'badge-danger':'badge-success'}} m-0">{{$grade}}</span></h4>
           </div>
           <div class="card-body">
             <hr>
@@ -15,7 +15,7 @@
           </div>
           </p>
           <hr>
-            <a href="/lecture/{{$lecture->id}}/exam" class="btn btn-primary">Geri dön</a>
+            <a href="/lecture/{{$lecture->id}}/exam" class="btn btn-primary">Son Sınavlar</a>
           </div>
         </div>
 

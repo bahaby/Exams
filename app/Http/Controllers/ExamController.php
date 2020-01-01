@@ -22,7 +22,7 @@ class ExamController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, Lecture $lecture)
+    public function index(Lecture $lecture)
     {   
         $exams = auth()->user()->exams->where('lecture_id', $lecture->id)->where('is_done', 1)->sortByDesc('id');
         if ($exams->count() == 0){
@@ -32,18 +32,7 @@ class ExamController extends Controller
         $grades = [];
         $labels = [];
         foreach ($chartExams as $exam){
-            $count = 0;
-            $point = 0;
-            //get the correct answers for each lesson
-            foreach ($exam->questions as $question){
-                //increase question number for each exam
-                $count++;
-                if ($question->answers->where('exam_id', $exam->id)->first()->answer === $question->correct_answer){
-                    //increase correct answers
-                    $point++;
-                }
-            }
-            array_push($grades, round(($point / $count) * 100));
+            array_push($grades, $exam->grade);
             array_push($labels, $exam->created_at->format('d-m-y'));
         }
 
@@ -183,27 +172,46 @@ class ExamController extends Controller
         $points = [];
         $counts = [];
         $labels = [];
-        $percentage = [];
-        foreach ($lecture->lessons as $lesson) {
-            if ($lesson->questions->count() > 0){
-                array_push($labels, $lesson->name);
-                $points[$lesson->id]=0;
-                $counts[$lesson->id]=0;
+        if ($exam->grade == null){
+            $count = 0;
+            $point = 0;
+            foreach ($lecture->lessons as $lesson) {
+                if ($lesson->questions->count() > 0){
+                    array_push($labels, $lesson->name);
+                    $points[$lesson->id]=0;
+                    $counts[$lesson->id]=0;
+                }
+            }
+            //get the correct answers for each lesson
+            foreach ($exam->questions as $question){
+                //increase question number for each exam
+                $counts[$question->lesson->id] ++;
+                $count++;
+                if ($question->answers->where('exam_id', $exam->id)->first()->answer === $question->correct_answer){
+                    //increase correct answers
+                    $points[$question->lesson->id] ++;
+                    $point++;
+                }
+            }
+            $exam->grade = ($point / $count) * 100;
+            $exam->save();
+            foreach ($counts as $key => $count) {
+                \App\Result::create([
+                    'lesson_id' => $key,
+                    'correct' => $points[$key],
+                    'total' => $count,
+                    'exam_id' => $exam->id,
+                ]);
+            }
+            
+        }else{
+            foreach ($exam->results as $result){
+                $points[$result->lesson_id] = $result->correct;
+                $counts[$result->lesson_id] = $result->total;
+                array_push($labels, $lecture->lessons->find($result->lesson_id)->name);
             }
         }
-        //get the correct answers for each lesson
-        foreach ($exam->questions as $question){
-            //increase question number for each exam
-            $counts[$question->lesson->id] ++;
-            if ($question->answers->where('exam_id', $exam->id)->first()->answer === $question->correct_answer){
-                //increase correct answers
-                $points[$question->lesson->id] ++;
-            }
-        }
-        //calculate points for each lesson
-        foreach ($points as $key => $point) {
-            $percentage[$key] = round(($point * 100)/$counts[$key], 2);
-        }
+        $grade = $exam->grade;
         $chart = new ExamChart;
         $chart->labels($labels)
             ->dataset('Doğru Cevap', 'bar', array_values($points))
@@ -216,6 +224,6 @@ class ExamController extends Controller
             ->backgroundColor('gray')
             ->fill(true);
 
-        return view('exam.show', compact('lecture', 'percentage', 'chart'));
+        return view('exam.show', compact('lecture', 'grade', 'chart'));
     }
 }

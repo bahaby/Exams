@@ -19,14 +19,19 @@ class QuestionTest extends TestCase
      *
      * @return void
      */
+
+    private $teacher;
+    private $student;
     protected function setUp(): void{
         parent::setUp();
         Artisan::call('migrate:fresh --seed');
         Session::start();
+        $this->teacher =  User::find(1);
+        $this->student =  User::find(3);
     }
     /** @test */
     public function only_teachers_can_enter_teachers_page(){
-        $this->actingAs(User::find(3));//student
+        $this->actingAs($this->student);//student
 
         $response = $this->get('/question/create');
         $response->assertRedirect('/');
@@ -35,14 +40,22 @@ class QuestionTest extends TestCase
         $response = $this->get('/question');
         $response->assertRedirect('/');
         $response->assertSessionHasErrors();
+
+        $this->actingAs($this->teacher);//mat-teacher
+
+        $response = $this->get('/question/create');
+        $response->assertOk();
+
+        $response = $this->get('/question');
+        $response->assertOk();
     }
     /** @test */
     public function only_students_can_enter_students_page(){
-        $this->actingAs(User::find(1));//student
+        $this->actingAs($this->teacher);//teacher
 
         factory(\App\Exam::class)->create([
             'lecture_id' => 1,
-            'user_id' => 3,
+            'user_id' => $this->student->id,
         ]);
 
         $response = $this->get('/result');
@@ -57,6 +70,10 @@ class QuestionTest extends TestCase
         $response->assertRedirect('/');
         $response->assertSessionHasErrors();
 
+        $response = $this->get('/lecture/1/exam/1/answer');
+        $response->assertRedirect('/');
+        $response->assertSessionHasErrors();
+
         $response = $this->get('/lecture/1/exam');
         $response->assertRedirect('/');
         $response->assertSessionHasErrors();
@@ -64,25 +81,28 @@ class QuestionTest extends TestCase
         $response = $this->get('/lecture/1/exam/1');
         $response->assertRedirect('/');
         $response->assertSessionHasErrors();
-    }
-    /** @test */
-    public function only_teachers_can_enter_add_question_page(){
-        $this->actingAs(User::find(3));//student
 
-        $response = $this->get('/question/create');
-        $response->assertRedirect('/');
-        $response->assertSessionHasErrors();
-    }
+        $this->actingAs($this->student);
 
-    /** @test */
-    public function teachers_can_enter_add_question_page(){
-        $this->actingAs(User::find(1));
-        $response = $this->get('/question/create');
+        $response = $this->get('/result');
         $response->assertOk();
+        
+        $response = $this->get('/lecture');
+        $response->assertOk();
+        
+        $response = $this->get('/lecture/1/exam/create');
+        $response->assertOk();
+        
+        /* $response = $this->get('/lecture/1/exam');
+        $response->assertOk();
+        
+        $response = $this->get('/lecture/1/exam/1');
+        $response->assertOk(); */
+
     }
     /** @test */
     public function teachers_can_add_question(){
-        $this->actingAs(User::find(1));
+        $this->actingAs($this->teacher);
         $count = \App\Question::all()->count();
         $response = $this->post('/question', [
             '_token' => csrf_token(),
@@ -102,29 +122,4 @@ class QuestionTest extends TestCase
         $this->assertCount($count+1, \App\Question::all());
         $response->assertRedirect('/question');
     }
-
-    /** @test */
-    /* public function student_can_take_exam(){
-        $this->withoutExceptionHandling();
-        $this->actingAs(User::find(3));
-        $exams = User::find(3)->exams;
-        $count = $exams->count();
-
-        $response = $this->get('/lecture/1/exam/create');
-        $response->assertOk();
-        $response = $this->get('/lecture/1/exam/'.($count+1).'/answer');
-
-        $response->assertSeeText('/lecture/1/exam/'.($count+1).'/answer');
-        //$response->assertRedirect('/lecture/1/exam/'.$count.'/);
-
-        $data = [];
-        foreach ($exams->last()->answers as $key => $value){
-            $data[$key] = 'A';
-        }
-        $response = $this->post('/lecture', $data);
-
-        $response->assertOk();
-    } */
-
-    
 }

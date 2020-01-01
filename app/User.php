@@ -33,6 +33,10 @@ class User extends Authenticatable
         return $this->hasMany('\App\Exam');
     }
 
+    public function results(){
+        return $this->hasMany('\App\Exam');
+    }
+
     //for teacher
     public function lecture(){
         return $this->belongsTo('\App\Lecture');

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Exam extends Model
 {
-    protected $fillable = ['user_id', 'lecture_id'];
+    protected $fillable = ['user_id', 'lecture_id', 'grade'];
     public function user(){
         return $this->belongsTo(User::class);
     }
@@ -21,5 +21,8 @@ class Exam extends Model
     }
     public function answers(){
         return $this->hasMany(Answer::class);
+    }
+    public function results(){
+        return $this->hasMany(Result::class);
     }
 }

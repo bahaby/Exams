@@ -26,7 +26,7 @@ Projeyi indirdikten sonra proje dizinine girip şu komutları çalıştırınız
     npm install
     npm run dev
 
-- Yükleme bittikten sonra proje dizinindeki .env.example dosyasını kopyalayıp ismini .env yapınız ve veritabanı bilgilerini giririniz.
+- Yükleme bittikten sonra proje dizinindeki .env.example dosyasını kopyalayıp ismini .env yapınız ve veritabanı bilgilerini giriniz.
 
 İşlem bittikten sonra proje dizininde ağağıdaki komutları çalıştırınız
     

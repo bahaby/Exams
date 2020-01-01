@@ -19,6 +19,7 @@ class CreateExamsTable extends Migration
             $table->bigInteger('lecture_id');
             $table->boolean('is_done')->default(0);
             $table->timestamps();
+            $table->decimal('grade', 3, 2)->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('lecture_id')->references('id')->on('lectures')->onDelete('cascade')->onUpdate('cascade');
         });
