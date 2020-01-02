@@ -188,6 +188,7 @@ class DatabaseSeeder extends Seeder
             'choice' => 'A',
             'question_id' => 1,
             'text' => '15',
+            'image' => '/img/student.svg',   
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -195,6 +196,7 @@ class DatabaseSeeder extends Seeder
             'choice' => 'B',
             'question_id' => 1,
             'text' => '25',
+            'image' => '/img/student.svg',   
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -202,6 +204,7 @@ class DatabaseSeeder extends Seeder
             'choice' => 'C',
             'question_id' => 1,
             'text' => '35',
+            'image' => '/img/student.svg',   
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -209,6 +212,7 @@ class DatabaseSeeder extends Seeder
             'choice' => 'D',
             'question_id' => 1,
             'text' => '45',
+            'image' => '/img/student.svg',   
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -224,6 +228,7 @@ class DatabaseSeeder extends Seeder
             'choice' => 'A',
             'question_id' => 2,
             'text' => '12',
+            'image' => '/img/student.svg',   
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -231,6 +236,7 @@ class DatabaseSeeder extends Seeder
             'choice' => 'B',
             'question_id' => 2,
             'text' => '14',
+            'image' => '/img/student.svg',   
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -238,6 +244,7 @@ class DatabaseSeeder extends Seeder
             'choice' => 'C',
             'question_id' => 2,
             'text' => '16',
+            'image' => '/img/student.svg',   
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -245,6 +252,7 @@ class DatabaseSeeder extends Seeder
             'choice' => 'D',
             'question_id' => 2,
             'text' => '18',
+            'image' => '/img/student.svg',   
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -260,6 +268,7 @@ class DatabaseSeeder extends Seeder
             'choice' => 'A',
             'question_id' => 3,
             'text' => '21',
+            'image' => '/img/student.svg',   
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -267,6 +276,7 @@ class DatabaseSeeder extends Seeder
             'choice' => 'B',
             'question_id' => 3,
             'text' => '20',
+            'image' => '/img/student.svg',   
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -274,6 +284,7 @@ class DatabaseSeeder extends Seeder
             'choice' => 'C',
             'question_id' => 3,
             'text' => '19',
+            'image' => '/img/student.svg',   
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -281,6 +292,7 @@ class DatabaseSeeder extends Seeder
             'choice' => 'D',
             'question_id' => 3,
             'text' => '18',
+            'image' => '/img/student.svg',   
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -295,32 +307,32 @@ class DatabaseSeeder extends Seeder
         DB::table('choices')->insert([
             'choice' => 'A',
             'question_id' => 4,
-
-            'image' => '/img/student.svg',            'text' => '5',
+            'image' => '/img/student.svg',            
+            'text' => '5',
             'created_at' => now(),
             'updated_at' => now()
         ]);
         DB::table('choices')->insert([
             'choice' => 'B',
             'question_id' => 4,
-
-            'image' => '/img/student.svg',            'text' => '6',
+            'image' => '/img/student.svg',            
+            'text' => '6',
             'created_at' => now(),
             'updated_at' => now()
         ]);
         DB::table('choices')->insert([
             'choice' => 'C',
             'question_id' => 4,
-
-            'image' => '/img/student.svg',            'text' => '7',
+            'image' => '/img/student.svg',            
+            'text' => '7',
             'created_at' => now(),
             'updated_at' => now()
         ]);
         DB::table('choices')->insert([
             'choice' => 'D',
             'question_id' => 4,
-
-            'image' => '/img/student.svg',            'text' => '8',
+            'image' => '/img/student.svg',            
+            'text' => '8',
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -336,6 +348,7 @@ class DatabaseSeeder extends Seeder
             'choice' => 'A',
             'question_id' => 5,
             'text' => '26',
+            'image' => '/img/student.svg',   
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -343,6 +356,7 @@ class DatabaseSeeder extends Seeder
             'choice' => 'B',
             'question_id' => 5,
             'text' => '25',
+            'image' => '/img/student.svg',   
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -350,6 +364,7 @@ class DatabaseSeeder extends Seeder
             'choice' => 'C',
             'question_id' => 5,
             'text' => '24',
+            'image' => '/img/student.svg',   
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -357,6 +372,7 @@ class DatabaseSeeder extends Seeder
             'choice' => 'D',
             'question_id' => 5,
             'text' => '23',
+            'image' => '/img/student.svg',   
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -372,6 +388,7 @@ class DatabaseSeeder extends Seeder
             'choice' => 'A',
             'question_id' => 6,
             'text' => '23',
+            'image' => '/img/student.svg',   
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -379,6 +396,7 @@ class DatabaseSeeder extends Seeder
             'choice' => 'B',
             'question_id' => 6,
             'text' => '17',
+            'image' => '/img/student.svg',   
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -386,6 +404,7 @@ class DatabaseSeeder extends Seeder
             'choice' => 'C',
             'question_id' => 6,
             'text' => '21',
+            'image' => '/img/student.svg',   
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -393,6 +412,7 @@ class DatabaseSeeder extends Seeder
             'choice' => 'D',
             'question_id' => 6,
             'text' => '19',
+            'image' => '/img/student.svg',   
             'created_at' => now(),
             'updated_at' => now()
         ]);
