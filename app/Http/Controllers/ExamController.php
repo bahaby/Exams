@@ -133,7 +133,7 @@ class ExamController extends Controller
             //shorts each time 
             asort($lessonQuestionCount);
             foreach ($lessonQuestionCount as $key => $value) {
-                //dealing with decimals en not enough questions
+                //dealing with decimals and not enough questions
                 if($points[$key] == $big && !($lessonQuestionCount[$key] >= $maxLessonQuestionCount[$key])){
                     $lessonQuestionCount[$key]++;
                     $questionCount--;

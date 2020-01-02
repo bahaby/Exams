@@ -40,6 +40,3 @@ Route::post('/lecture/{lecture}/exam/{exam}/answer', 'AnswerController@store');
 
 Route::get('/result', 'ResultController@index')->name('result');
 
-Route::get('logout', 'Auth\LoginController@logout', function () {
-    return abort(404);
-});

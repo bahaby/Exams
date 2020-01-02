@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-{{header("Refresh: 3605; url=/")}}
+{{header("Refresh: ".$exam->updated_at->addSecond('3603')->diffInSeconds(now())."; url=/")}}
     <div class="card">
+    <input type="hidden" id="reminder" value="{{$exam->updated_at->addHour()}}">
         <div class="card-header baslik">
             
             Sorular

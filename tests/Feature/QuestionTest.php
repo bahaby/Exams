@@ -92,12 +92,6 @@ class QuestionTest extends TestCase
         
         $response = $this->get('/lecture/1/exam/create');
         $response->assertOk();
-        
-        /* $response = $this->get('/lecture/1/exam');
-        $response->assertOk();
-        
-        $response = $this->get('/lecture/1/exam/1');
-        $response->assertOk(); */
 
     }
     /** @test */
