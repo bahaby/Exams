@@ -42,14 +42,14 @@ class AnswerController extends Controller
     {
         $lecture_id = $request->route('lecture');
         $exam_id = $request->route('exam');
-        //validate
-
-        //
+        
         if($answers = $request->input('answers')){
             foreach ($answers as $key => $answer){
-                $data = Answer::find($key);
-                $data->answer = $answer;
-                $data->save();
+                if (in_array($answer, ['A', 'B', 'C', 'D'])){
+                    $data = Answer::find($key);
+                    $data->answer = $answer;
+                    $data->save();
+                }
             }
         }
         return redirect('/lecture/'.$lecture_id.'/exam/'.$exam_id);

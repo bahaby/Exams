@@ -7,6 +7,7 @@ use App\Lecture;
 use Illuminate\Http\Request;
 use App\Charts\ExamChart;
 const TOTAL_QUESTIONS = 50;
+const LAST_EXAMS = 3;
 
 class ExamController extends Controller
 {
@@ -63,9 +64,6 @@ class ExamController extends Controller
             ]);
         }
         //checks
-    /*     $x = $exams->last()->created_at;
-        $y = now()->subHours(1)->toDateTimeString();
-        dd($x." - ".$y); */
         if ($exams->first() && $exams->last()->created_at > now()->subDays(0)->toDateTimeString()){
             return redirect('/lecture')->withErrors("Bu dersten daha fazla sınava giremezsiniz");
         }
@@ -95,7 +93,7 @@ class ExamController extends Controller
             'lecture_id' => $lecture->id,
         ]);
         //get the correct answers for each lesson
-        foreach ($exams->sortByDesc('id')->take(3) as $exam) {
+        foreach ($exams->sortByDesc('id')->take(LAST_EXAMS) as $exam) {
             foreach ($exam->questions as $question){
                 //increase question number for each exam
                 $counts[$question->lesson->id] ++;
