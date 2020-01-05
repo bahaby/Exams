@@ -33,13 +33,13 @@ class QuestionController extends Controller
 
     public function store(Request $request){
         $request->validate([
-            'text' => 'required',
+            'text' => 'required|max:256',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'lesson' => 'required',
-            'choiceAtext' => 'required',
-            'choiceBtext' => 'required',
-            'choiceCtext' => 'required',
-            'choiceDtext' => 'required',
+            'choiceAtext' => 'required|max:256',
+            'choiceBtext' => 'required|max:256',
+            'choiceCtext' => 'required|max:256',
+            'choiceDtext' => 'required|max:256',
             'choiceAimage' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'choiceBimage' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'choiceCimage' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',

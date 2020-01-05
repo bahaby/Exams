@@ -6,7 +6,7 @@
     <div id="formContent" class="pt-4">
         <form method="POST" action="{{ route('register') }}">
             @csrf
-                <input id="name" type="text" class="fadeIn first @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" placeholder="name"  autofocus>
+                <input id="name" type="text" class="fadeIn first @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" placeholder="isim"  autofocus>
 
                 @error('name')
                     <span class="invalid-feedback" role="alert">
@@ -14,7 +14,7 @@
                     </span>
                 @enderror
 
-                <input id="username" type="text" class="fadeIn second @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" placeholder="username" >
+                <input id="username" type="text" class="fadeIn second @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" placeholder="kullanıcı adı" >
 
                 @error('username')
                     <span class="invalid-feedback" role="alert">
@@ -29,19 +29,19 @@
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
-                <input id="password" type="password" class="fadeIn fourth @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="password" >
+                <input id="password" type="password" class="fadeIn fourth @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="şifre" >
 
                 @error('password')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
-                <input id="password-confirm" type="password" class="fadeIn fifth" name="password_confirmation" required autocomplete="new-password" placeholder="confirm" >
+                <input id="password-confirm" type="password" class="fadeIn fifth" name="password_confirmation" required autocomplete="new-password" placeholder="onay" >
 
-                <input type="submit" class="fadeIn fifth " value="Register">
+                <input type="submit" class="fadeIn fifth " value="Kayıt Ol">
         </form>
         <hr>
-        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+        <a class="nav-link" href="{{ route('login') }}">{{ __('Giriş') }}</a>
 
     </div>
 </div>
