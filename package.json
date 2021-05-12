@@ -26,7 +26,7 @@
         "@fortawesome/fontawesome-free": "^5.12.0",
         "bs4-summernote": "^0.8.10",
         "chart": "^0.1.2",
-        "chart.js": "^2.9.3",
+        "chart.js": "^2.9.4",
         "codemirror": "^5.50.0",
         "twbs-pagination": "^1.4.1",
         "vue": "^2.6.11"
